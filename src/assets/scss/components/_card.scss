@@ -335,16 +335,16 @@
 }
 
 .card_lgnd6 {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: column;
-    grid-template-areas:
-      "partner"
-      "title"
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
     "subtitle"
     "cont";
 
@@ -393,16 +393,16 @@
 }
 
 .card_lgnd7 {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: column;
-    grid-template-areas:
-      "partner"
-      "title"
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
     "subtitle"
     "cont";
 

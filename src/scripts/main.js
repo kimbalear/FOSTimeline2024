@@ -490,11 +490,11 @@ $(document).ready(function () {
               acc[month].push(contribution);
               return acc;
             }, {});
-        
+
             for (let month in contributionsByMonth) {
               const contrib_month = contributionsByMonth[month];
               let monthNr;
-        
+
               contrib_month.forEach((contribution) => {
                 let orgUnitName = contribution.orgUnitName;
                 let cardCntr = `<div class='card_contr'>
@@ -502,176 +502,181 @@ $(document).ready(function () {
                   <div class="title">${contribution.title}</div>
                   <div class="cont">${contribution.description}</div>
                 </div>`;
-        
+
                 // Determinar el número del mes basado en la cadena "month"
                 switch (month) {
                   case "jan":
                     monthNr = 1;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+
                     break;
                   case "feb":
                     monthNr = 2;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "mar":
                     monthNr = 3;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "apr":
                     monthNr = 4;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "may":
                     monthNr = 5;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "jun":
                     monthNr = 6;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "jul":
                     monthNr = 7;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "aug":
                     monthNr = 8;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "sep":
                     monthNr = 9;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "oct":
                     monthNr = 10;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "nov":
                     monthNr = 11;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                   case "dec":
                     monthNr = 12;
-                    pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-                    needs = `<div id='${year}need${monthNr}' class='needs'></div>`;
-                    line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
-                    $(pBtm).appendTo(`#${year}bt_${monthNr}`);
-                    $(needs).appendTo(`#${year}pnl_btm${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-                    needBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-                    needBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impact</div>`;
-                    $(needBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-                    $(needBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+                    pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                    contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                    line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                    $(pTop).appendTo(`#${year}tp_${monthNr}`);
+                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                    cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                    cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                    // todo <div id="dot#" class="dot#">1</div>
+                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
                     break;
                 }
-        
-                // Verificar si el contenedor para el mes específico ya existe
-                if (!$(`#${year}cntrs${monthNr}`).length) {
-                  // Si no existe, crearlo
-                  let pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                  let contribContainer = `<div id='${year}cntrs${monthNr}' class='contributions'></div>`;
-                  $(pTop).appendTo(`#${year}tp_${monthNr}`);
-                  $(contribContainer).appendTo(`#${year}pnl_top${monthNr}`);
-                }
-        
+                let contribContainer = `<div id='${year}cntrs${monthNr}' class='contributions'></div>`;
+                $(contribContainer).appendTo(`#${year}pnl_top${monthNr}`);
                 // Agregar el contenido de cardCntr al contenedor apropiado
                 $(cardCntr).appendTo(`#${year}cntrs${monthNr}`);
               });
@@ -681,7 +686,6 @@ $(document).ready(function () {
             console.error("Error obtaining contributions for years::", error);
           },
         });
-        
       } else {
         console.log("No years selected");
       }
