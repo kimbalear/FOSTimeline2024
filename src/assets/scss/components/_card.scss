@@ -1,0 +1,464 @@
+.card_contr {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "cont";
+
+  border: 1px solid $clr1;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $color_1;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgn1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd1_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd1_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd1_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd1_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd1_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd2_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd2_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd2_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd2_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd2_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd3_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd3_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd3_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd3_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd3_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd4_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd4_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd4_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd4_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd4_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd5 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "partner"
+    "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd5_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd5_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd5_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd5_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd5_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd6 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "partner"
+      "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd6_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd6_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd6_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd6_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd6_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_lgnd7 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "partner"
+      "title"
+    "subtitle"
+    "cont";
+
+  border: 1px solid $clrbk_lgnd7_p;
+  border-radius: 6px;
+  margin: 4px 0;
+  background: rgba(119, 113, 106, 0.06);
+
+  .partner {
+    grid-area: partner;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd7_p;
+  }
+
+  .title {
+    grid-area: title;
+    padding: 0 8px;
+    background-color: $clr1;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clr2;
+    background: $clrbk_lgnd7_p;
+  }
+
+  .subtitle {
+    grid-area: subtitle;
+    padding: 0 8px;
+    background: $clrbk_lgnd6_s;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: $clrbk_lgnd7_p;
+  }
+
+  .cont {
+    grid-area: cont;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 8px;
+  }
+}
+
+.card_contr,
+.card_lgn1,
+.card_lgnd2,
+.card_lgnd3,
+.card_lgnd4,
+.card_lgnd5,
+.card_lgnd6,
+.card_lgnd7 {
+  &:hover {
+    cursor: pointer;
+  }
+}

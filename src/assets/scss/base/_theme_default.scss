@@ -1,0 +1,107 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --select-border: #9E9E9E;
+    --select-focus: #2f6997;
+    --select-arrow: var(--select-border);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    user-select: none;
+    overflow: hidden;
+}
+
+body {
+    background-color: $clr2;
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+
+        .top_bar {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            grid-template-columns: calc(100% - 120px) 120px;
+            grid-template-rows: 65px;
+            gap: 0px 0px;
+            border-bottom: 1px solid $clr_sm;
+            grid-template-areas:
+                "top_lgnds top_ctrs";
+
+            .top_ctrs {
+                grid-area: top_ctrs;
+                display: flex;
+                
+
+                .btn_plus,
+                .btn_print {
+                    float: left;
+                    margin: 8px;
+                }
+            }
+
+            .top_lgnds {
+                align-self: center;
+                grid-area: top_lgnds;
+
+                .list_lgnds {
+
+                    div {
+                        float: left;
+                    }
+
+                }
+            }
+        }
+        
+        .content {
+            padding: 8px 16px 0;
+            width: auto;
+            height: calc(100% - 65px);
+            padding-bottom: 8px;
+
+
+
+            /* total width */
+            ::-webkit-scrollbar {
+                background-color: $clr2;
+                height: 4px;
+                border-radius: 2px;
+            }
+
+            /* background of the scrollbar except button or resizer */
+            ::-webkit-scrollbar-track {
+                background-color: $clr2;
+                border-radius: 4px;
+
+            }
+
+            /* scrollbar itself */
+            ::-webkit-scrollbar-thumb {
+                background-color: $clr1;
+                border-radius: 4px;
+            }
+
+            /* set button(top and bottom of the scrollbar) */
+            ::-webkit-scrollbar-button {
+                display: none;
+            }
+        }
+    }
+}
+
+.top_left {
+    color: $clr2;
+    font-size: 2px;
+}
