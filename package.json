@@ -4,7 +4,7 @@
   "description": "timeline UI",
   "main": "main.js",
   "scripts": {
-    "test": "test"
+    "start": "nodemon server.js"
   },
   "author": "Joaquin Urbano",
   "license": "ISC",
@@ -12,9 +12,5 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "mongodb": "^6.5.0"
-  },
-  "scripts": {
-    "start": "nodemon server.js"
   }
-  
 }
