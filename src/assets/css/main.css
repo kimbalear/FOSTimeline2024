@@ -22340,18 +22340,18 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .pnl_btm .needs ::-webkit-scrollbar-button {
   display: none;
 }
-.pnl_btm .needs .contrs1,
-.pnl_btm .needs .contrs2,
-.pnl_btm .needs .contrs3,
-.pnl_btm .needs .contrs4,
-.pnl_btm .needs .contrs5,
-.pnl_btm .needs .contrs6,
-.pnl_btm .needs .contrs7,
-.pnl_btm .needs .contrs8,
-.pnl_btm .needs .contrs9,
-.pnl_btm .needs .contrs10,
-.pnl_btm .needs .contrs11,
-.pnl_btm .needs .contrs12 {
+.pnl_btm .needs .needs1,
+.pnl_btm .needs .needs2,
+.pnl_btm .needs .needs3,
+.pnl_btm .needs .needs4,
+.pnl_btm .needs .needs5,
+.pnl_btm .needs .needs6,
+.pnl_btm .needs .needs7,
+.pnl_btm .needs .needs8,
+.pnl_btm .needs .needs9,
+.pnl_btm .needs .needs10,
+.pnl_btm .needs .needs11,
+.pnl_btm .needs .needs12 {
   width: 100%;
   height: 100%;
   overflow-x: auto;

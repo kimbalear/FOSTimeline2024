@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const app = express();
 const port = 3001;
@@ -13,6 +13,7 @@ app.use(
 
 const mongoUrl = "mongodb://localhost:27017";
 const client = new MongoClient(mongoUrl);
+
 
 // Function to get unique years from a collection and sort them
 async function getUniqueYearsSorted(collectionName) {
@@ -78,9 +79,10 @@ async function getNeedsByYears(years) {
 async function getContributionsByYears(years) {
   try {
     const database = client.db("FOStimeline");
-    const collection = database.collection("contribution");
-    
-    const documents = await collection.find({
+    const contributionCollection = database.collection("contribution");
+    const orgUnitCollection = database.collection("orgUnit");
+
+    const contributions = await contributionCollection.find({
       year: { $in: years.map(Number) }
     }, {
       projection: {
@@ -92,8 +94,21 @@ async function getContributionsByYears(years) {
         orgUnitId: 1
       }
     }).toArray();
-    
-    return documents;
+
+    // Convert ObjectId to string for orgUnitId
+    for (const contribution of contributions) {
+      if (contribution.orgUnitId) {
+        const orgUnit = await orgUnitCollection.findOne({ _id: contribution.orgUnitId });
+        if (orgUnit) {
+          contribution.orgUnitId = contribution.orgUnitId.toString(); // Convertir ObjectId a String
+          contribution.orgUnitName = orgUnit.name;
+        } else {
+          console.log(`No se encontró orgUnit para el ID: ${contribution.orgUnitId.toString()}`);
+        }
+      }
+    }
+
+    return contributions;
   } catch (error) {
     console.error("Error getting contributions for years:", error);
     throw error;
