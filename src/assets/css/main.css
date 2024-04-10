@@ -21985,7 +21985,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: contributions;
   border: 1px solid #77716A;
   border-radius: 10px;
-  padding: 8px 4px 8px 8px;
+  padding: 8px 2px 8px 8px;
   max-height: 35vh;
   background: rgba(119, 113, 106, 0.04);
   /* total width */
@@ -22010,21 +22010,16 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .pnl_top .contributions ::-webkit-scrollbar-button {
   display: none;
 }
-.pnl_top .contributions .contrs1,
-.pnl_top .contributions .contrs2,
-.pnl_top .contributions .contrs3,
-.pnl_top .contributions .contrs4,
-.pnl_top .contributions .contrs5,
-.pnl_top .contributions .contrs6,
-.pnl_top .contributions .contrs7,
-.pnl_top .contributions .contrs8,
-.pnl_top .contributions .contrs9,
-.pnl_top .contributions .contrs10,
-.pnl_top .contributions .contrs11,
-.pnl_top .contributions .contrs12 {
+.pnl_top .contributions .listcards {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
+  padding-right: 2px;
+  overflow-y: auto;
+}
+.pnl_top .contributions .listcards .cards_contr {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   padding-right: 4px;
 }
 .pnl_top .line {

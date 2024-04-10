@@ -412,17 +412,23 @@ $(document).ready(function () {
                 switch (month) {
                   case "jan":
                     monthNr = 1;
-                    var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                    var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                    var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                    var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                    var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                    $(pTop).appendTo(`#${year}tp${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-                    
+                    var pnlTop = `${year}pnl_top${monthNr}`;
+                    if (!existingElement(`#${pnlTop}`)) {
+                      var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                      var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                      var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                      var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                      var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                      var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+                      $(pTop).appendTo(`#${year}tp${monthNr}`);
+                      $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                      $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                      $(listCards).appendTo(`#${year}cntr${monthNr}`);
+                      $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                      $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+                    }
+                    console.log(`paso: ${year}cntr${monthNr}`);
+                    $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
                     break;
                   case "feb":
                     monthNr = 2;
@@ -458,7 +464,6 @@ $(document).ready(function () {
                     monthNr = 12;
                     break;
                 }
-                $(cardCntr).appendTo(`${year}cntr${monthNr}`);
               });
             }
           },
@@ -516,8 +521,10 @@ $(document).ready(function () {
       </div>`;
 
     // Adjunta la estructura base al elemento principal
-    $(".timeline").append(baseHtml);
-
+    var lineYear = `${year}yr`;
+    if (!existingElement(`#${lineYear}`)) {
+      $(".timeline").append(baseHtml);
+    }
     // Genera los divs de los meses tanto en la parte superior como inferior
     for (let i = 1; i <= 12; i++) {
       let monthUpper = `<div id="${year}tp${i}" class="tp${i}"></div>`;
@@ -542,7 +549,7 @@ $(document).ready(function () {
     ];
     months.forEach((month, index) => {
       let monthHtml = `
-        <div id="${year}${month}" class="tl_${month}">
+        <div id="${year}${month}tl" class="tl_${month}">
           <div id="${year}cnt_top${index + 1}" class="cnt_top${
         index + 1
       }"></div>
@@ -553,7 +560,11 @@ $(document).ready(function () {
         index + 1
       }"></div>
         </div>`;
+
+      var tlineYear = `${year}${month}tl`;
+      if (!existingElement(`#${tlineYear}`)) {
       $(`#${year}tline`).append(monthHtml);
+      }
     });
 
     // Maneja la etiqueta del año si es necesario
