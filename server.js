@@ -7,7 +7,7 @@ const port = 3001;
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5501", "http://127.0.0.1:5502"],
+    origin: "*", //["http://127.0.0.1:5501", "http://127.0.0.1:5502"],
   })
 );
 
@@ -26,7 +26,7 @@ async function getUniqueYearsSorted(collectionName) {
     years = [...new Set(years)]; // Remove duplicates
     years.sort((a, b) => b - a); // Order from largest to smallest
 
-    console.log('Years:', years);
+    //console.log('Years:', years);
     return years;
   } catch (error) {
     console.error('Error obteniendo años únicos ordenados:', error);
@@ -119,7 +119,7 @@ async function getContributionsByYears(years) {
 async function main() {
   try {
     await client.connect();
-    console.log("Conectado a MongoDB");
+    //console.log("Conectado a MongoDB");
 
     // Defines a function to get documents from a collection
     async function getDocumentsFromCollection(collectionName) {
@@ -224,7 +224,7 @@ async function main() {
 
     // Start the server
     app.listen(port, () => {
-      console.log(`Servidor escuchando en http://localhost:${port}`);
+      //console.log(`Servidor escuchando en http://localhost:${port}`);
     });
   } catch (error) {
     console.error("No se pudo conectar a MongoDB", error);

@@ -149,13 +149,17 @@
           position: relative;
           width: 100%;
           height: auto;
+          display: flex;
+          justify-content: center;
+          justify-self: center;
+          justify-items: center;
 
           .dots_cnt1 {
             position: absolute;
-            left: 68px;
+            left: 14%;
             top: -7px;
-            width: 100px;
-            height: 16px;
+            width: 80%;
+            min-height: 16px;
             background-color: $clr1;
             border-radius: 7px;
             padding: 2px 2px 0 8px;

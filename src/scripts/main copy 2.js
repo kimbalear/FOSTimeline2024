@@ -1,43 +1,5 @@
 $(document).ready(function () {
-  function loadData(url, successCallback) {
-    $.ajax({
-      url: url,
-      type: "GET",
-      success: successCallback,
-      error: function (error) {
-        console.error("Error loading data from: " + url, error);
-      },
-    });
-  }
-
-  function handleSuccess(data, optionsDivId, idPrefix) {
-    var optionsDiv = $(optionsDivId);
-    optionsDiv.empty();
-    data.forEach(function (item) {
-      $("<div></div>")
-        .attr("id", idPrefix + item._id)
-        .addClass("option")
-        .attr("data-value", item._id || item.year)
-        .text(item.name || item.year)
-        .appendTo(optionsDiv);
-    });
-  }
-
-  var urlOrgUnits = "http://localhost:3001/getOrgUnits";
-  loadData(urlOrgUnits, function (data) {
-    handleSuccess(data, "#orgUnitsOptions", "ou");
-  });
-
-  var urlTypeNeeds = "http://localhost:3001/getTypeNeeds";
-  loadData(urlTypeNeeds, function (data) {
-    handleSuccess(data, "#needsOptions", "nd");
-  });
-
-  var urlYears = "http://localhost:3001/getYears";
-  loadData(urlYears, function (data) {
-    handleSuccess(data, "#yearsOptions", "year");
-  });
-  // ----------------------------------------------------------------------
+  
   function existingElement(ElementId) {
     if ($(ElementId).length > 0) {
       console.log("Element exists: " + ElementId);
@@ -47,111 +9,243 @@ $(document).ready(function () {
       return false;
     }
   }
-  // ----------------------------------------------------------------------
 
-  // Panel
-  // Función para mostrar/ocultar opciones
-  function toggleOptions(selectId, optionsDivId) {
-    $(document).on("click", selectId, function (e) {
-      e.stopPropagation();
-      $(this).toggleClass("active");
-      $(optionsDivId).toggle();
-    });
-  }
+  // orgUnits
+  $.ajax({
+    url: "http://localhost:3001/getOrgUnits",
+    type: "GET",
+    success: function (data) {
+      //console.log("orgUnits received:", data);
+      var optionsDiv = $("#orgUnitsOptions");
+      optionsDiv.empty();
+      data.forEach(function (orgUnit) {
+        // Add each option dynamically
+        $("<div></div>")
+          .attr("id", "ou" + orgUnit._id)
+          .addClass("option")
+          .attr("data-value", orgUnit._id)
+          .text(orgUnit.name)
+          .appendTo(optionsDiv);
+      });
+    },
+    error: function (error) {
+      console.error("Error getting data:", error);
+    },
+  });
 
-  // Función para manejar la selección de opciones
-  function selectOption(
-    optionPrefix,
-    selectDivId,
-    textHeaderId,
-    placeholderText
-  ) {
-    $(document).on("click", `[id^='${optionPrefix}']`, function (e) {
-      e.stopPropagation();
-      var value = $(this).attr("data-value");
-      if ($(selectDivId + ` div[data-value='${value}']`).length === 0) {
-        $(textHeaderId).html("");
-        $(this).addClass("option-selected");
-        var pill = $("<div></div>").addClass("pill").attr("data-value", value);
-        $("<div></div>").text($(this).text()).appendTo(pill);
-        $("<div></div>").addClass("del_pill").appendTo(pill);
-        pill.appendTo($(selectDivId));
-        updateIrunButtonStatus();
-      }
-    });
-  }
+  // Show/hide options
+  $(document).on("click", "#orgUnitsSelect", function (e) {
+    e.stopPropagation();
+    $(this).toggleClass("active");
+    $("#orgUnitsOptions").toggle();
+  });
 
-  // Función para eliminar la opción seleccionada
-  function removeSelectedOption(
-    delPillClass,
-    selectDivId,
-    optionsDivId,
-    textHeaderId,
-    placeholderText
-  ) {
-    $(document).on("click", delPillClass, function (e) {
-      e.stopPropagation();
-      var value = $(this).closest(".pill").attr("data-value");
-      $(this).closest(".pill").remove();
-      $(`.option[data-value='${value}']`).removeClass("option-selected");
-      if ($(selectDivId + " .pill").length === 0) {
-        $(optionsDivId).hide();
-        $(textHeaderId).text(placeholderText);
-        updateIrunButtonStatus();
-      }
-    });
-  }
+  // Select option and add it to the selected ones
+  $(document).on("click", "[id^='ou']", function (e) {
+    e.stopPropagation();
+    var value = $(this).attr("data-value");
+    // Check if the option is already in the selected list to avoid duplicates
+    if ($("#orgUnitsSelectd div[data-value='" + value + "']").length === 0) {
+      $("#txtHdrOrgUnits").html("");
+      $(this).addClass("option-selected");
+      // Create and add the selected option to the .selected list with the requested structure
+      var pill = $("<div></div>").addClass("pill").attr("data-value", value);
+      // Add the name of the OU in its own <div>
+      $("<div></div>").text($(this).text()).appendTo(pill);
+      // Add delete button after OU name
+      $("<div></div>").addClass("del_pill").appendTo(pill);
+      pill.appendTo($("#orgUnitsSelectd"));
+      updateIrunButtonStatus();
+    }
+  });
 
-  // Función para cerrar opciones al hacer clic fuera
-  function closeOptionsOnClickOutside(selectId, optionsDivId) {
-    $(document).on("click", function (e) {
-      if (!$(e.target).closest(`${selectId}, ${optionsDivId} .option`).length) {
-        $(optionsDivId).hide();
-        $(selectId).removeClass("active");
-      }
-    });
-  }
+  // Remove selected option and remove the selected visual state
+  $(document).on("click", ".del_pill", function (e) {
+    e.stopPropagation();
+    var value = $(this).closest(".pill").attr("data-value");
+    $(this).closest(".pill").remove();
+    // I adjust the selector to correctly target individual options with the .option class
+    $(".option[data-value='" + value + "']").removeClass("option-selected");
 
-  // Evitar que se cierren las opciones al hacer clic dentro de ellas
+    // Check if there are any selected pills left after deleting one
+    if ($("#orgUnitsSelectd .pill").length === 0) {
+      // If there are no pills left, possibly hide the .options container and show placeholder
+      $("#orgUnitsOptions").hide();
+      $("#txtHdrOrgUnits").text("O.Unit");
+      updateIrunButtonStatus();
+    }
+  });
+
+  // Close options when clicking outside
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("#orgUnitsSelect, .option").length) {
+      $("#orgUnitsOptions").hide();
+      $("#orgUnitsSelect").removeClass("active");
+    }
+  });
+
+  // Prevent closing of .options container when clicking inside it
   $(document).on("click", ".option", function (e) {
     e.stopPropagation();
   });
+  // |- orgUnits
 
-  // Implementación de las funciones
-  toggleOptions("#orgUnitsSelect", "#orgUnitsOptions");
-  toggleOptions("#NeedsSelect", "#needsOptions");
-  toggleOptions("#YearsSelect", "#yearsOptions");
+  // typeNeeds
+  $.ajax({
+    url: "http://localhost:3001/getTypeNeeds",
+    type: "GET",
+    success: function (data) {
+      //console.log("typeNeeds received:", data);
+      var optionsDiv = $("#needsOptions");
+      optionsDiv.empty();
+      data.forEach(function (needs) {
+        // Add each option dynamically
+        $("<div></div>")
+          .attr("id", "nd" + needs._id)
+          .addClass("option")
+          .attr("data-value", needs._id)
+          .text(needs.name)
+          .appendTo(optionsDiv);
+      });
+    },
+    error: function (error) {
+      console.error("Error getting data:", error);
+    },
+  });
 
-  selectOption("ou", "#orgUnitsSelectd", "#txtHdrOrgUnits", "O.Unit");
-  selectOption("nd", "#NeedsSelectd", "#txtHdrNeeds", "Needs");
-  selectOption("year", "#YearsSelectd", "#txtHdrYears", "Year/s");
+  // Show/hide options
+  $(document).on("click", "#NeedsSelect", function (e) {
+    e.stopPropagation();
+    $(this).toggleClass("active");
+    $("#needsOptions").toggle();
+  });
 
-  removeSelectedOption(
-    ".del_pill",
-    "#orgUnitsSelectd",
-    "#orgUnitsOptions",
-    "#txtHdrOrgUnits",
-    "O.Unit"
-  );
-  removeSelectedOption(
-    ".del_pill",
-    "#NeedsSelectd",
-    "#needsOptions",
-    "#txtHdrNeeds",
-    "Needs"
-  );
-  removeSelectedOption(
-    ".del_pill",
-    "#YearsSelectd",
-    "#yearsOptions",
-    "#txtHdrYears",
-    "Year/s"
-  );
+  // Select option and add it to the selected ones
+  $(document).on("click", "[id^='nd']", function (e) {
+    e.stopPropagation();
+    var value = $(this).attr("data-value");
+    // Check if the option is already in the selected list to avoid duplicates
+    if ($("#NeedsSelectd div[data-value='" + value + "']").length === 0) {
+      $("#txtHdrNeeds").html("");
+      $(this).addClass("option-selected");
+      // Create and add the selected option to the .selected list with the requested structure
+      var pill = $("<div></div>").addClass("pill").attr("data-value", value);
+      // Add the name of the OU in its own <div>
+      $("<div></div>").text($(this).text()).appendTo(pill);
+      // Add delete button after OU name
+      $("<div></div>").addClass("del_pill").appendTo(pill);
+      pill.appendTo($("#NeedsSelectd"));
+      updateIrunButtonStatus();
+    }
+  });
 
-  closeOptionsOnClickOutside("#orgUnitsSelect", "#orgUnitsOptions");
-  closeOptionsOnClickOutside("#NeedsSelect", "#needsOptions");
-  closeOptionsOnClickOutside("#YearsSelect", "#yearsOptions");
+  // Remove selected option and remove the selected visual state
+  $(document).on("click", ".del_pill", function (e) {
+    e.stopPropagation();
+    var value = $(this).closest(".pill").attr("data-value");
+    $(this).closest(".pill").remove();
+    // I adjust the selector to correctly target individual options with the .option class
+    $(".option[data-value='" + value + "']").removeClass("option-selected");
 
+    // Check if there are any selected pills left after deleting one
+    if ($("#NeedsSelectd .pill").length === 0) {
+      // If there are no pills left, possibly hide the .options container and show placeholder
+      $("#needsOptions").hide();
+      $("#txtHdrNeeds").text("Needs");
+      updateIrunButtonStatus();
+    }
+  });
+
+  // Close options when clicking outside
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("#NeedsSelect, .option").length) {
+      $("#needsOptions").hide();
+      $("#NeedsSelect").removeClass("active");
+    }
+  });
+
+  // Prevent closing of .options container when clicking inside it
+  $(document).on("click", ".option", function (e) {
+    e.stopPropagation();
+  });
+  // |- typeNeeds
+
+  // Years
+  $.ajax({
+    url: "http://localhost:3001/getYears",
+    type: "GET",
+    success: function (data) {
+      //console.log("Years received:", data);
+      var optionsDiv = $("#yearsOptions");
+      optionsDiv.empty();
+      data.forEach(function (obj) {
+        // Add each option dynamically
+        $("<div></div>")
+          .attr("id", "year" + obj.id)
+          .addClass("option")
+          .attr("data-value", obj.year)
+          .text(obj.year)
+          .appendTo(optionsDiv);
+      });
+    },
+    error: function (error) {
+      console.error("Error obteniendo los años:", error);
+    },
+  });
+
+  // Show/hide options
+  $(document).on("click", "#YearsSelect", function (e) {
+    e.stopPropagation();
+    $(this).toggleClass("active");
+    $("#yearsOptions").toggle();
+  });
+
+  $(document).on("click", "[id^='year']", function (e) {
+    e.stopPropagation();
+    var value = $(this).attr("data-value");
+    if ($("#YearsSelectd div[data-value='" + value + "']").length === 0) {
+      $("#txtHdrYears").html("");
+      $(this).addClass("option-selected");
+      var pill = $("<div></div>").addClass("pill").attr("data-value", value);
+      $("<div></div>").text($(this).text()).appendTo(pill);
+      $("<div></div>").addClass("del_pill").appendTo(pill);
+      pill.appendTo($("#YearsSelectd"));
+      updateIrunButtonStatus();
+    }
+  });
+
+  // Remove selected option and remove the selected visual state
+  $(document).on("click", ".del_pill", function (e) {
+    e.stopPropagation();
+    var value = $(this).closest(".pill").attr("data-value");
+    $(this).closest(".pill").remove();
+    // I adjust the selector to correctly target individual options with the .option class
+    $(".option[data-value='" + value + "']").removeClass("option-selected");
+
+    // Check if there are any selected pills left after deleting one
+    if ($("#YearsSelectd .pill").length === 0) {
+      // If there are no pills left, possibly hide the .options container and show placeholder
+      $("#yearsOptions").hide();
+      $("#txtHdrYears").text("Year/s");
+      updateIrunButtonStatus();
+    }
+  });
+
+  // Close options when clicking outside for years
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("#YearsSelect, #yearsOptions .option").length) {
+      $("#yearsOptions").hide();
+      $("#YearsSelect").removeClass("active");
+    }
+  });
+
+  // Prevent closing of .options container when clicking inside it for years
+  $(document).on("click", "#yearsOptions .option", function (e) {
+    e.stopPropagation();
+  });
+  // |- years
+
+  // Function to update button state
   function updateIrunButtonStatus() {
     const orgUnitsHasPills = $("#orgUnitsSelectd .pill").length > 0;
     const needsHasPills = $("#NeedsSelectd .pill").length > 0;
@@ -164,11 +258,14 @@ $(document).ready(function () {
     }
   }
 
+  // Panel
   if ($(".ipdf").hasClass(".disabled")) {
     $(function () {
       $('[data-toggle="tooltip"]').tooltip({ delay: { show: 500, hide: 100 } });
     });
   } else {
+    // ---
+
     $(".cnt_ipanel").on("click", function () {
       $("#search-menu").toggleClass("open");
       $("#panel_sh").toggleClass("open");
@@ -200,6 +297,15 @@ $(document).ready(function () {
             years: years.join(","),
           },
           success: function (data) {
+            const needsByYears = data.reduce((acc, needs) => {
+              const { year } = needs;
+              if (!acc[year]) {
+                acc[year] = [];
+              }
+              acc[year].push(needs);
+              return acc;
+            }, {});
+
             const needsByMonth = data.reduce((acc, needs) => {
               const { month } = needs;
               if (!acc[month]) {
@@ -407,22 +513,24 @@ $(document).ready(function () {
                   <div class="title">${contribution.title}</div>
                   <div class="cont">${contribution.description}</div>
                 </div>`;
+                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+                $(pTop).appendTo("body");
+                $(line).appendTo(`#${year}pnl_top${monthNr}`);
+                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
 
                 // Determinar el número del mes basado en la cadena "month"
                 switch (month) {
                   case "jan":
                     monthNr = 1;
-                    var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                    var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                    var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                    var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                    var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                    $(pTop).appendTo(`#${year}tp${monthNr}`);
-                    $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                    $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                    $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                    $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-                    
+                    var elementId = `#${year}pnl_top${monthNr}`;
+                    if (!existingElement(elementId)) {
+                      var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+                      $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+                    }
                     break;
                   case "feb":
                     monthNr = 2;
@@ -458,6 +566,9 @@ $(document).ready(function () {
                     monthNr = 12;
                     break;
                 }
+                $(`#${year}pnl_top${monthNr}`).append(
+                  `<div id='${year}cntr${monthNr}' class='contributions'></div>`
+                );
                 $(cardCntr).appendTo(`${year}cntr${monthNr}`);
               });
             }
@@ -471,103 +582,172 @@ $(document).ready(function () {
       }
     });
   }
+
   //--panel
 
   function yearConstruct(year) {
-    // Crea la estructura base del año
-    let baseHtml = `
-      <div id="${year}yr" class="year">
-        <div id="${year}tpyr" class="tp_yr"></div>        
-        <div id="${year}cebtn" class="ce_top">
-          <div id="${year}topl" class="top_timeline">
-            <div id="${year}titleou" class="title_ou"></div>
-            <div id="${year}btnhs" class="btn_hs">Hide year</div>
-            <div id="${year}btnaddnew" class="btn_addnew">Add New</div>
-          </div>
-        </div>
-        <div id="${year}tp1" class="tp1"></div>
-        <div id="${year}tp2" class="tp2"></div>
-        <div id="${year}tp3" class="tp3"></div>
-        <div id="${year}tp4" class="tp4"></div>
-        <div id="${year}tp5" class="tp5"></div>
-        <div id="${year}tp6" class="tp6"></div>
-        <div id="${year}tp7" class="tp7"></div>
-        <div id="${year}tp8" class="tp8"></div>
-        <div id="${year}tp9" class="tp9"></div>
-        <div id="${year}tp10" class="tp10"></div>
-        <div id="${year}tp11" class="tp11"></div>
-        <div id="${year}tp12" class="tp12"></div>
-        <div id="${year}tline" class="t_line">
-          <div id="${year}yrstart" class="yr_start"></div>
-        </div>
-        <div id="${year}btmyr" class="btm_yr"></div>
-        <div id="${year}bt1" class="bt1"></div>
-        <div id="${year}bt2" class="bt2"></div>
-        <div id="${year}bt3" class="bt3"></div>
-        <div id="${year}bt4" class="bt4"></div>
-        <div id="${year}bt5" class="bt5"></div>
-        <div id="${year}bt6" class="bt6"></div>
-        <div id="${year}bt7" class="bt7"></div>
-        <div id="${year}bt8" class="bt8"></div>
-        <div id="${year}bt9" class="bt9"></div>
-        <div id="${year}bt10" class="bt10"></div>
-        <div id="${year}bt11" class="bt11"></div>
-        <div id="${year}bt12" class="bt12"></div>
-      </div>`;
+    let tl_year = '<div id="' + year + 'yr" class="year"></div>';
+    let tpyr = '<div id="' + year + 'tpyr" class="tp_yr"></div>';
+    let cebtn = '<div id="' + year + 'cebtn" class="ce_top"></div>';
+    let topl = '<div id="' + year + 'topl" class="top_timeline">';
+    let titleou = '<div id="' + year + 'titleou" class="title_ou"></div>';
+    let btnhs = '<div id="' + year + 'btnhs" class="btn_hs">Hide year</div>';
+    let btnaddnew =
+      '<div id="' + year + 'btnaddnew" class="btn_addnew">Add New</div>';
+    let tline = '<div id="' + year + 'tline" class="t_line">';
 
-    // Adjunta la estructura base al elemento principal
-    $(".timeline").append(baseHtml);
+    let yrstart = '<div id="' + year + 'yrstart" class="yr_start">';
+    let btmyr = '<div id="' + year + 'btmyr" class="btm_yr">';
 
-    // Genera los divs de los meses tanto en la parte superior como inferior
-    for (let i = 1; i <= 12; i++) {
-      let monthUpper = `<div id="${year}tp${i}" class="tp${i}"></div>`;
-      let monthLower = `<div id="${year}bt${i}" class="bt${i}"></div>`;
-      $(`#${year}yr`).append(monthUpper, monthLower);
+    $(tl_year).appendTo(".timeline");
+    $(tpyr).appendTo(".year");
+    $(cebtn).appendTo(".year");
+    $(topl).appendTo("#" + year + "cebtn");
+    $(titleou).appendTo("#" + year + "topl");
+    $(btnhs).appendTo("#" + year + "topl");
+    $(btnaddnew).appendTo("#" + year + "topl");
+
+    for (itp = 1; itp <= 12; itp++) {
+      var tp = '<div id="' + year + "tp_" + itp + '" class="tp' + itp + '">';
+      $(tp).appendTo("#" + year + "yr");
     }
 
-    // Añade los meses a la línea de tiempo
-    const months = [
-      "jan",
-      "feb",
-      "mar",
-      "apr",
-      "may",
-      "jun",
-      "jul",
-      "aug",
-      "sep",
-      "oct",
-      "nov",
-      "dec",
-    ];
-    months.forEach((month, index) => {
-      let monthHtml = `
-        <div id="${year}${month}" class="tl_${month}">
-          <div id="${year}cnt_top${index + 1}" class="cnt_top${
-        index + 1
-      }"></div>
-          <div class="cnt">
-            <div class="lbl">${month}</div>
-          </div>
-          <div id="${year}nds_btm${index + 1}" class="nds_btm${
-        index + 1
-      }"></div>
-        </div>`;
-      $(`#${year}tline`).append(monthHtml);
-    });
+    $(tline).appendTo("#" + year + "yr");
+    $(btmyr).appendTo("#" + year + "yr");
 
-    // Maneja la etiqueta del año si es necesario
+    for (ibtm = 1; ibtm <= 12; ibtm++) {
+      var btm = '<div id="' + year + "bt_" + ibtm + '" class="bt' + ibtm + '">';
+      $(btm).appendTo("#" + year + "yr");
+    }
+
+    $(yrstart).appendTo("#" + year + "tline");
     if (year.length > 4) {
       var dateArray = year.split(",");
-      dateArray.forEach((date, x) => {
-        $(`#${year}tline .child`).eq(dateArray[x]);
-      });
+      for (x = 0; x <= year.length; x++) {
+        $("#" + year + "tlin")
+          .find(".child")
+          .eq(dateArray[x]);
+      }
     } else {
-      $(`<div id="${year}lbl_yr" class="lbl"></div>`)
-        .appendTo(`#${year}yrstart`)
-        .html(year);
+      $('<div id="' + year + "lbl_yr" + '" class="lbl">').appendTo(
+        "#" + year + "yrstart"
+      );
+      $("#" + year + "lbl_yr").html(year);
     }
+    // Line
+    let tlJan = `<div id="${year}jan" class="tl_jan">
+      <div id="${year}cnt_top1" class="cnt_top1"></div>
+      <div class="cnt">
+        <div class="lbl">jan</div>
+      </div>
+      <div id="${year}nds_btm1" class="nds_btm1"></div>
+    </div>`;
+    let tlFeb = `<div id="${year}feb" class="tl_feb">
+      <div id="${year}cnt_top2" class="cnt_top2"></div>
+      <div class="cnt">
+        <div class="lbl">feb</div>
+      </div>
+      <div id="${year}nds_btm2" class="nds_btm2"></div>
+    </div>`;
+
+    let tlMar = `<div id="${year}mar" class="tl_mar">
+      <div id="${year}cnt_top3" class="cnt_top3"></div>
+      <div class="cnt">
+        <div class="lbl">mar</div>
+      </div>
+      <div id="${year}nds_btm3" class="nds_btm3"></div>
+    </div>`;
+
+    let tlApr = `<div id="${year}apr" class="tl_apr">
+      <div id="${year}cnt_top4" class="cnt_top4"></div>
+      <div class="cnt">
+        <div class="lbl">apr</div>
+      </div>
+      <div id="${year}nds_btm4" class="nds_btm4"></div>
+    </div>`;
+
+    let tlMay = `<div id="${year}may" class="tl_may">
+      <div id="${year}cnt_top5" class="cnt_top5"></div>
+      <div class="cnt">
+        <div class="lbl">may</div>
+      </div>
+      <div id="${year}nds_btm5" class="nds_btm5"></div>
+    </div>`;
+
+    let tlJun = `<div id="${year}jun" class="tl_jun">
+      <div id="${year}cnt_top6" class="cnt_top6"></div>
+      <div class="cnt">
+        <div class="lbl">jun</div>
+      </div>
+      <div id="${year}nds_btm6" class="nds_btm6"></div>
+    </div>`;
+
+    let tlJul = `<div id="${year}jul" class="tl_jul">
+      <div id="${year}cnt_top7" class="cnt_top7"></div>
+      <div class="cnt">
+        <div class="lbl">jul</div>
+      </div>
+      <div id="${year}nds_btm7" class="nds_btm7"></div>
+    </div>`;
+
+    let tlAug = `<div id="${year}aug" class="tl_aug">
+      <div id="${year}cnt_top8" class="cnt_top8"></div>
+      <div class="cnt">
+        <div class="lbl">aug</div>
+      </div>
+      <div id="${year}nds_btm8" class="nds_btm8"></div>
+    </div>`;
+
+    let tlSep = `<div id="${year}sep" class="tl_sep">
+      <div id="${year}cnt_top9" class="cnt_top9"></div>
+      <div class="cnt">
+        <div class="lbl">sep</div>
+      </div>
+      <div id="${year}nds_btm9" class="nds_btm9"></div>
+    </div>`;
+
+    let tlOct = `<div id="${year}oct" class="tl_oct">
+      <div id="${year}cnt_top10" class="cnt_top10"></div>
+      <div class="cnt">
+        <div class="lbl">oct</div>
+      </div>
+      <div id="${year}nds_btm10" class="nds_btm10"></div>
+    </div>`;
+
+    let tlNov = `<div id="${year}nov" class="tl_nov">
+      <div id="${year}cnt_top11" class="cnt_top11"></div>
+      <div class="cnt">
+        <div class="lbl">nov</div>
+      </div>
+      <div id="${year}nds_btm11" class="nds_btm11"></div>
+    </div>`;
+
+    let tlDec = `<div id="${year}dec" class="tl_dec">
+      <div id="${year}cnt_top12" class="cnt_top12"></div>
+      <div class="cnt">
+        <div class="lbl">dec</div>
+      </div>
+      <div id="${year}nds_btm12" class="nds_btm12"></div>
+    </div>`;
+
+    $("#" + year + "tline").append(
+      tlJan,
+      tlFeb,
+      tlMar,
+      tlApr,
+      tlMay,
+      tlJun,
+      tlJul,
+      tlAug,
+      tlSep,
+      tlOct,
+      tlNov,
+      tlDec
+    );
   }
+
+  // todo
+  function yearContribPanelsConstruct(year) {}
 
   function showTimeline(years, orgUnitsNames) {
     if (years.length === 1) {

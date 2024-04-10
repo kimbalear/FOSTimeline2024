@@ -500,13 +500,17 @@ body .wrapper .content ::-webkit-scrollbar-button {
   position: relative;
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
 }
 .timeline .year .t_line .tl_jan .cnt_top1 .dots_cnt1 {
   position: absolute;
-  left: 68px;
+  left: 14%;
   top: -7px;
-  width: 100px;
-  height: 16px;
+  width: 80%;
+  min-height: 16px;
   background-color: #77716A;
   border-radius: 7px;
   padding: 2px 2px 0 8px;
@@ -22376,7 +22380,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #444f5b;
 }
@@ -22415,7 +22419,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #FF7C80;
 }
@@ -22464,7 +22468,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #FF5050;
 }
@@ -22513,7 +22517,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: orange;
 }
@@ -22562,7 +22566,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #93BF85;
 }
@@ -22611,7 +22615,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #6EAA5E;
 }
@@ -22660,7 +22664,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #008000;
 }
@@ -22709,7 +22713,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: #14540D;
 }
