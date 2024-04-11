@@ -323,7 +323,6 @@ $(document).ready(function () {
           <div class="desc">${need.description}</div>
         </div>`;
 
-      // Asumiendo que tienes una estructura similar para las necesidades como para las contribuciones
       // Agregar las tarjetas de necesidades al contenedor correspondiente
       var pnlBottom = `${year}pnl_bottom${monthNr}`;
       if (!existingElement(`#${pnlBottom}`)) {
