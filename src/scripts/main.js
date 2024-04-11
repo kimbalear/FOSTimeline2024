@@ -109,22 +109,10 @@ $(document).ready(function () {
       }"></div>
         </div>`;
 
-      //if (!existingElement(`#${tlineYear}`)) {
       $(`#${year}tline`).append(monthHtml);
-      //}
     });
 
-    // Maneja la etiqueta del año si es necesario
-    if (year.length > 4) {
-      var dateArray = year.split(",");
-      dateArray.forEach((date, x) => {
-        $(`#${year}tline .child`).eq(dateArray[x]);
-      });
-    } else {
-      $(`<div id="${year}lbl_yr" class="lbl"></div>`)
-        .appendTo(`#${year}yrstart`)
-        .html(year);
-    }
+
   }
 
   function showTimeline(years, orgUnitsNames) {
@@ -134,19 +122,11 @@ $(document).ready(function () {
       yearConstruct(year);
     } else if (years.length > 1) {
       //console.log("years: " + years);
-
     }
 
     $(".top_timeline").css({
       visibility: "visible",
     });
-
-    if (orgUnitsNames.length === 1) {
-      $("#timelineTitle").text(orgUnitsNames);
-    } else if (orgUnitsNames.length > 1) {
-      timelineTitleOrgUnit = "Hay más de una OrgUnit";
-      $("#timelineTitle").text(timelineTitleOrgUnit);
-    }
   }
 
   // Implementación de carga de datos
