@@ -300,8 +300,44 @@ $(document).ready(function () {
   });
 
   function displayNeeds(data) {
-    // lógica para mostrar las necesidades
+  // Agrupar las necesidades por mes
+  const needsByMonth = data.reduce((acc, need) => {
+    const month = need.month;
+    if (!acc[month]) {
+      acc[month] = [];
+    }
+    acc[month].push(need);
+    return acc;
+  }, {});
+
+  // Iterar sobre `needsByMonth` para mostrar las necesidades
+  for (let month in needsByMonth) {
+    const needMonth = needsByMonth[month];
+    let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
+
+    needMonth.forEach((need) => {
+      let year = need.year;
+      let cardNeed = `
+        <div class='card_need'>
+          <div class="title">${need.title}</div>
+          <div class="desc">${need.description}</div>
+        </div>`;
+
+      // Asumiendo que tienes una estructura similar para las necesidades como para las contribuciones
+      // Agregar las tarjetas de necesidades al contenedor correspondiente
+      var pnlBottom = `${year}pnl_bottom${monthNr}`;
+      if (!existingElement(`#${pnlBottom}`)) {
+        // Crear y añadir nuevos elementos si no existen
+        var pBottom = `<div id='${year}pnl_bottom${monthNr}' class='pnl_bottom'></div>`;
+        var needContainer = `<div id='${year}cntnr${monthNr}' class='needs'></div>`;
+        $(pBottom).appendTo(`#${year}bt${monthNr}`);
+        $(needContainer).appendTo(`#${year}pnl_bottom${monthNr}`);
+      }
+      $(cardNeed).appendTo(`#${year}cntnr${monthNr}`);
+    });
   }
+}
+
 
   function displayContributions(data, selectedOrgUnits) {
     // Filtra los datos basado en las unidades organizativas seleccionadas
