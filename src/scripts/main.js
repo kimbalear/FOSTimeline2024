@@ -247,6 +247,7 @@ $(document).ready(function () {
   // Manejo del clic en el botón #irun para ejecutar la lógica basada en las selecciones de filtros
   $(document).on("click", "#irun", function (e) {
     e.preventDefault();
+    $('.year').remove()
 
     var pillsOrgUnits = $("#orgUnitsSelectd .pill");
     var pillsYears = $("#YearsSelectd .pill");
@@ -262,9 +263,8 @@ $(document).ready(function () {
       years.push($(this).find("div:first-child").text());
     });
 
-    showTimeline(years, orgUnitsNames);
-
     if (years.length > 0) {
+      showTimeline(years, orgUnitsNames);
       $.ajax({
         url: "http://localhost:3001/api/needsByYears",
         type: "GET",
