@@ -64,6 +64,8 @@ async function getNeedsByYears(years) {
         description: 1,
         year: 1,
         month: 1,
+        lgnd: 1,
+        lgndName: 1,
         typeNeedsId: 1,
         orgUnitId: 1
       }
