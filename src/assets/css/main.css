@@ -22045,7 +22045,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-area: needs;
   border: 1px solid #77716A;
   border-radius: 10px;
-  padding: 8px 4px 8px 8px;
+  padding: 8px 2px 4px 8px;
   max-height: 35vh;
   background: rgba(119, 113, 106, 0.04);
   /* total width */
@@ -22070,291 +22070,17 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .pnl_btm .needs ::-webkit-scrollbar-button {
   display: none;
 }
-.pnl_btm .needs .needs1,
-.pnl_btm .needs .needs2,
-.pnl_btm .needs .needs3,
-.pnl_btm .needs .needs4,
-.pnl_btm .needs .needs5,
-.pnl_btm .needs .needs6,
-.pnl_btm .needs .needs7,
-.pnl_btm .needs .needs8,
-.pnl_btm .needs .needs9,
-.pnl_btm .needs .needs10,
-.pnl_btm .needs .needs11,
-.pnl_btm .needs .needs12 {
+.pnl_btm .needs .listcards {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
-  padding-right: 4px;
+  padding-right: 2px;
+  overflow-y: auto;
 }
-
-.pnl_btm1,
-.pnl_btm2,
-.pnl_btm3,
-.pnl_btm4,
-.pnl_btm5,
-.pnl_btm6,
-.pnl_btm7,
-.pnl_btm8,
-.pnl_btm9,
-.pnl_btm10,
-.pnl_btm11,
-.pnl_btm12 {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  grid-auto-rows: 1fr;
-  grid-template-columns: 1fr;
-  grid-template-rows: 19px auto;
-  gap: 0px 0px;
-  grid-template-areas: "line" "impacts";
-}
-.pnl_btm1 .impacts,
-.pnl_btm2 .impacts,
-.pnl_btm3 .impacts,
-.pnl_btm4 .impacts,
-.pnl_btm5 .impacts,
-.pnl_btm6 .impacts,
-.pnl_btm7 .impacts,
-.pnl_btm8 .impacts,
-.pnl_btm9 .impacts,
-.pnl_btm10 .impacts,
-.pnl_btm11 .impacts,
-.pnl_btm12 .impacts {
-  grid-area: impacts;
-  border: 1px solid #77716A;
-  border-radius: 10px;
-  padding: 8px 4px 8px 8px;
-  max-height: 35vh;
-  background: rgba(119, 113, 106, 0.04);
-  /* total width */
-  /* background of the scrollbar except button or resizer */
-  /* scrollbar itself */
-  /* set button(top and bottom of the scrollbar) */
-}
-.pnl_btm1 .impacts ::-webkit-scrollbar,
-.pnl_btm2 .impacts ::-webkit-scrollbar,
-.pnl_btm3 .impacts ::-webkit-scrollbar,
-.pnl_btm4 .impacts ::-webkit-scrollbar,
-.pnl_btm5 .impacts ::-webkit-scrollbar,
-.pnl_btm6 .impacts ::-webkit-scrollbar,
-.pnl_btm7 .impacts ::-webkit-scrollbar,
-.pnl_btm8 .impacts ::-webkit-scrollbar,
-.pnl_btm9 .impacts ::-webkit-scrollbar,
-.pnl_btm10 .impacts ::-webkit-scrollbar,
-.pnl_btm11 .impacts ::-webkit-scrollbar,
-.pnl_btm12 .impacts ::-webkit-scrollbar {
-  background-color: #FDF4E7;
-  width: 4px;
-  border-radius: 2px;
-}
-.pnl_btm1 .impacts ::-webkit-scrollbar-track,
-.pnl_btm2 .impacts ::-webkit-scrollbar-track,
-.pnl_btm3 .impacts ::-webkit-scrollbar-track,
-.pnl_btm4 .impacts ::-webkit-scrollbar-track,
-.pnl_btm5 .impacts ::-webkit-scrollbar-track,
-.pnl_btm6 .impacts ::-webkit-scrollbar-track,
-.pnl_btm7 .impacts ::-webkit-scrollbar-track,
-.pnl_btm8 .impacts ::-webkit-scrollbar-track,
-.pnl_btm9 .impacts ::-webkit-scrollbar-track,
-.pnl_btm10 .impacts ::-webkit-scrollbar-track,
-.pnl_btm11 .impacts ::-webkit-scrollbar-track,
-.pnl_btm12 .impacts ::-webkit-scrollbar-track {
-  background-color: #FDF4E7;
-  border-radius: 4px;
-}
-.pnl_btm1 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm2 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm3 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm4 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm5 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm6 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm7 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm8 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm9 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm10 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm11 .impacts ::-webkit-scrollbar-thumb,
-.pnl_btm12 .impacts ::-webkit-scrollbar-thumb {
-  background-color: #77716A;
-  border-radius: 4px;
-}
-.pnl_btm1 .impacts ::-webkit-scrollbar-button,
-.pnl_btm2 .impacts ::-webkit-scrollbar-button,
-.pnl_btm3 .impacts ::-webkit-scrollbar-button,
-.pnl_btm4 .impacts ::-webkit-scrollbar-button,
-.pnl_btm5 .impacts ::-webkit-scrollbar-button,
-.pnl_btm6 .impacts ::-webkit-scrollbar-button,
-.pnl_btm7 .impacts ::-webkit-scrollbar-button,
-.pnl_btm8 .impacts ::-webkit-scrollbar-button,
-.pnl_btm9 .impacts ::-webkit-scrollbar-button,
-.pnl_btm10 .impacts ::-webkit-scrollbar-button,
-.pnl_btm11 .impacts ::-webkit-scrollbar-button,
-.pnl_btm12 .impacts ::-webkit-scrollbar-button {
-  display: none;
-}
-.pnl_btm1 .impacts .cards1,
-.pnl_btm1 .impacts .cards2,
-.pnl_btm1 .impacts .cards3,
-.pnl_btm1 .impacts .cards4,
-.pnl_btm1 .impacts .cards5,
-.pnl_btm1 .impacts .cards6,
-.pnl_btm1 .impacts .cards7,
-.pnl_btm1 .impacts .cards8,
-.pnl_btm1 .impacts .cards9,
-.pnl_btm1 .impacts .cards10,
-.pnl_btm1 .impacts .cards11,
-.pnl_btm1 .impacts .cards12,
-.pnl_btm2 .impacts .cards1,
-.pnl_btm2 .impacts .cards2,
-.pnl_btm2 .impacts .cards3,
-.pnl_btm2 .impacts .cards4,
-.pnl_btm2 .impacts .cards5,
-.pnl_btm2 .impacts .cards6,
-.pnl_btm2 .impacts .cards7,
-.pnl_btm2 .impacts .cards8,
-.pnl_btm2 .impacts .cards9,
-.pnl_btm2 .impacts .cards10,
-.pnl_btm2 .impacts .cards11,
-.pnl_btm2 .impacts .cards12,
-.pnl_btm3 .impacts .cards1,
-.pnl_btm3 .impacts .cards2,
-.pnl_btm3 .impacts .cards3,
-.pnl_btm3 .impacts .cards4,
-.pnl_btm3 .impacts .cards5,
-.pnl_btm3 .impacts .cards6,
-.pnl_btm3 .impacts .cards7,
-.pnl_btm3 .impacts .cards8,
-.pnl_btm3 .impacts .cards9,
-.pnl_btm3 .impacts .cards10,
-.pnl_btm3 .impacts .cards11,
-.pnl_btm3 .impacts .cards12,
-.pnl_btm4 .impacts .cards1,
-.pnl_btm4 .impacts .cards2,
-.pnl_btm4 .impacts .cards3,
-.pnl_btm4 .impacts .cards4,
-.pnl_btm4 .impacts .cards5,
-.pnl_btm4 .impacts .cards6,
-.pnl_btm4 .impacts .cards7,
-.pnl_btm4 .impacts .cards8,
-.pnl_btm4 .impacts .cards9,
-.pnl_btm4 .impacts .cards10,
-.pnl_btm4 .impacts .cards11,
-.pnl_btm4 .impacts .cards12,
-.pnl_btm5 .impacts .cards1,
-.pnl_btm5 .impacts .cards2,
-.pnl_btm5 .impacts .cards3,
-.pnl_btm5 .impacts .cards4,
-.pnl_btm5 .impacts .cards5,
-.pnl_btm5 .impacts .cards6,
-.pnl_btm5 .impacts .cards7,
-.pnl_btm5 .impacts .cards8,
-.pnl_btm5 .impacts .cards9,
-.pnl_btm5 .impacts .cards10,
-.pnl_btm5 .impacts .cards11,
-.pnl_btm5 .impacts .cards12,
-.pnl_btm6 .impacts .cards1,
-.pnl_btm6 .impacts .cards2,
-.pnl_btm6 .impacts .cards3,
-.pnl_btm6 .impacts .cards4,
-.pnl_btm6 .impacts .cards5,
-.pnl_btm6 .impacts .cards6,
-.pnl_btm6 .impacts .cards7,
-.pnl_btm6 .impacts .cards8,
-.pnl_btm6 .impacts .cards9,
-.pnl_btm6 .impacts .cards10,
-.pnl_btm6 .impacts .cards11,
-.pnl_btm6 .impacts .cards12,
-.pnl_btm7 .impacts .cards1,
-.pnl_btm7 .impacts .cards2,
-.pnl_btm7 .impacts .cards3,
-.pnl_btm7 .impacts .cards4,
-.pnl_btm7 .impacts .cards5,
-.pnl_btm7 .impacts .cards6,
-.pnl_btm7 .impacts .cards7,
-.pnl_btm7 .impacts .cards8,
-.pnl_btm7 .impacts .cards9,
-.pnl_btm7 .impacts .cards10,
-.pnl_btm7 .impacts .cards11,
-.pnl_btm7 .impacts .cards12,
-.pnl_btm8 .impacts .cards1,
-.pnl_btm8 .impacts .cards2,
-.pnl_btm8 .impacts .cards3,
-.pnl_btm8 .impacts .cards4,
-.pnl_btm8 .impacts .cards5,
-.pnl_btm8 .impacts .cards6,
-.pnl_btm8 .impacts .cards7,
-.pnl_btm8 .impacts .cards8,
-.pnl_btm8 .impacts .cards9,
-.pnl_btm8 .impacts .cards10,
-.pnl_btm8 .impacts .cards11,
-.pnl_btm8 .impacts .cards12,
-.pnl_btm9 .impacts .cards1,
-.pnl_btm9 .impacts .cards2,
-.pnl_btm9 .impacts .cards3,
-.pnl_btm9 .impacts .cards4,
-.pnl_btm9 .impacts .cards5,
-.pnl_btm9 .impacts .cards6,
-.pnl_btm9 .impacts .cards7,
-.pnl_btm9 .impacts .cards8,
-.pnl_btm9 .impacts .cards9,
-.pnl_btm9 .impacts .cards10,
-.pnl_btm9 .impacts .cards11,
-.pnl_btm9 .impacts .cards12,
-.pnl_btm10 .impacts .cards1,
-.pnl_btm10 .impacts .cards2,
-.pnl_btm10 .impacts .cards3,
-.pnl_btm10 .impacts .cards4,
-.pnl_btm10 .impacts .cards5,
-.pnl_btm10 .impacts .cards6,
-.pnl_btm10 .impacts .cards7,
-.pnl_btm10 .impacts .cards8,
-.pnl_btm10 .impacts .cards9,
-.pnl_btm10 .impacts .cards10,
-.pnl_btm10 .impacts .cards11,
-.pnl_btm10 .impacts .cards12,
-.pnl_btm11 .impacts .cards1,
-.pnl_btm11 .impacts .cards2,
-.pnl_btm11 .impacts .cards3,
-.pnl_btm11 .impacts .cards4,
-.pnl_btm11 .impacts .cards5,
-.pnl_btm11 .impacts .cards6,
-.pnl_btm11 .impacts .cards7,
-.pnl_btm11 .impacts .cards8,
-.pnl_btm11 .impacts .cards9,
-.pnl_btm11 .impacts .cards10,
-.pnl_btm11 .impacts .cards11,
-.pnl_btm11 .impacts .cards12,
-.pnl_btm12 .impacts .cards1,
-.pnl_btm12 .impacts .cards2,
-.pnl_btm12 .impacts .cards3,
-.pnl_btm12 .impacts .cards4,
-.pnl_btm12 .impacts .cards5,
-.pnl_btm12 .impacts .cards6,
-.pnl_btm12 .impacts .cards7,
-.pnl_btm12 .impacts .cards8,
-.pnl_btm12 .impacts .cards9,
-.pnl_btm12 .impacts .cards10,
-.pnl_btm12 .impacts .cards11,
-.pnl_btm12 .impacts .cards12 {
+.pnl_btm .needs .listcards .cards_contr {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
+  overflow-y: auto;
   padding-right: 4px;
-}
-.pnl_btm1 .line,
-.pnl_btm2 .line,
-.pnl_btm3 .line,
-.pnl_btm4 .line,
-.pnl_btm5 .line,
-.pnl_btm6 .line,
-.pnl_btm7 .line,
-.pnl_btm8 .line,
-.pnl_btm9 .line,
-.pnl_btm10 .line,
-.pnl_btm11 .line,
-.pnl_btm12 .line {
-  grid-area: line;
-  background: linear-gradient(#77716A, #77716A) no-repeat center/1px 100%;
 }
 
 .card_contr {
@@ -22407,7 +22133,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #FF7C80;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgn1 .partner {
@@ -22456,7 +22182,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #FF5050;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd2 .partner {
@@ -22505,7 +22231,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid orange;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd3 .partner {
@@ -22554,7 +22280,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #93BF85;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd4 .partner {
@@ -22603,7 +22329,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #6EAA5E;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd5 .partner {
@@ -22652,7 +22378,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #008000;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd6 .partner {
@@ -22701,7 +22427,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-areas: "partner" "title" "subtitle" "cont";
   border: 1px solid #14540D;
   border-radius: 6px;
-  margin: 4px 0;
+  margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
 .card_lgnd7 .partner {
