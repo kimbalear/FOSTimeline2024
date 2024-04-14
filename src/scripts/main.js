@@ -49,7 +49,9 @@ $(document).ready(function () {
         <div id="${year}tp11" class="tp11"></div>
         <div id="${year}tp12" class="tp12"></div>
         <div id="${year}tline" class="t_line">
-          <div id="${year}yrstart" class="yr_start"></div>
+          <div id="${year}yrstart" class="yr_start">
+            <div class="lbl">${year}<div>
+          </div>
         </div>
         <div id="${year}btmyr" class="btm_yr"></div>
         <div id="${year}bt1" class="bt1"></div>
