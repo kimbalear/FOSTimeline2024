@@ -103,15 +103,9 @@ $(document).ready(function () {
     months.forEach((month, index) => {
       let monthHtml = `
         <div id="${year}tl" class="tl_${month}">
-          <div id="${year}cnt_top${index + 1}" class="cnt_top${
-        index + 1
-      }"></div>
-          <div class="cnt">
-            <div class="lbl">${month}</div>
-          </div>
-          <div id="${year}nds_btm${index + 1}" class="nds_btm${
-        index + 1
-      }"></div>
+          <div id="${year}cnt_top${index + 1}" class="cnt_top${index + 1}"></div>
+          <div class="cnt"><div class="lbl">${month}</div></div>
+          <div id="${year}nds_btm${index + 1}" class="nds_btm${index + 1}"></div>
         </div>`;
 
       $(`#${year}tline`).append(monthHtml);
@@ -341,7 +335,7 @@ $(document).ready(function () {
             var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
             var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
 
-            var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_cnt${monthNr}'></div>`;
+            var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
             var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
             var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
             
@@ -350,7 +344,7 @@ $(document).ready(function () {
             $(need).appendTo(`#${year}pnl_btm${monthNr}`);
             
             $(listCards).appendTo(`#${year}needs${monthNr}`);
-            $(cntBtmMonthDots).appendTo(`#${year}cnt_Btm${monthNr}`);
+            $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
             $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
           }
           $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
