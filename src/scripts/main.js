@@ -114,13 +114,15 @@ $(document).ready(function () {
 
   }
 
-  function showTimeline(years, orgUnitsNames) {
+  function showTimeline(years) {
     if (years.length === 1) {
-      //console.log("years: " + years[0]);
       year = years[0];
-      yearConstruct(year);
+      yearConstruct(years);
     } else if (years.length > 1) {
-      //console.log("years: " + years);
+      for(i=0; i < years.length; i++){
+        console.log("i: "+ i + " years[i]:" + years[i]);
+        yearConstruct(years[i]);
+      }
     }
 
     $(".top_timeline").css({
@@ -263,7 +265,7 @@ $(document).ready(function () {
     });
 
     if (years.length > 0) {
-      showTimeline(years, orgUnitsNames);
+      showTimeline(years);
       $.ajax({
         url: "http://localhost:3001/api/needsByYears",
         type: "GET",
