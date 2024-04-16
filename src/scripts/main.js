@@ -103,15 +103,17 @@ $(document).ready(function () {
     months.forEach((month, index) => {
       let monthHtml = `
         <div id="${year}tl" class="tl_${month}">
-          <div id="${year}cnt_top${index + 1}" class="cnt_top${index + 1}"></div>
+          <div id="${year}cnt_top${index + 1}" class="cnt_top${
+        index + 1
+      }"></div>
           <div class="cnt"><div class="lbl">${month}</div></div>
-          <div id="${year}nds_btm${index + 1}" class="nds_btm${index + 1}"></div>
+          <div id="${year}nds_btm${index + 1}" class="nds_btm${
+        index + 1
+      }"></div>
         </div>`;
 
       $(`#${year}tline`).append(monthHtml);
     });
-
-
   }
 
   function showTimeline(years) {
@@ -119,8 +121,8 @@ $(document).ready(function () {
       year = years[0];
       yearConstruct(years);
     } else if (years.length > 1) {
-      for(i=0; i < years.length; i++){
-        console.log("i: "+ i + " years[i]:" + years[i]);
+      for (i = 0; i < years.length; i++) {
+        console.log("i: " + i + " years[i]:" + years[i]);
         yearConstruct(years[i]);
       }
     }
@@ -248,7 +250,7 @@ $(document).ready(function () {
   // Manejo del clic en el botón #irun para ejecutar la lógica basada en las selecciones de filtros
   $(document).on("click", "#irun", function (e) {
     e.preventDefault();
-    $('.year').remove()
+    $(".year").remove();
 
     var pillsOrgUnits = $("#orgUnitsSelectd .pill");
     var pillsYears = $("#YearsSelectd .pill");
@@ -301,26 +303,26 @@ $(document).ready(function () {
   });
 
   function displayNeeds(data) {
-  // Agrupar las necesidades por mes
-  const needsByMonth = data.reduce((acc, need) => {
-    const month = need.month;
-    if (!acc[month]) {
-      acc[month] = [];
-    }
-    acc[month].push(need);
-    return acc;
-  }, {});
+    // Agrupar las necesidades por mes
+    const needsByMonth = data.reduce((acc, need) => {
+      const month = need.month;
+      if (!acc[month]) {
+        acc[month] = [];
+      }
+      acc[month].push(need);
+      return acc;
+    }, {});
 
-  // Iterar sobre `needsByMonth` para mostrar las necesidades
-  for (let month in needsByMonth) {
-    const needMonth = needsByMonth[month];
-    let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
+    // Iterar sobre `needsByMonth` para mostrar las necesidades
+    for (let month in needsByMonth) {
+      const needMonth = needsByMonth[month];
+      let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
 
-    needMonth.forEach((need) => {
-      console.log("need.title: " + need.lgnd);
+      needMonth.forEach((need) => {
+        console.log("need.title: " + need.lgnd);
 
-      let year = need.year;
-      let cardNeed = `
+        let year = need.year;
+        let cardNeed = `
         <div class='card_lgn${need.lgnd}'>
           <div class="partner">${need.orgUnitName}</div>
           <div class="title">${need.title}</div>
@@ -328,72 +330,73 @@ $(document).ready(function () {
           <div class="cont">${need.lgndName}</div>
         </div>`;
 
-      switch (month) {
-        case "jan":
-          monthNr = 1;
-          var pnlBtm = `${year}pnl_btm${monthNr}`;
-          if (!existingElement(`#${pnlBtm}`)) {
-            var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
-            var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
-            var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+        switch (month) {
+          case "jan":
+            monthNr = 1;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
 
-            var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
-            var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
-            var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
-            
-            $(pBtm).appendTo(`#${year}bt${monthNr}`);
-            $(line).appendTo(`#${year}pnl_btm${monthNr}`);
-            $(need).appendTo(`#${year}pnl_btm${monthNr}`);
-            
-            $(listCards).appendTo(`#${year}needs${monthNr}`);
-            $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
-            $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
-          }
-          $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
-          break;
-        case "feb":
-          monthNr = 2;
-          break;
-        case "mar":
-          monthNr = 3;
-          break;
-        case "apr":
-          monthNr = 4;
-          break;
-        case "may":
-          monthNr = 5;
-          break;
-        case "jun":
-          monthNr = 6;
-          break;
-        case "jul":
-          monthNr = 7;
-          break;
-        case "aug":
-          monthNr = 8;
-          break;
-        case "sep":
-          monthNr = 9;
-          break;
-        case "oct":
-          monthNr = 10; 
-          break;
-        case "nov":
-          monthNr = 11;
-          break;
-        case "dec":
-          monthNr = 12;
-          break;
-      }
-    });
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+            break;
+          case "feb":
+            monthNr = 2;
+            break;
+          case "mar":
+            monthNr = 3;
+            break;
+          case "apr":
+            monthNr = 4;
+            break;
+          case "may":
+            monthNr = 5;
+            break;
+          case "jun":
+            monthNr = 6;
+            break;
+          case "jul":
+            monthNr = 7;
+            break;
+          case "aug":
+            monthNr = 8;
+            break;
+          case "sep":
+            monthNr = 9;
+            break;
+          case "oct":
+            monthNr = 10;
+            break;
+          case "nov":
+            monthNr = 11;
+            break;
+          case "dec":
+            monthNr = 12;
+            break;
+        }
+      });
+    }
   }
-}
-
 
   function displayContributions(data, selectedOrgUnits) {
     // Filtra los datos basado en las unidades organizativas seleccionadas
-    const filteredData = data.filter(contribution => selectedOrgUnits.includes(contribution.orgUnitName));
-  
+    const filteredData = data.filter((contribution) =>
+      selectedOrgUnits.includes(contribution.orgUnitName)
+    );
+
     // Procesa los datos filtrados para agruparlos por mes
     const contributionsByMonth = filteredData.reduce((acc, contribution) => {
       const month = contribution.month;
@@ -404,14 +407,14 @@ $(document).ready(function () {
       return acc;
     }, {});
     var orgUnrs = selectedOrgUnits.length;
-    
+
     // Itera sobre `contributionsByMonth` para mostrar las contribuciones
     for (let month in contributionsByMonth) {
       const contribMonth = contributionsByMonth[month];
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
-  
+
       contribMonth.forEach((contribution) => {
-        let year = contribution.year; 
+        let year = contribution.year;
         let cardCntr = `
           <div class='card_contr'>
             <div class="partner">${contribution.orgUnitName}</div>
@@ -419,243 +422,243 @@ $(document).ready(function () {
             <div class="cont">${contribution.description}</div>
           </div>`;
 
-          if(orgUnrs === 1){
-            $(`#${year}titleou`).html(contribution.orgUnitName);
-          }
-  
-          switch (month) {
-            case "jan":
-              monthNr = 1;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+        if (orgUnrs === 1) {
+          $(`#${year}titleou`).html(contribution.orgUnitName);
+        }
 
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+        switch (month) {
+          case "jan":
+            monthNr = 1;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
 
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "feb":
-              monthNr = 2;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "mar":
-              monthNr = 3;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "apr":
-              monthNr = 4;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "may":
-              monthNr = 5;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "jun":
-              monthNr = 6;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "jul":
-              monthNr = 7;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "aug":
-              monthNr = 8;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "sep":
-              monthNr = 9;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "oct":
-              monthNr = 10;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "nov":
-              monthNr = 11;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-            case "dec":
-              monthNr = 12;
-              var pnlTop = `${year}pnl_top${monthNr}`;
-              if (!existingElement(`#${pnlTop}`)) {
-                var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
-                var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-                var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
-                var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
-                var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
-                var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
-                $(pTop).appendTo(`#${year}tp${monthNr}`);
-                $(line).appendTo(`#${year}pnl_top${monthNr}`);
-                $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
-                $(listCards).appendTo(`#${year}cntr${monthNr}`);
-                $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
-                $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
-              }
-              $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
-              break;
-          }
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "feb":
+            monthNr = 2;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "mar":
+            monthNr = 3;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "apr":
+            monthNr = 4;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "may":
+            monthNr = 5;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "jun":
+            monthNr = 6;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "jul":
+            monthNr = 7;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "aug":
+            monthNr = 8;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "sep":
+            monthNr = 9;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "oct":
+            monthNr = 10;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "nov":
+            monthNr = 11;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+          case "dec":
+            monthNr = 12;
+            var pnlTop = `${year}pnl_top${monthNr}`;
+            if (!existingElement(`#${pnlTop}`)) {
+              var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
+              var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
+              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
+              var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
+              var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              $(pTop).appendTo(`#${year}tp${monthNr}`);
+              $(line).appendTo(`#${year}pnl_top${monthNr}`);
+              $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+              $(listCards).appendTo(`#${year}cntr${monthNr}`);
+              $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
+              $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+            }
+            $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
+            break;
+        }
       });
     }
   }
@@ -663,4 +666,50 @@ $(document).ready(function () {
   function existingElement(selector) {
     return $(selector).length > 0;
   }
+
+  // Legends cta
+  $("#lgnd0").click(function () {
+    $(".card_contr").toggle(this.checked);
+    $(".card_contr").parent().parent().parent().toggle(this.show);
+  });
+
+  $("#lgnd1").click(function () {
+    $(".card_lgn1").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd2").click(function () {
+    $(".card_lgn2").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd3").click(function () {
+    $(".card_lgn3").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd4").click(function () {
+    $(".card_lgn4").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd5").click(function () {
+    $(".card_lgn5").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd6").click(function () {
+    $(".card_lgn6").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd7").click(function () {
+    $(".card_lgn7").toggle(this.checked);
+    pnlLgnds();
+  });
+
+  $("#lgnd8").click(function () {
+    $(".card_lgn8").toggle(this.checked);
+    pnlLgnds();
+  });
 });
