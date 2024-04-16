@@ -581,7 +581,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top1 .dots_cnt1 .dot1 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -665,7 +666,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top2 .dots_cnt2 .dot2 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -749,7 +751,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top3 .dots_cnt3 .dot3 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -833,7 +836,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top4 .dots_cnt4 .dot4 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -917,7 +921,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top5 .dots_cnt5 .dot5 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1001,7 +1006,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top6 .dots_cnt6 .dot6 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1085,7 +1091,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top7 .dots_cnt7 .dot7 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1169,7 +1176,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top8 .dots_cnt8 .dot8 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1253,7 +1261,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top9 .dots_cnt9 .dot9 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1337,7 +1346,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top10 .dots_cnt10 .dot10 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1421,7 +1431,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top11 .dots_cnt11 .dot11 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1505,7 +1516,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .cnt_top12 .dots_cnt12 .dot12 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
   background-color: #FDF4E7;
@@ -1626,10 +1638,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm1 .dots_need1 .dot1 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -1710,10 +1722,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm2 .dots_need2 .dot2 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -1794,10 +1806,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm3 .dots_need3 .dot3 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -1878,10 +1890,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm4 .dots_need4 .dot4 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -1962,10 +1974,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm5 .dots_need5 .dot5 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2046,10 +2058,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm6 .dots_need6 .dot6 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2130,10 +2142,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm7 .dots_need7 .dot7 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2214,10 +2226,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm8 .dots_need8 .dot8 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2298,10 +2310,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm9 .dots_need9 .dot9 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2382,10 +2394,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm10 .dots_need10 .dot10 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2466,10 +2478,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm11 .dots_need11 .dot11 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -2550,10 +2562,10 @@ body .wrapper .content ::-webkit-scrollbar-button {
 .timeline .year .t_line .tl_dec .nds_btm12 .dots_need12 .dot12 {
   width: min-content;
   float: right;
-  width: 12px;
+  width: auto;
+  padding: 0 4px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FDF4E7;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
