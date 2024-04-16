@@ -370,7 +370,7 @@ $(document).ready(function () {
                   var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
                   $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
                 } else {
-                  lgnd1Cnt = lgnd1Cnt + 20;
+                  lgnd1Cnt = lgnd1Cnt + 1;
                   console.log("lgnd1Cnt: " + lgnd1Cnt);
                   $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
                 }
