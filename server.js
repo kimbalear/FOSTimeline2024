@@ -54,9 +54,10 @@ async function getCombinedYears() {
 async function getNeedsByYears(years) {
   try {
     const database = client.db("FOStimeline");
-    const collection = database.collection("need");
+    const needCollection = database.collection("need");
+    const orgUnitCollection = database.collection("orgUnit");
     
-    const documents = await collection.find({
+    const needs = await needCollection.find({
       year: { $in: years.map(Number) }
     }, {
       projection: {
@@ -70,8 +71,22 @@ async function getNeedsByYears(years) {
         orgUnitId: 1
       }
     }).toArray();
+
+    // Convert ObjectId to string for orgUnitId
+    for (const need of needs) {
+      if (need.orgUnitId) {
+        console.log("need.orgUnitId:! " + need.orgUnitId)
+        const orgUnit = await orgUnitCollection.findOne({ _id: need.orgUnitId });
+        if (orgUnit) {
+          need.orgUnitId = need.orgUnitId.toString(); // Convertir ObjectId a String
+          need.orgUnitName = orgUnit.name;
+        } else {
+          console.log(`No se encontró orgUnit para el ID: ${need.orgUnitId.toString()}`);
+        }
+      }
+    }
     
-    return documents;
+    return needs;
   } catch (error) {
     console.error("Error getting needs for years:", error);
     throw error;
