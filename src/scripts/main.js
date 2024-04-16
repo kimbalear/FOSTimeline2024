@@ -361,8 +361,6 @@ $(document).ready(function () {
             }
             $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
 
-            console.log("need.lgnd: " + lgnd);
-
             switch (lgnd) {
               case 1:
                 if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
@@ -371,7 +369,6 @@ $(document).ready(function () {
                   $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
                 } else {
                   lgnd1Cnt = lgnd1Cnt + 1;
-                  console.log("lgnd1Cnt: " + lgnd1Cnt);
                   $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
                 }
                 break;
