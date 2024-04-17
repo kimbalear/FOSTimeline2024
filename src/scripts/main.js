@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // Carga inicial de datos para las opciones de filtro.
+  // Initial data loading for filter options.
   function loadData(url, successCallback) {
     $.ajax({
       url: url,
@@ -25,7 +25,7 @@ $(document).ready(function () {
   }
 
   function yearConstruct(year) {
-    // Crea la estructura base del año
+    // Create the base structure of the year
     let baseHtml = `
     <div id="${year}yr" class="year">
     <div id="${year}tpyr" class="tp_yr"></div>
@@ -71,19 +71,19 @@ $(document).ready(function () {
     <div id="${year}bt12" class="bt12"></div>
   </div>`;
 
-    // Adjunta la estructura base al elemento principal
+    // Attaches the base structure to the parent element
     var lineYear = `${year}yr`;
     if (!existingElement(`#${lineYear}`)) {
       $(".timeline").append(baseHtml);
     }
-    // Genera los divs de los meses tanto en la parte superior como inferior
+    // Generate the month divs at both the top and bottom
     for (let i = 1; i <= 12; i++) {
       let monthUpper = `<div id="${year}tp${i}" class="tp${i}"></div>`;
       let monthLower = `<div id="${year}bt${i}" class="bt${i}"></div>`;
       $(`#${year}yr`).append(monthUpper, monthLower);
     }
 
-    // Añade los meses a la línea de tiempo
+    // Add months to the timeline
 
     const months = [
       "jan",
@@ -122,7 +122,7 @@ $(document).ready(function () {
       yearConstruct(years);
     } else if (years.length > 1) {
       for (i = 0; i < years.length; i++) {
-        console.log("i: " + i + " years[i]:" + years[i]);
+        //console.log("i: " + i + " years[i]:" + years[i]);
         yearConstruct(years[i]);
       }
     }
@@ -132,7 +132,7 @@ $(document).ready(function () {
     });
   }
 
-  // Implementación de carga de datos
+  // Data loading implementation
   loadData("http://localhost:3001/getOrgUnits", function (data) {
     handleSuccess(data, "#orgUnitsOptions", "ou");
   });
@@ -143,7 +143,7 @@ $(document).ready(function () {
     handleSuccess(data, "#yearsOptions", "year");
   });
 
-  // Función para mostrar/ocultar opciones de filtro
+  // Feature to show/hide filter options
   function toggleOptions(selectId, optionsDivId) {
     $(document).on("click", selectId, function (e) {
       e.stopPropagation();
@@ -152,7 +152,7 @@ $(document).ready(function () {
     });
   }
 
-  // Función para seleccionar una opción de filtro y mostrarla como una "píldora"
+  // Function to select a filter option and display it as a "pill"
   function selectOption(
     optionPrefix,
     selectDivId,
@@ -173,7 +173,7 @@ $(document).ready(function () {
     });
   }
 
-  // Función para eliminar una "píldora" seleccionada
+  // Function to delete a selected "pill"
   function removeSelectedOption(
     delPillClass,
     selectDivId,
@@ -192,7 +192,7 @@ $(document).ready(function () {
     });
   }
 
-  // Función para cerrar las opciones al hacer clic fuera
+  // Feature to close options when clicking outside
   function closeOptionsOnClickOutside(selectId, optionsDivId) {
     $(document).on("click", function (e) {
       if (!$(e.target).closest(`${selectId}, ${optionsDivId}`).length) {
@@ -202,12 +202,12 @@ $(document).ready(function () {
     });
   }
 
-  // Evitar que se cierren las opciones al hacer clic dentro de ellas
+  // Prevent options from closing when clicking within them
   $(document).on("click", ".option", function (e) {
     e.stopPropagation();
   });
 
-  // Implementación de funciones de UI
+  // Implementation of UI functions
   toggleOptions("#orgUnitsSelect", "#orgUnitsOptions");
   toggleOptions("#NeedsSelect", "#needsOptions");
   toggleOptions("#YearsSelect", "#yearsOptions");
@@ -247,7 +247,7 @@ $(document).ready(function () {
     $("#panel_sh").toggleClass("open");
   });
 
-  // Manejo del clic en el botón #irun para ejecutar la lógica basada en las selecciones de filtros
+  // Handling #irun button click to run logic based on filter selections
   $(document).on("click", "#irun", function (e) {
     e.preventDefault();
     $(".year").remove();
@@ -275,11 +275,11 @@ $(document).ready(function () {
           years: years.join(","),
         },
         success: function (data) {
-          console.log("Necesidades por años:", data);
+          console.log("Needs by years:", data);
           displayNeeds(data, orgUnitsNames);
         },
         error: function (error) {
-          console.error("Error al obtener las necesidades por años:", error);
+          console.error("Error obtaining needs for years:", error);
         },
       });
 
@@ -290,7 +290,7 @@ $(document).ready(function () {
           years: years.join(","),
         },
         success: function (data) {
-          console.log("Contribuciones por años:", data);
+          console.log("Contributions by year:", data);
           displayContributions(data, orgUnitsNames);
         },
         error: function (error) {
@@ -298,12 +298,12 @@ $(document).ready(function () {
         },
       });
     } else {
-      console.log("No se seleccionaron años");
+      console.log("No years selected");
     }
   });
 
   function displayNeeds(data) {
-    // Agrupar las necesidades por mes
+    // Group needs by month
     const needsByMonth = data.reduce((acc, need) => {
       const month = need.month;
       if (!acc[month]) {
@@ -313,7 +313,7 @@ $(document).ready(function () {
       return acc;
     }, {});
 
-    // Iterar sobre `needsByMonth` para mostrar las necesidades
+    // Iterate over `needsByMonth` to display needs
     var lgnd1Cnt,
       lgnd2Cnt,
       lgnd3Cnt,
@@ -1605,12 +1605,12 @@ $(document).ready(function () {
   }
 
   function displayContributions(data, selectedOrgUnits) {
-    // Filtra los datos basado en las unidades organizativas seleccionadas
+    // Filter data based on selected organizational units
     const filteredData = data.filter((contribution) =>
       selectedOrgUnits.includes(contribution.orgUnitName)
     );
 
-    // Procesa los datos filtrados para agruparlos por mes
+    // Process filtered data to group it by month
     const contributionsByMonth = filteredData.reduce((acc, contribution) => {
       const month = contribution.month;
       if (!acc[month]) {
@@ -1621,12 +1621,12 @@ $(document).ready(function () {
     }, {});
     var orgUnrs = selectedOrgUnits.length;
     var ContributionsCnt = 0;
-    // Itera sobre `contributionsByMonth` para mostrar las contribuciones
+    // Iterate over `contributionsByMonth` to show contributions
     for (let month in contributionsByMonth) {
       const contribMonth = contributionsByMonth[month];
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
       ContributionsCnt = contribMonth.length;
-      console.log(`Contributions: ${ContributionsCnt} for month:  ${month}`);
+      //console.log(`Contributions: ${ContributionsCnt} for month:  ${month}`);
 
       contribMonth.forEach((contribution) => {
         let year = contribution.year;
@@ -1946,178 +1946,211 @@ $(document).ready(function () {
   });
 
   $("#lgnd1").click(function () {
-    $(".card_lgn1").toggle(this.checked);;
-    listcardsChildren()
+    $(".card_lgn1").toggle(this.checked);
+    listcardsChildren();
   });
 
   $("#lgnd2").click(function () {
     $(".card_lgn2").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd3").click(function () {
     $(".card_lgn3").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd4").click(function () {
     $(".card_lgn4").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd5").click(function () {
     $(".card_lgn5").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd6").click(function () {
     $(".card_lgn6").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd7").click(function () {
     $(".card_lgn7").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   $("#lgnd8").click(function () {
     $(".card_lgn8").toggle(this.checked);
-    listcardsChildren()
+    listcardsChildren();
   });
 
   // Do items with class "listcards" have children?
   function listcardsChildren() {
-    
-    $('.pnl_btm').each(function() {
+    $(".pnl_btm").each(function () {
       var $thisPnlBtm = $(this);
-      var hasVisibleCards = $thisPnlBtm.find('.listcards > div').filter(function() {
-          return $(this).css('display') !== 'none';
-      }).length > 0;
-  
+      var hasVisibleCards =
+        $thisPnlBtm.find(".listcards > div").filter(function () {
+          return $(this).css("display") !== "none";
+        }).length > 0;
+
       if (hasVisibleCards) {
-          $thisPnlBtm.show();
-          console.log($thisPnlBtm.attr('id') + " visible");
+        $thisPnlBtm.show();
       } else {
-          $thisPnlBtm.hide();
-          console.log($thisPnlBtm.attr('id') + " oculto");
+        $thisPnlBtm.hide();
       }
-  });
-  
+    });
   }
 
+  // cards actions
+  // Selector that searches for any element whose class starts with 'card_lgn'
+  $(document).on("click", "[class^='card_lgn']", function () {
+    // Extract number from class name using a regular expression
+    var classList = $(this).attr("class").split(/\s+/); // Split classes into an array
+    var cardNumber;
+    $.each(classList, function (index, className) {
+      var match = className.match(/^card_lgn(\d+)/);
+      if (match) {
+        cardNumber = match[1]; // Save the number when you find a match
+        return false;
+      }
+    });
+
+    // Collect card information
+    var partner = $(this).find(".partner").text();
+    var title = $(this).find(".title").text();
+    var subtitle = $(this).find(".subtitle").text();
+    var content = $(this).find(".cont").text();
+
+    // Mostrar la información recogida junto con el número del card
+    alert(
+      "Card Number: " +
+        cardNumber +
+        "\nPartner: " +
+        partner +
+        "\nTitle: " +
+        title +
+        "\nSubtitle: " +
+        subtitle +
+        "\nContent: " +
+        content
+    );
+    contentCards_need(cardNumber, partner, title, subtitle, content)
+  });
+
   //-- Legends cta
-  function contentCards_need(dlgtype, dlgNeed, dlgTitle, groupStyle, imgs) {
+  function contentCards_need(cardNumber, partner, title, subtitle, content) {
     var imgs = ["1.jpg", "2.jpg", "3.jpg"];
     var url = "https://knowtechture.com/timeline/src/assets/imgs/";
     $('<div class="scrim">').appendTo(".wrapper");
 
-    $('<div class="dlg ' + dlgtype + '">').appendTo(".scrim");
-    $('<div class="dlg_bar ' + groupStyle + '">').appendTo(".dlg");
-    $('<div class="dlg_title">').appendTo(".dlg_bar");
-    $('<div class="dlg_cta ' + groupStyle + '">').appendTo(".dlg_bar");
-    $('<div class="btn-sys-edit">').appendTo(".dlg_cta");
-    $('<div class="btn-sys-close">').appendTo(".dlg_cta");
-    $('<div class="dlg_cnt">').appendTo(".dlg");
+    $(`<div class="dlg ${cardNumber}">`).appendTo(".scrim");
 
-    $('<div class="cnt_header">').appendTo(".dlg_cnt");
-    $('<div class="cnt_sections">').appendTo(".dlg_cnt");
-    $('<div class="sections">').appendTo(".cnt_sections");
+    $(`<div class="dlg_bar xxx">`).appendTo(".dlg");
 
-    $('<div class="wrapper-dlg">').appendTo(".cnt_header");
-    $('<div class="header-dlg">').appendTo(".wrapper-dlg");
-    $('<div class="top-l-dlg">').appendTo(".header-dlg");
-    $('<div class="top-c-dlg">').appendTo(".header-dlg");
-    $('<div class="top-r-dlg">').appendTo(".header-dlg");
+    $(`<div class="dlg_title">`).appendTo(".dlg_bar");
+    $(`<div class="dlg_cta xxx">`).appendTo(".dlg_bar");
+    $(`<div class="btn-sys-edit">`).appendTo(".dlg_cta");
+    $(`<div class="btn-sys-close">`).appendTo(".dlg_cta");
+    $(`<div class="dlg_cnt">`).appendTo(".dlg");
 
-    $('<div class="toggle-btn-dlg ' + groupStyle + '" id="button1">').appendTo(
+    $(`<div class="cnt_header">`).appendTo(".dlg_cnt");
+    $(`<div class="cnt_sections">`).appendTo(".dlg_cnt");
+    $(`<div class="sections">`).appendTo(".cnt_sections");
+
+    $(`<div class="wrapper-dlg">`).appendTo(".cnt_header");
+    $(`<div class="header-dlg">`).appendTo(".wrapper-dlg");
+    $(`<div class="top-l-dlg">`).appendTo(".header-dlg");
+    $(`<div class="top-c-dlg">`).appendTo(".header-dlg");
+    $(`<div class="top-r-dlg">`).appendTo(".header-dlg");
+
+    $(`<div class="toggle-btn-dlg xxx" id="button1">`).appendTo(
       ".top-r-dlg"
     );
-    $('<div class="i_dlg_doc">').appendTo("#button1");
-    $('<span class="label" id="label1">').appendTo("#button1");
+    $(`<div class="i_dlg_doc">`).appendTo("#button1");
+    $(`<span class="label" id="label1">`).appendTo("#button1");
 
-    $('<div class="toggle-btn-dlg ' + groupStyle + '" id="button2">').appendTo(
+    $(`<div class="toggle-btn-dlg xxx" id="button2">`).appendTo(
       ".top-r-dlg"
     );
-    $('<div class="i_dlg_imgs">').appendTo("#button2");
-    $('<span class="label" id="label2">').appendTo("#button2");
+    $(`<div class="i_dlg_imgs">`).appendTo("#button2");
+    $(`<span class="label" id="label2">`).appendTo("#button2");
 
-    $('<div class="cnt-dlg">').appendTo(".header-dlg");
+    $(`<div class="cnt-dlg">`).appendTo(".header-dlg");
 
     $(".top-l-dlg").html("<label>Advocacy Tracker</label>");
-    $(".dlg_title").html(dlgNeed);
+    $(".dlg_title").html(title);
     $(".top-c-dlg").html("##/##/####");
     $(".cnt-dlg").html("[ Advocacy Stage ]");
     $("#label1").html("Documents");
     $("#label2").html("Images");
 
-    $('<div class="sec1">').appendTo(".sections");
-    $('<div class="dl2">').appendTo(".sec1");
+    $(`<div class="sec1">`).appendTo(".sections");
+    $(`<div class="dl2">`).appendTo(".sec1");
 
-    $('<div class="dl1_title">').appendTo(".dl1");
-    $('<div class="dl1_end_d">').appendTo(".dl1");
-    $('<div class="dl1_cont">').appendTo(".dl1");
+    $(`<div class="dl1_title">`).appendTo(".dl1");
+    $(`<div class="dl1_end_d">`).appendTo(".dl1");
+    $(`<div class="dl1_cont">`).appendTo(".dl1");
 
-    $(".dl2").html(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel blandit libero, non suscipit ligula. Maecenas molestie finibus scelerisque. Curabitur luctus vel orci sed pulvinar. Suspendisse potenti. Donec orci velit, mollis eget arcu a, feugiat aliquam nunc. Morbi a consectetur ligula. Nunc mattis, metus sed dictum venenatis, quam felis placerat odio, at vulputate mauris eros sed mi. Aenean ut augue vestibulum, sollicitudin arcu tincidunt, ultrices sem. Suspendisse quis lobortis felis. Etiam tincidunt congue viverra. Pellentesque sapien nisl, condimentum sit amet diam at, finibus consectetur sapien. Quisque pretium suscipit felis et laoreet. Quisque tincidunt lectus leo, et aliquam arcu pretium vel. Cras finibus tincidunt tincidunt. Praesent eu luctus urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;Duis elit nisi, commodo et ornare eget, ultricies et turpis. Curabitur ullamcorper lacinia urna at mollis. Duis accumsan, mauris vitae posuere pulvinar, tortor ligula facilisis ex, at ultricies justo neque in dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan ante vitae neque imperdiet, a maximus nulla cursus. Nam facilisis scelerisque purus, vitae ornare neque placerat non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vel ante eget arcu pulvinar vehicula at at nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus.Aenean mattis ultricies imperdiet. Nulla rhoncus, est sit amet commodo ullamcorper, augue arcu laoreet dolor, tristique dictum velit orci in dui. Nulla ut libero ut tellus porta convallis ut ultrices odio. Ut non volutpat risus, et consectetur justo. Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius. Curabitur consequat, orci eget interdum luctus, turpis purus dictum ipsum, at egestas magna dui sit amet eros. Suspendisse quis sollicitudin sem.Phasellus mi turpis, posuere eget justo quis, maximus laoreet lectus. Praesent tempor urna orci, in auctor nunc porttitor id. Vivamus imperdiet odio non ultricies auctor."
-    );
+    $(".dl2").html(content);
 
-    $('<div class="sec2">').appendTo(".sections").css({
+    $(`<div class="sec2">`).appendTo(".sections").css({
       visibility: "hidden",
       height: "0px",
     });
-    $('<div class="dl3">').appendTo(".sec2");
+    $(`<div class="dl3">`).appendTo(".sec2");
 
-    $('<div class="dl3title">').appendTo(".dl3");
+    $(`<div class="dl3title">`).appendTo(".dl3");
     $(".dl3title").html(
       "Documents => Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
     );
 
-    $('<div id="file1" class="dl3files">').appendTo(".dl3");
+    $(`<div id="file1" class="dl3files">`).appendTo(".dl3");
 
-    $('<div id="f_icon1" class="f_icon">').appendTo("#file1");
-    $('<div class="doc_file">').appendTo("#f_icon1");
-    $('<div id="f_name1" class="f_name">').appendTo("#file1");
+    $(`<div id="f_icon1" class="f_icon">`).appendTo("#file1");
+    $(`<div class="doc_file">`).appendTo("#f_icon1");
+    $(`<div id="f_name1" class="f_name">`).appendTo("#file1");
 
     $("#f_name1").html(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
     );
 
     //--------------------------
-    $('<div id="file2" class="dl3files">').appendTo(".dl3");
-    $('<div id="f_icon2" class="f_icon">').appendTo("#file2");
-    $('<div class="pdf_file">').appendTo("#f_icon2");
-    $('<div id="f_name2" class="f_name">').appendTo("#file2");
+    $(`<div id="file2" class="dl3files">`).appendTo(".dl3");
+    $(`<div id="f_icon2" class="f_icon">`).appendTo("#file2");
+    $(`<div class="pdf_file">`).appendTo("#f_icon2");
+    $(`<div id="f_name2" class="f_name">`).appendTo("#file2");
     $("#f_name2").html(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
     );
 
-    $('<div id="file3" class="dl3files">').appendTo(".dl3");
-    $('<div id="f_icon3" class="f_icon">').appendTo("#file3");
-    $('<div class="xls_file">').appendTo("#f_icon3");
-    $('<div id="f_name3" class="f_name">').appendTo("#file3");
+    $(`<div id="file3" class="dl3files">`).appendTo(".dl3");
+    $(`<div id="f_icon3" class="f_icon">`).appendTo("#file3");
+    $(`<div class="xls_file">`).appendTo("#f_icon3");
+    $(`<div id="f_name3" class="f_name">`).appendTo("#file3");
     $("#f_name3").html(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
     );
 
-    $('<div class="sec3">').appendTo(".sections").css({
+    $(`<div class="sec3">`).appendTo(".sections").css({
       visibility: "hidden",
       height: "0px",
     });
-    $('<div class="dl4">').appendTo(".sec3");
-    $('<div class="dl4title">').appendTo(".dl4");
-    $('<div class="dl4cont">').appendTo(".dl4");
-    $('<div class="i1">').appendTo(".dl4cont");
-    $('<div class="i2">').appendTo(".dl4cont");
-    $('<div class="i3">').appendTo(".dl4cont");
+    $(`<div class="dl4">`).appendTo(".sec3");
+    $(`<div class="dl4title">`).appendTo(".dl4");
+    $(`<div class="dl4cont">`).appendTo(".dl4");
+    $(`<div class="i1">`).appendTo(".dl4cont");
+    $(`<div class="i2">`).appendTo(".dl4cont");
+    $(`<div class="i3">`).appendTo(".dl4cont");
     $(".dl4title").html("Images");
     $(".i1").html(
-      "<img src='" + url + imgs[0] + "' style='width:100%; height:auto;'>"
+      `<img src="${url}${imgs[0]}" style="width:100%; height:auto;">`
     );
     $(".i2").html(
-      "<img src='" + url + imgs[1] + "' style='width:100%; height:auto;'>"
+      `<img src="${url}${imgs[1]}" style="width:100%; height:auto;">`
     );
     $(".i3").html(
-      "<img src='" + url + imgs[2] + "' style='width:100%; height:auto;'>"
+      `<img src="${url}${imgs[2]}" style="width:100%; height:auto;">`
     );
   }
 });
