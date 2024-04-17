@@ -446,36 +446,1158 @@ $(document).ready(function () {
             break;
           case "feb":
             monthNr = 2;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "mar":
             monthNr = 3;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "apr":
             monthNr = 4;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "may":
             monthNr = 5;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "jun":
             monthNr = 6;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "jul":
             monthNr = 7;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "aug":
             monthNr = 8;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "sep":
             monthNr = 9;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "oct":
             monthNr = 10;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "nov":
             monthNr = 11;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
           case "dec":
             monthNr = 12;
+            var pnlBtm = `${year}pnl_btm${monthNr}`;
+            if (!existingElement(`#${pnlBtm}`)) {
+              var pBtm = `<div id='${year}pnl_btm${monthNr}' class='pnl_btm'></div>`;
+              var need = `<div id='${year}needs${monthNr}' class='needs'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
+              var cntBtmMonthDots = `<div id='${year}dtsBtm${monthNr}' class='dots_need${monthNr}'></div>`;
+              var cntBtmDotsTitle = `<div id='${year}dtsTtBtm${monthNr}' class='lbl'>Impacts</div>`;
+              var listCards = `<div id='${year}lstneeds${monthNr}' class='listcards'>`;
+
+              $(pBtm).appendTo(`#${year}bt${monthNr}`);
+              $(line).appendTo(`#${year}pnl_btm${monthNr}`);
+              $(need).appendTo(`#${year}pnl_btm${monthNr}`);
+
+              $(listCards).appendTo(`#${year}needs${monthNr}`);
+              $(cntBtmMonthDots).appendTo(`#${year}nds_btm${monthNr}`);
+              $(cntBtmDotsTitle).appendTo(`#${year}dtsBtm${monthNr}`);
+            }
+            $(cardNeed).appendTo(`#${year}lstneeds${monthNr}`);
+
+            switch (lgnd) {
+              case 1:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd1Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd1Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd1Cnt = lgnd1Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd1Cnt);
+                }
+                break;
+              case 2:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd2Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd2Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd2Cnt = lgnd2Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd2Cnt);
+                }
+                break;
+              case 3:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd3Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd3Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd3Cnt = lgnd3Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd3Cnt);
+                }
+                break;
+              case 4:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd4Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd4Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd4Cnt = lgnd4Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd4Cnt);
+                }
+                break;
+              case 5:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd5Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd5Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd5Cnt = lgnd5Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd5Cnt);
+                }
+                break;
+              case 6:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd6Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd6Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd6Cnt = lgnd6Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd6Cnt);
+                }
+                break;
+              case 7:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd7Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd7Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd7Cnt = lgnd7Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd7Cnt);
+                }
+                break;
+              case 8:
+                if (!existingElement(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`)) {
+                  lgnd8Cnt = 1;
+                  var cntBtmDotLgn = `<div id='${year}dtTtBtm${monthNr}lgnd${lgnd}' class='dot${monthNr} lgnd${lgnd}_p'>${lgnd8Cnt}</div>`;
+                  $(cntBtmDotLgn).appendTo(`#${year}dtsBtm${monthNr}`);
+                } else {
+                  lgnd8Cnt = lgnd8Cnt + 1;
+                  $(`#${year}dtTtBtm${monthNr}lgnd${lgnd}`).html(lgnd8Cnt);
+                }
+                break;
+            }
             break;
         }
       });
@@ -498,7 +1620,7 @@ $(document).ready(function () {
       return acc;
     }, {});
     var orgUnrs = selectedOrgUnits.length;
-
+    // todo dots
     // Itera sobre `contributionsByMonth` para mostrar las contribuciones
     for (let month in contributionsByMonth) {
       const contribMonth = contributionsByMonth[month];
