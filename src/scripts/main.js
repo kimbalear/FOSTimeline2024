@@ -1620,11 +1620,13 @@ $(document).ready(function () {
       return acc;
     }, {});
     var orgUnrs = selectedOrgUnits.length;
-    // todo dots
+    var ContributionsCnt = 0
     // Itera sobre `contributionsByMonth` para mostrar las contribuciones
     for (let month in contributionsByMonth) {
       const contribMonth = contributionsByMonth[month];
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
+      ContributionsCnt = contribMonth.length;
+      console.log(`Contributions: ${ContributionsCnt} for month:  ${month}`)
 
       contribMonth.forEach((contribution) => {
         let year = contribution.year;
@@ -1651,6 +1653,7 @@ $(document).ready(function () {
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
 
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
@@ -1659,6 +1662,7 @@ $(document).ready(function () {
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1668,16 +1672,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1687,16 +1696,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1706,16 +1720,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1725,16 +1744,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1744,16 +1768,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1763,16 +1792,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1782,16 +1816,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1801,16 +1840,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1820,16 +1864,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1839,16 +1888,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
@@ -1858,16 +1912,21 @@ $(document).ready(function () {
             if (!existingElement(`#${pnlTop}`)) {
               var pTop = `<div id='${year}pnl_top${monthNr}' class='pnl_top'></div>`;
               var contrib = `<div id='${year}cntr${monthNr}' class='contributions'></div>`;
-              var line = `<div id='${year}l${monthNr}tp' class='line'></div>`;
+              var line = `<div id='${year}l${monthNr}bt' class='line'></div>`;
+
               var cntTopMonthDots = `<div id='${year}dtsTop${monthNr}' class='dots_cnt${monthNr}'></div>`;
               var cntTopDotsTitle = `<div id='${year}dtsTtTop${monthNr}' class='lbl'>Contributions</div>`;
               var listCards = `<div id='${year}lstcontr${monthNr}' class='listcards'>`;
+              var cntVontributionsDot = `<div id="${year}dot${monthNr}" class="dot${monthNr}">${ContributionsCnt}</div>`
+
               $(pTop).appendTo(`#${year}tp${monthNr}`);
               $(line).appendTo(`#${year}pnl_top${monthNr}`);
               $(contrib).appendTo(`#${year}pnl_top${monthNr}`);
+
               $(listCards).appendTo(`#${year}cntr${monthNr}`);
               $(cntTopMonthDots).appendTo(`#${year}cnt_top${monthNr}`);
               $(cntTopDotsTitle).appendTo(`#${year}dtsTop${monthNr}`);
+              $(cntVontributionsDot).appendTo(`#${year}dtsTop${monthNr}`);
             }
             $(cardCntr).appendTo(`#${year}lstcontr${monthNr}`);
             break;
