@@ -4,10 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FosFem - advocacy timeline</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- CSS de Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
 
     <link rel="stylesheet" href="src/assets/css/main.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- JavaScript Bundle con Popper -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="src/scripts/main.js"></script>
     <script src="src/scripts/html2canvas.js"></script>
@@ -152,34 +160,28 @@
           <div class="grd_srh">
             <div class="cnt_sort">
               <div class="grd_ou">
-
                 <div id="orgUnitsSelect" class="selector" addSelectedOption()>
-                  <div id='txtHdrOrgUnits'>O.Unit</div>
+                  <div id="txtHdrOrgUnits">O.Unit</div>
                   <div id="orgUnitsSelectd" class="selected"></div>
                   <div class="icono">&#x25BC;</div>
                   <div id="orgUnitsOptions" class="options"></div>
                 </div>
-
               </div>
               <div class="grd_srv">
-
-                  <div id="NeedsSelect" class="selector" addSelectedOption()>
-                    <div id='txtHdrNeeds'>Needs</div>
-                    <div id="NeedsSelectd" class="selected"></div>
-                    <div class="icono">&#x25BC;</div>
-                    <div id="needsOptions" class="options"></div>
-                  </div>
-
+                <div id="NeedsSelect" class="selector" addSelectedOption()>
+                  <div id="txtHdrNeeds">Needs</div>
+                  <div id="NeedsSelectd" class="selected"></div>
+                  <div class="icono">&#x25BC;</div>
+                  <div id="needsOptions" class="options"></div>
+                </div>
               </div>
               <div class="grd_yrs">
-                
                 <div id="YearsSelect" class="selector" addSelectedOption()>
-                  <div id='txtHdrYears'>Year/s</div>
+                  <div id="txtHdrYears">Year/s</div>
                   <div id="YearsSelectd" class="selected"></div>
                   <div class="icono">&#x25BC;</div>
                   <div id="yearsOptions" class="options"></div>
                 </div>
-
               </div>
               <div class="disabled">
                 <div class="grd_sort">Sort Timeline</div>
@@ -202,9 +204,7 @@
               </div>
             </div>
           </div>
-          <div class="grd_footer">
-            © FOS Feminista.
-          </div>
+          <div class="grd_footer">© FOS Feminista.</div>
         </div>
       </div>
 
