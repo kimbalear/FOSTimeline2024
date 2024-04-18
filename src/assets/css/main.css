@@ -3570,7 +3570,8 @@ label.checkbox.lgnd7 span {
 }
 .scrim .dlg {
   width: 600px;
-  height: 500px;
+  height: max-content;
+  max-height: 90vh;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -3578,7 +3579,7 @@ label.checkbox.lgnd7 span {
   gap: 0px 0px;
   grid-auto-flow: row;
   background-color: #FDF4E7;
-  border: 2px solid;
+  border: 2px solid #77716A;
   border-radius: 12px;
   box-sizing: border-box;
   overflow: hidden;
@@ -3592,13 +3593,13 @@ label.checkbox.lgnd7 span {
   grid-auto-flow: row;
   grid-template-areas: "dlg_title dlg_cta";
 }
-.scrim .dlg .dlg_title {
+.scrim .dlg .dlg_bar .dlg_title {
   justify-self: start;
   align-self: center;
   grid-area: dlg_title;
   padding-left: 8px;
 }
-.scrim .dlg .dlg_cta {
+.scrim .dlg .dlg_bar .dlg_cta {
   justify-self: end;
   align-self: center;
   grid-area: dlg_cta;
@@ -3607,7 +3608,7 @@ label.checkbox.lgnd7 span {
   grid-area: dlg_cnt;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 108px 1fr;
+  grid-template-rows: auto 1fr;
   grid-auto-columns: 1fr;
   gap: 8px 0px;
   grid-auto-flow: row;
@@ -3686,10 +3687,9 @@ label.checkbox.lgnd7 span {
 .scrim .dlg .dlg_cnt .cnt_sections .sections {
   width: 100%;
   height: 100%;
-  max-height: 310px;
   overflow-y: hidden;
   overflow-x: hidden;
-  padding: 0 8px;
+  padding: 0 8px 16px;
 }
 .scrim .dlg .dlg_cnt .cnt_sections .sections .sec1 {
   visibility: visible;
@@ -3886,7 +3886,7 @@ label.checkbox.lgnd7 span {
   grid-auto-columns: max-content;
   gap: 0px 0px;
   grid-auto-flow: column;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid;
   border-radius: 12px;
   grid-template-areas: "dlg_bar dlg_cta" "dlg_cnt dlg_cnt" "dlg_pdf_btns dlg_pdf_btns";
@@ -3922,7 +3922,7 @@ label.checkbox.lgnd7 span {
   height: 100%;
   max-height: calc(100% - 72px);
   overflow: auto;
-  background-color: #F7F7F6;
+  background-color: #f7f7f6;
 }
 .scrim .dlg_pdf .dlg_cnt .dlg_pdf_preview .dlg_pdf_canvas {
   width: auto;
@@ -3939,7 +3939,7 @@ label.checkbox.lgnd7 span {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #DFDFDC;
+  background-color: #dfdfdc;
   padding: 8px;
   border-radius: 0 0 10px 10px;
   display: grid;
@@ -4002,6 +4002,213 @@ label.checkbox.lgnd7 span {
 }
 .scrim .dlg_pdf ::-webkit-scrollbar-button {
   display: none;
+}
+.scrim .dlg_new {
+  width: 600px;
+  height: max-content;
+  max-height: 90vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 48px auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  background-color: #fff;
+  border: 1px solid #4073FF;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  grid-template-areas: "dlg_bar" "dlg_cnt";
+}
+.scrim .dlg_new .dlg_bar {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "dlg_title dlg_cta";
+  background-color: #4073FF;
+}
+.scrim .dlg_new .dlg_bar .dlg_title {
+  justify-self: start;
+  align-self: center;
+  grid-area: dlg_title;
+  padding-left: 8px;
+  color: #fff;
+}
+.scrim .dlg_new .dlg_bar .dlg_cta {
+  justify-self: end;
+  align-self: center;
+  grid-area: dlg_cta;
+}
+.scrim .dlg_new .dlg_cnt {
+  grid-area: dlg_cnt;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-auto-columns: 1fr;
+  gap: 8px 0px;
+  grid-auto-flow: row;
+  align-items: stretch;
+  grid-template-areas: "cnt_header" "cnt_sections";
+}
+.scrim .dlg_new .dlg_cnt .cnt_header {
+  grid-area: cnt_header;
+  border-bottom: 1px solid #b2bac3;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: stretch;
+  grid-template-areas: "header-dlg";
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 130px;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "top-l-dlg top-c-dlg top-r-dlg" "cnt-dlg cnt-dlg top-r-dlg";
+  grid-area: header-dlg;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-l-dlg {
+  grid-area: top-l-dlg;
+  padding: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-c-dlg {
+  grid-area: top-c-dlg;
+  padding: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg {
+  grid-area: top-r-dlg;
+  padding-top: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg .toggle-btn-dlg {
+  clear: both;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px 0px 0px 6px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  padding: 5px;
+  margin-bottom: 8px;
+  float: right;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg .toggle-btn-dlg .i_dlg_doc,
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg .toggle-btn-dlg .i_dlg_imgs {
+  float: left;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg .toggle-btn-dlg .label {
+  visibility: hidden;
+  margin: 0 0 0 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .top-r-dlg .toggle-btn-dlg.active .label {
+  visibility: visible;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .cnt-dlg {
+  grid-area: cnt-dlg;
+  padding: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections {
+  grid-area: cnt_sections;
+  padding-right: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0 8px 16px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 {
+  visibility: visible;
+  height: 100%;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 {
+  visibility: hidden;
+  height: 0px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 {
+  visibility: hidden;
+  height: 0px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 8px;
+  position: relative;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl3,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl4,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl3,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl4,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl3,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl4 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl3 .dl3title,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl3 .dl3title,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl3 .dl3title {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl3 .dl3files,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl3 .dl3files,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl3 .dl3files {
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: 24px;
+  grid-auto-columns: 1fr;
+  gap: 0px 8px;
+  grid-auto-flow: row;
+  grid-template-areas: "f_icon f_name";
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl3 .dl3files .f_icon,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl3 .dl3files .f_icon,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl3 .dl3files .f_icon {
+  grid-area: f_icon;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl3 .dl3files .f_name,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl3 .dl3files .f_name,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl3 .dl3files .f_name {
+  grid-area: f_name;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl4 .dl4title,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl4 .dl4title,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl4 .dl4title {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl4 .dl4cont .i1,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec1 .dl4 .dl4cont .i2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl4 .dl4cont .i1,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec2 .dl4 .dl4cont .i2,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl4 .dl4cont .i1,
+.scrim .dlg_new .dlg_cnt .cnt_sections .sections .sec3 .dl4 .dl4cont .i2 {
+  margin-bottom: 20px;
 }
 
 .btn-lgnd-inf {
@@ -4903,6 +5110,70 @@ input:checked + .slider:before {
   line-height: 24px;
 }
 
+.newAdvocayTrackingTool {
+  width: 100%;
+  height: auto;
+  padding: 8px;
+}
+.newAdvocayTrackingTool .newAttHeader {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 8px;
+  grid-auto-flow: row;
+  grid-template-areas: "newAttHeader-left newAttHeader-right";
+  padding: 16px 16px 8 px;
+  grid-area: newAttHeader;
+}
+.newAdvocayTrackingTool .newAttHeader .newAttHeader-left {
+  grid-area: newAttHeader-left;
+}
+.newAdvocayTrackingTool .newAttHeader .newAttHeader-right {
+  grid-area: newAttHeader-right;
+}
+
+.newAttContent {
+  width: 100%;
+  height: 100%;
+}
+.newAttContent .bttm-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0 8px;
+}
+.newAttContent .lineTwoFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-auto-columns: 1fr;
+  gap: 0px 8px;
+  grid-auto-flow: row;
+  grid-template-areas: "lineTwoFields-lbl lineTwoFields-lbl" "lineTwoFields-left lineTwoFields-right";
+}
+.newAttContent .lineTwoFields .lineTwoFields-lbl {
+  grid-area: lineTwoFields-lbl;
+}
+.newAttContent .lineTwoFields .lineTwoFields-lbl .lbl {
+  padding-left: 13px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  color: #111b2b;
+}
+.newAttContent .lineTwoFields .lineTwoFields-left {
+  grid-area: lineTwoFields-left;
+}
+.newAttContent .lineTwoFields .lineTwoFields-right {
+  grid-area: lineTwoFields-right;
+}
+
+.datepicker-days thead {
+  font-size: 13px;
+}
+.datepicker-days tbody tr .day {
+  font-size: 13px !important;
+}
+
 ::-webkit-scrollbar {
   background-color: rgba(119, 113, 106, 0.1);
   height: 4px;
@@ -4927,22 +5198,19 @@ input:checked + .slider:before {
   display: none;
 }
 
-/*
-.custom-tooltip {
-    //background: blue;
-    color: $clr3;
-    width: max-content;
-    padding: 8px;
-    z-index: 999;
-    height: 48px;
-    line-height: 48px;
-    border-radius: 8px 0px 0px 8px;
+.fields {
+  margin-bottom: 8px;
 }
-*/
-/*
-.timeline_section {
-    width: 100%;
-    height: auto;
-}*/
+.fields .lbl {
+  padding-left: 13px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  color: #111b2b;
+}
+
+.input-group-append {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=main.css.map */
