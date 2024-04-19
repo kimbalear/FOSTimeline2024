@@ -16,6 +16,8 @@
     border-radius: 10px;
     padding: 8px 2px 4px 8px;
     background: rgba(119, 113, 106, 0.04);
+    height: calc(100% - 36px);
+    align-self: end;
 
     /* total width */
     ::-webkit-scrollbar {
