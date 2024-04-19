@@ -2035,7 +2035,7 @@ $(document).ready(function () {
         "\nContent: " +
         content
     );
-    contentCards_need(cardNumber, partner, title, subtitle, content)
+    contentCards_need(cardNumber, partner, title, subtitle, content);
   });
 
   //-- Legends cta
@@ -2064,15 +2064,11 @@ $(document).ready(function () {
     $(`<div class="top-c-dlg">`).appendTo(".header-dlg");
     $(`<div class="top-r-dlg">`).appendTo(".header-dlg");
 
-    $(`<div class="toggle-btn-dlg xxx" id="button1">`).appendTo(
-      ".top-r-dlg"
-    );
+    $(`<div class="toggle-btn-dlg xxx" id="button1">`).appendTo(".top-r-dlg");
     $(`<div class="i_dlg_doc">`).appendTo("#button1");
     $(`<span class="label" id="label1">`).appendTo("#button1");
 
-    $(`<div class="toggle-btn-dlg xxx" id="button2">`).appendTo(
-      ".top-r-dlg"
-    );
+    $(`<div class="toggle-btn-dlg xxx" id="button2">`).appendTo(".top-r-dlg");
     $(`<div class="i_dlg_imgs">`).appendTo("#button2");
     $(`<span class="label" id="label2">`).appendTo("#button2");
 
@@ -2157,7 +2153,156 @@ $(document).ready(function () {
   //New Advocacy Tracking Tool
   $(document).on("click", ".btn_addnew", function (e) {
     e.preventDefault();
-        var id = $(this).attr('id');
-        alert('El ID del elemento es: ' + id);
-    });
+    var id = $(this).attr("id");
+
+    var addNewBase = `<div class="dlg_bar">
+          <div class="dlg_title">New Advocacy Tracking Tool</div>
+          <div class="dlg_cta">
+            <div class="btn-sys-close"></div>
+          </div>
+        </div>
+        <div class="dlg_cnt">
+          <div class="cnt_header">
+            <div class="newAdvocayTrackingTool">
+              <div class="newAttHeader">
+                <div class="newAttHeader-left">
+                  <div class="fields">
+                    <div class="lbl">Advocacy Stage</div>
+                    <select id="advStage" class="form-select" aria-label="Default select example">
+                      <option value="" disabled selected>
+                        Select your option
+                      </option>
+                      <option value="Contribution">Contribution</option>
+                      <option value="RegressionIntroduced">
+                        Regression Introduced
+                      </option>
+                      <option value="Defended">Defended</option>
+                      <option value="Loss">Loss</option>
+                      <option value="ReformIntroduced">Reform Introduced</option>
+                      <option value="Advanced">Advanced</option>
+                      <option value="Approved">Approved</option>
+                      <option value="Implemented">Implemented</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="newAttHeader-right">
+                  <div class="fields">
+                    <div id="lblReportdate" class="lbl">Report date</div>
+                    <div class="row form-group">
+                      <div class="col-sm-6">
+                        <div class="input-group date" id="reportdate">
+                          <input type="text" class="form-control" />
+                          <span class="input-group-append">
+                            <span class="input-group-text bg-white">
+                              <i class="fa fa-calendar"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cnt_sections">
+            <div class="sections">
+              <div class="newAttContent">
+                <div class="fields">
+                  <div class="lbl">What SRHRJ need is this related to?</div>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example">
+                    <option value="" disabled selected>
+                      Select your option
+                    </option>
+                    <option value="psgd">Promoting sexual and gender diversity</option>
+                    <option value="cseyp">Comprehensive sexuality education to young people</option>
+                    <option value="msgv">Mitigating sexual and gender-based violence</option>
+                    <option value="asla">Access to safe and legal abortion</option>
+                    <option value="ac">Access to contraception</option>
+                    <option value="pge">Promoting gender equality</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="fields">
+                  <div class="lbl">Brief (120 ch)</div>
+                  <input class="form-control" type="text" aria-label="default input example">
+                </div>
+                <div class="fields">
+                  <div class="lbl">Brief Translations</div>
+                  <input class="form-control" type="text" aria-label="default input example">
+                </div>
+                <div class="fields">
+                  <div class="lbl">Detail</div>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="fields">
+                  <div class="lbl">Detail Translations</div>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="bttm-btns">
+                <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                <button type="button" class="btn btn-outline-primary">Save and next</button>
+                <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+    $(`<div class="scrim">`).appendTo(".wrapper");
+    $(`<div id="${id}dlgNew" class="dlg_new">`).appendTo(".scrim");
+    $(addNewBase).appendTo(`.dlg_new`);
+  });
+
+  $(document).on("click", ".btn-sys-close", function () {
+    $("div.scrim").remove();
+  });
+
+  // Detecta cambios en el select #advStage
+  $(document).on("change", "#advStage", function () {
+    var contribution = `<div id="contribSelected" class="lineTwoFields">
+          <div class="lineTwoFields-lbl">
+            <div class="lbl">Did this advocacy activity take place over an extended period of time? If so, please indicate the end date or, if it is not yet complete, indicate that it is on-going</div>
+          </div>
+          <div class="lineTwoFields-left">
+            <select
+              class="form-select"
+              aria-label="Default select example">
+              <option value="" disabled selected>
+                Select your option
+              </option>
+              <option value="Completed">Completed</option>
+              <option value="On_going">On-going</option>
+            </select>
+          </div>
+          <div class="lineTwoFields-right">
+            <div class="row form-group">
+              <div class="col-sm-7">
+                <div class="input-group date" id="dateadvactivity">
+                  <input type="text" class="form-control" />
+                  <span class="input-group-append">
+                    <span class="input-group-text bg-white">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    // Verifica si el valor seleccionado es "Contribution"
+    if ($(this).val() === "Contribution") {
+        // Comprueba si el div ya existe para evitar agregarlo múltiples veces
+        if ($('#contribSelected').length === 0) {
+            $('.newAttContent').prepend(contribution);
+            $('#lblReportdate').html('On what date did you conduct an advocacy activity?');
+        }
+    } else {
+        // Si se selecciona otra opción, elimina el div si existe
+        $('#contribSelected').remove();
+        $('#lblReportdate').html('Report date');
+    }
+  });
 });
