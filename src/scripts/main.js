@@ -2153,4 +2153,11 @@ $(document).ready(function () {
       `<img src="${url}${imgs[2]}" style="width:100%; height:auto;">`
     );
   }
+
+  //New Advocacy Tracking Tool
+  $(document).on("click", ".btn_addnew", function (e) {
+    e.preventDefault();
+        var id = $(this).attr('id');
+        alert('El ID del elemento es: ' + id);
+    });
 });
