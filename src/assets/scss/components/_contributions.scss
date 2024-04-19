@@ -4,7 +4,7 @@
   grid-auto-columns: max-content;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 19px;
+  grid-template-rows: minmax(164px, auto) 19px;
   gap: 0px 0px;
   grid-template-areas:
     "contributions"
