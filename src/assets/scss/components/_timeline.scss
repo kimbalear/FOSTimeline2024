@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
   overflow-y: auto;
   overflow-y: hidden;
 
@@ -11,11 +11,9 @@
     height: 100%;
     display: grid;
     grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
-    grid-template-rows: 36px 1fr 44px 1fr;
+    grid-template-rows: 36px calc(50% - 58px) 44px calc(50% - 22px) ;
     gap: 0px 0px;
     grid-auto-flow: row;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $clrgba15;
     grid-template-areas:
       "tp_yr ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top"
       "tp_yr tp1 tp2 tp3 tp4 tp5 tp6 tp7 tp8 tp9 tp10 tp11 tp12"
