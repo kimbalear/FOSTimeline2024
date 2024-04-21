@@ -384,7 +384,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   height: 100%;
   display: grid;
   grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
-  grid-template-rows: 36px calc(50% - 58px) 44px calc(50% - 22px);
+  grid-template-rows: 36px 1fr 44px 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "tp_yr ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top" "tp_yr tp1 tp2 tp3 tp4 tp5 tp6 tp7 tp8 tp9 tp10 tp11 tp12" "line line line line line line line line line line line line line" "btm_yr bt1 bt2 bt3 bt4 bt5 bt6 bt7 bt8 bt9 bt10 bt11 bt12";
@@ -2687,11 +2687,12 @@ body .wrapper .content ::-webkit-scrollbar-button {
 
 .pnl_top {
   display: grid;
+  height: max-content;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(164px, auto) 19px;
+  grid-template-rows: 1fr 19px;
   gap: 0px 0px;
   grid-template-areas: "contributions" "line";
 }
@@ -2701,7 +2702,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   border-radius: 10px;
   padding: 8px 2px 4px 8px;
   background: rgba(119, 113, 106, 0.04);
-  height: calc(100% - 36px);
+  height: 100%;
   align-self: end;
   /* total width */
   /* background of the scrollbar except button or resizer */
