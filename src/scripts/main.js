@@ -2155,49 +2155,45 @@ $(document).ready(function () {
     e.preventDefault();
     var id = $(this).attr("id");
 
-    var addNewBase = `<div class="dlg_bar">
-          <div class="dlg_title">New Advocacy Tracking Tool</div>
-          <div class="dlg_cta">
-            <div class="btn-sys-close"></div>
-          </div>
+    var addNewBase = `
+    <div class="dlg_bar">
+      <div class="dlg_title">New Advocacy Tracking Tool</div>
+        <div class="dlg_cta">
+          <div class="btn-sys-close"></div>
         </div>
-        <div class="dlg_cnt">
-          <div class="cnt_header">
-            <div class="newAdvocayTrackingTool">
-              <div class="newAttHeader">
-                <div class="newAttHeader-left">
-                  <div class="fields">
-                    <div class="lbl">Advocacy Stage</div>
-                    <select id="advStage" class="form-select" aria-label="Default select example">
-                      <option value="" disabled selected>
-                        Select your option
-                      </option>
-                      <option value="Contribution">Contribution</option>
-                      <option value="RegressionIntroduced">
-                        Regression Introduced
-                      </option>
-                      <option value="Defended">Defended</option>
-                      <option value="Loss">Loss</option>
-                      <option value="ReformIntroduced">Reform Introduced</option>
-                      <option value="Advanced">Advanced</option>
-                      <option value="Approved">Approved</option>
-                      <option value="Implemented">Implemented</option>
-                    </select>
-                  </div>
+      </div>
+      <div class="dlg_cnt">
+        <div class="cnt_header">
+          <div class="newAdvocayTrackingTool">
+            <div class="newAttHeader">
+              <div class="newAttHeader-left">
+                <div class="fields">
+                  <div class="lbl">Advocacy Stage</div>
+                  <select id="advStage" class="form-select" aria-label="Default select example">
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="Contribution">Contribution</option>
+                    <option value="RegressionIntroduced">Regression Introduced</option>
+                    <option value="Defended">Defended</option>
+                    <option value="Loss">Loss</option>
+                    <option value="ReformIntroduced">Reform Introduced</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Implemented">Implemented</option>
+                  </select>
                 </div>
-                <div class="newAttHeader-right">
-                  <div class="fields">
-                    <div id="lblReportdate" class="lbl">Report date</div>
-                    <div class="row form-group">
-                      <div class="col-sm-6">
-                        <div class="input-group date" id="reportdate">
-                          <input type="text" class="form-control" />
-                          <span class="input-group-append">
-                            <span class="input-group-text bg-white">
-                              <i class="fa fa-calendar"></i>
-                            </span>
+              </div>
+            <div class="newAttHeader-right">
+              <div class="fields">
+                <div id="lblReportdate" class="lbl">Report date</div>
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <div class="input-group date" id="reportdate">
+                        <input type="text" class="form-control" />
+                        <span class="input-group-append">
+                          <span class="input-group-text bg-white">
+                            <i class="fa fa-calendar"></i>
                           </span>
-                        </div>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -2205,17 +2201,14 @@ $(document).ready(function () {
               </div>
             </div>
           </div>
-          <div class="cnt_sections">
-            <div class="sections">
-              <div class="newAttContent">
-                <div class="fields">
-                  <div class="lbl">What SRHRJ need is this related to?</div>
-                  <select
-                    class="form-select"
-                    aria-label="Default select example">
-                    <option value="" disabled selected>
-                      Select your option
-                    </option>
+        </div>
+        <div class="cnt_sections">
+          <div class="sections">
+            <div class="newAttContent">
+              <div class="fields">
+                <div class="lbl">What SRHRJ need is this related to?</div>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="" disabled selected>Select your option</option>
                     <option value="psgd">Promoting sexual and gender diversity</option>
                     <option value="cseyp">Comprehensive sexuality education to young people</option>
                     <option value="msgv">Mitigating sexual and gender-based violence</option>
@@ -2225,35 +2218,39 @@ $(document).ready(function () {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-                <div class="fields">
-                  <div class="lbl">Brief (120 ch)</div>
-                  <input class="form-control" type="text" aria-label="default input example">
-                </div>
-                <div class="fields">
-                  <div class="lbl">Brief Translations</div>
-                  <input class="form-control" type="text" aria-label="default input example">
-                </div>
-                <div class="fields">
-                  <div class="lbl">Detail</div>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="fields">
-                  <div class="lbl">Detail Translations</div>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="bttm-btns">
-                <button type="button" class="btn btn-outline-secondary">Cancel</button>
-                <button type="button" class="btn btn-outline-primary">Save and next</button>
-                <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
-              </div>
-              </div>
+              <div class="fields">
+              <div class="lbl">Brief (120 ch)</div>
+                <input class="form-control" type="text" aria-label="default input example">
+            </div>
+            <div class="fields">
+              <div class="lbl">Brief Translations</div>
+              <input class="form-control" type="text" aria-label="default input example">
+            </div>
+            <div class="fields">
+              <div class="lbl">Detail</div>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="fields">
+              <div class="lbl">Detail Translations</div>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
             </div>
           </div>
-        </div>`;
+        </div>
+      </div>
+      <div class="dlg_cta_bttm"></div>`;
+
+    var ctaBtnsBtm = `
+    <div class="bttm-btns">
+      <button type="button" class="btn btn-outline-secondary">Cancel</button>
+      <button type="button" class="btn btn-outline-primary">Save and next</button>
+      <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
+    </div>`
 
     $(`<div class="scrim">`).appendTo(".wrapper");
     $(`<div id="${id}dlgNew" class="dlg_new">`).appendTo(".scrim");
     $(addNewBase).appendTo(`.dlg_new`);
+    $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
   });
 
   $(document).on("click", ".btn-sys-close", function () {

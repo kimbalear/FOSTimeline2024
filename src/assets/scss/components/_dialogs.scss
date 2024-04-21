@@ -517,7 +517,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 48px auto;
+    grid-template-rows: 48px auto auto;
     gap: 0px 0px;
     grid-auto-flow: row;
     background-color: $color_2;
@@ -527,7 +527,8 @@
     overflow: hidden;
     grid-template-areas:
       "dlg_bar"
-      "dlg_cnt";
+      "dlg_cnt"
+      "dlg_cta_bttm";
 
     .dlg_bar {
       display: grid;
@@ -738,6 +739,16 @@
             }
           }
         }
+      }
+    }
+    .dlg_cta_bttm{
+      grid-area: dlg_cta_bttm;
+      padding: 8px 16px 8px 8px;
+
+      .bttm-btns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0 8px;
       }
     }
   }
