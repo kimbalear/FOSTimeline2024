@@ -4,7 +4,7 @@
   grid-auto-columns: max-content;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-rows: 19px auto;
+  grid-template-rows: 19px 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "line"
@@ -20,6 +20,7 @@
     border: 1px solid $clr1;
     border-radius: 10px;
     padding: 8px 2px 4px 8px;
+    height: calc(100% - 16px);
     background: rgba(119, 113, 106, 0.04);
 
     /* total width */
