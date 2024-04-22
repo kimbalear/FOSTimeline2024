@@ -2044,12 +2044,12 @@ $(document).ready(function () {
     var url = "https://knowtechture.com/timeline/src/assets/imgs/";
     $('<div class="scrim">').appendTo(".wrapper");
 
-    $(`<div class="dlg ${cardNumber}">`).appendTo(".scrim");
+    $(`<div class="dlg d_lgnd${cardNumber}">`).appendTo(".scrim");
 
-    $(`<div class="dlg_bar xxx">`).appendTo(".dlg");
+    $(`<div class="dlg_bar lgnd${cardNumber}_g">`).appendTo(".dlg");
 
     $(`<div class="dlg_title">`).appendTo(".dlg_bar");
-    $(`<div class="dlg_cta xxx">`).appendTo(".dlg_bar");
+    $(`<div class="dlg_cta lgnd${cardNumber}_g">`).appendTo(".dlg_bar");
     $(`<div class="btn-sys-edit">`).appendTo(".dlg_cta");
     $(`<div class="btn-sys-close">`).appendTo(".dlg_cta");
     $(`<div class="dlg_cnt">`).appendTo(".dlg");
@@ -2064,11 +2064,11 @@ $(document).ready(function () {
     $(`<div class="top-c-dlg">`).appendTo(".header-dlg");
     $(`<div class="top-r-dlg">`).appendTo(".header-dlg");
 
-    $(`<div class="toggle-btn-dlg xxx" id="button1">`).appendTo(".top-r-dlg");
+    $(`<div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button1">`).appendTo(".top-r-dlg");
     $(`<div class="i_dlg_doc">`).appendTo("#button1");
     $(`<span class="label" id="label1">`).appendTo("#button1");
 
-    $(`<div class="toggle-btn-dlg xxx" id="button2">`).appendTo(".top-r-dlg");
+    $(`<div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button2">`).appendTo(".top-r-dlg");
     $(`<div class="i_dlg_imgs">`).appendTo("#button2");
     $(`<span class="label" id="label2">`).appendTo("#button2");
 
