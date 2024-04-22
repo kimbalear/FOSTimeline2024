@@ -5172,6 +5172,22 @@ input:checked + .slider:before {
 .newAttContent .lineTwoFields .lineTwoFields-right {
   grid-area: lineTwoFields-right;
 }
+.newAttContent .afterLine_bttm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 8px;
+  grid-auto-flow: row;
+  grid-template-areas: "afterLine_bttm-left" "afterLine_bttm-right";
+  padding: 16px 16px 8 px;
+  grid-area: afterLine_bttm;
+}
+.newAttContent .afterLine_bttm .afterLine_bttm-left {
+  grid-area: afterLine_bttm-left;
+}
+.newAttContent .afterLine_bttm .afterLine_bttm-right {
+  grid-area: afterLine_bttm-right;
+}
 
 .datepicker-days thead {
   font-size: 13px;
@@ -5213,10 +5229,20 @@ input:checked + .slider:before {
   font-style: normal;
   font-weight: 500;
   color: #111b2b;
+  max-width: 95%;
 }
 
 .input-group-append {
   cursor: pointer;
+}
+
+.helper_text {
+  width: 100%;
+  height: auto;
+  padding: 0 0 0 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */

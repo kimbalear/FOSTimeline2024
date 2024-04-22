@@ -2180,6 +2180,7 @@ $(document).ready(function () {
                     <option value="Approved">Approved</option>
                     <option value="Implemented">Implemented</option>
                   </select>
+                  <div class="helper_text">* A value is required</div>
                 </div>
               </div>
             <div class="newAttHeader-right">
@@ -2196,6 +2197,7 @@ $(document).ready(function () {
                         </span>
                       </div>
                     </div>
+                    <div class="helper_text">* A value is required</div>
                   </div>
                 </div>
               </div>
@@ -2217,22 +2219,27 @@ $(document).ready(function () {
                     <option value="pge">Promoting gender equality</option>
                     <option value="Other">Other</option>
                   </select>
+                  <div class="helper_text">* A value is required</div>
                 </div>
             <div id='line2' class="fields">
-              <div class="lbl">Brief (120 ch)</div>
+              <div id='lblBrief' class="lbl">Brief (120 ch)</div>
               <input class="form-control" type="text" aria-label="default input example">
+              <div class="helper_text">* A value is required</div>
             </div>
             <div id='line3' class="fields">
               <div class="lbl">Brief Translations</div>
               <input class="form-control" type="text" aria-label="default input example">
+              <div class="helper_text"></div>
             </div>
             <div id='line4' class="fields">
-              <div class="lbl">Detail</div>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <div id='lblDetail' class="lbl">Detail</div>
+              <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+              <div class="helper_text"></div>
             </div>
             <div id='line5'class="fields">
               <div class="lbl">Detail Translations</div>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
+              <div class="helper_text"></div>
             </div>
             </div>
           </div>
@@ -2257,33 +2264,49 @@ $(document).ready(function () {
     $("div.scrim").remove();
   });
 
-  $(document).on("change", "#advStage", function () {
-    // Contribution
-    if ($(this).val() === "Contribution") {
-      if ($("#beforeLine1").length === 0 && $("#afterLine1").length === 0) {
-        advStageContribution();
-      }
-    } else {
-      $("#beforeLine1, #afterLine1").remove();
-      //$("#lblReportdate").html("Report date");
-    }
+  // Mapeo de valores a funciones
+  const actionMap = {
+    "Contribution": advStageContribution,
+    "RegressionIntroduced": advStageRegressionIntroduced,
+    "Defended": advStageDefended,
+    "Loss": advStageLoss,
+    "ReformIntroduced": advStageReformIntroduced,
+    "Advanced": advStageAdvanced,
+    "Approved": advStageApproved,
+    "Implemented": advStageImplemented
+};
 
-    // RegressionIntroduced
-    if ($(this).val() === "RegressionIntroduced") {
-      if ($("#beforeLine1").length === 0 && $("#afterLine1").length === 0) {
-        advStageRegressionIntroduced();
-      }
-    } else {
-      //$("#beforeLine1, #afterLine1").remove();
-      //$("#lblReportdate").html("Report date");
+$(document).on("change", "#advStage", function () {
+    var selectedValue = $(this).val();
+    // Eliminar elementos antes de añadir nuevos
+    removeElements();
+
+    // Ejecutar la función correspondiente al valor seleccionado si existe
+    if (actionMap[selectedValue] && $("#" + getFirstId(selectedValue)).length === 0) {
+        actionMap[selectedValue]();
     }
-    // Defended
-    // Loss
-    // ReformIntroduced
-    // Advanced
-    // Approved
-    // Implemented
-  });
+});
+
+// Función para remover elementos
+function removeElements() {
+    $("#beforeLine1, #afterLine51, #afterLine52, #afterLine62, #afterLine72, #afterLine53, #afterLine63, #afterLine73, #afterLine54, #afterLine64, #afterLine74, #afterLine55, #afterLine65, #afterLine75, #afterLine56, #afterLine66, #afterLine76, #afterLine57, #afterLine67, #afterLine77").remove();
+}
+
+// Función para obtener el primer ID basado en el valor seleccionado
+function getFirstId(value) {
+    const idMap = {
+        "Contribution": "beforeLine1",
+        "RegressionIntroduced": "afterLine51",
+        "Defended": "afterLine52",
+        "Loss": "afterLine53",
+        "ReformIntroduced": "afterLine54",
+        "Advanced": "afterLine55",
+        "Approved": "afterLine56",
+        "Implemented": "afterLine57"
+    };
+    return idMap[value] || "defaultId";
+}
+
 
   function advStageContribution() {
     var beforeLine1 = `<div id="beforeLine1" class="lineTwoFields">
@@ -2317,11 +2340,6 @@ $(document).ready(function () {
         </div>
       </div>`;
 
-    var afterLine1 = `<div id="afterLine1" class="fields">
-    <div class="lbl">Please describe the advocacy activity your organization conducted (in 100 characters or less).</div>
-    <input class="form-control" type="text" aria-label="default input example">
-    </div>`;
-
     $(".newAttHeader").css({
       "grid-template-columns": "auto 1fr",
       "grid-template-rows": "1fr",
@@ -2329,13 +2347,60 @@ $(document).ready(function () {
     });
 
     $("#line1").before(beforeLine1);
-    $("#line1").after(afterLine1);
     $("#lblReportdate").html(
       "On what date did you conduct an advocacy activity?"
+    );
+    
+    $("#lblBrief").html(
+      "Please describe the advocacy activity your organization conducted (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about your advocacy activity."
     );
   }
 
   function advStageRegressionIntroduced() {
+    var afterLine51 = `
+    <div id="afterLine51" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageAfterLine5Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageAfterRight5" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine51);
+
     $(".newAttHeader").css({
       "grid-template-columns": "1fr",
       "grid-template-rows": "auto auto",
@@ -2345,5 +2410,422 @@ $(document).ready(function () {
     $("#lblReportdate").html(
       "On what date was a regression or restriction against SRHRJ introduced by external actors in your context?"
     );
+
+    $("#lblBrief").html(
+      "Please describe the regression or restriction against SRHRJ that was introduced by external actors in your context (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the regression or restriction on SRHRJ that was introduced."
+    );
   }
+
+  function advStageDefended() {
+    var afterLine52 = `
+    <div id='afterLine52'class="fields">
+      <div class="lbl">What worked in your defense of SRHRJ that will be a lesson for the future?.</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine62 = `
+    <div id='afterLine62'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine72 = `
+    <div id="afterLine72" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine52);
+    $("#afterLine52").after(afterLine62);
+    $("#afterLine62").after(afterLine72);
+    
+    $("#lblReportdate").html(
+      "On what date were you successful in defending SRHRJ against regression or restriction?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the successful defense of SRHRJ against policy, legislative, protocol or judicial regression that your organization contributed to (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the successful defense of SRHRJ against policy, legislative, protocol or judicial regression/restriction that your organization contributed to."
+    );
+  }
+
+  function advStageLoss() {
+    var afterLine53 = `
+    <div id='afterLine53'class="fields">
+      <div class="lbl">What did not work and why?</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine63 = `
+    <div id='afterLine63'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine73 = `
+    <div id="afterLine72" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine53);
+    $("#afterLine53").after(afterLine63);
+    $("#afterLine63").after(afterLine73);
+    
+    $("#lblReportdate").html(
+      "On what date did a policy, legislative, protocol or judicial loss related to SRHRJ occur?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the policy, legislative, protocol or judicial loss related to SRHRJ (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the loss or rejection related to SRHRJ."
+    );
+  }
+
+  function advStageReformIntroduced() {
+    var afterLine54 = `
+    <div id='afterLine54'class="fields">
+      <div class="lbl">What did not work and why?</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine64 = `
+    <div id='afterLine64'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine74 = `
+    <div id="afterLine74" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine54);
+    $("#afterLine54").after(afterLine64);
+    $("#afterLine64").after(afterLine74);
+    
+    $("#lblReportdate").html(
+      "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ introduced thanks to the contribution of your organization?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the policy, law, protocol, or judicial reform that was introduced in support of SRHRJ to which your organization contributed (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the policy, law, protocol, or judicial reform that was introduced in support of SRHRJ to which your organization contributed."
+    );
+  }
+
+  function advStageAdvanced() {
+    var afterLine55 = `
+    <div id='afterLine55'class="fields">
+      <div class="lbl">What did not work and why?</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine65 = `
+    <div id='afterLine65'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine75 = `
+    <div id="afterLine75" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine55);
+    $("#afterLine55").after(afterLine65);
+    $("#afterLine65").after(afterLine75);
+    
+    $("#lblReportdate").html(
+      "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ advanced thanks to the contribution of your organization?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the advancement in a policy, law, protocol, or judicial reform in support of SRHRJ to which your organization contributed (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the advancement in a policy, law, protocol, or judicial reform in support of SRHRJ to which your organization contributed."
+    );
+  }
+
+  function advStageApproved() {
+    var afterLine56 = `
+    <div id='afterLine56'class="fields">
+      <div class="lbl">What did not work and why?</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine66 = `
+    <div id='afterLine66'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine76 = `
+    <div id="afterLine76" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine56);
+    $("#afterLine56").after(afterLine66);
+    $("#afterLine66").after(afterLine76);
+    
+    $("#lblReportdate").html(
+      "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ approved thanks to the contribution of your organization?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the policy, law, protocol, or judicial reform that was approved/enacted in support of SRHRJ to which your organization contributed (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the policy, law, protocol, or judicial reform that was approved in support of SRHRJ to which your organization contributed."
+    );
+  }
+
+  function advStageImplemented() {
+    var afterLine57 = `
+    <div id='afterLine57'class="fields">
+      <div class="lbl">What did not work and why?</div>
+      <textarea class="form-control" id="exampleFormControlTextarea6" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine67 = `
+    <div id='afterLine67'class="fields">
+      <div class="lbl">Lessons Learned Translations</div>
+      <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
+      <div class="helper_text"></div>
+    </div>`;
+    var afterLine77 = `
+    <div id="afterLine77" class="afterLine_bttm">
+      <div class="afterLine_bttm-left">
+        <div class="fields">
+          <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+          <select id="advStageafterLine7Left" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="subNational">Sub-national</option>
+            <option value="National">National</option>
+            <option value="Regional">Regional</option>
+            <option value="Global">Global</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+      <div class="afterLine_bttm-right">
+        <div class="fields">
+          <div class="lbl">Advocacy Win Type</div>
+          <select id="advStageafterLine7Right" class="form-select" aria-label="Default select example">
+            <option value="" disabled selected>Select your option</option>
+            <option value="ApprovalCSEcurriculum">Approval of new or revised CSE curriculum or curricular guidelines</option>
+            <option value="newNationalStrategy">New national/sub-national strategy</option>
+            <option value="newNationalLegislation">New national/sub-national legislation</option>
+            <option value="MoH">MoH official guidelines approval</option>
+            <option value="newRevisedPolicy">New or revised policy / protocol</option>
+            <option value="financialAppropriation">Financial appropriation</option>
+            <option value="courtDecision">Court decision</option>
+            <option value="nationalDevelopment">National development plan (if the plan includes positive change for SRHR as a result of MA advocacy)</option>
+            <option value="nationalPlanSRHR">National (or subnational) plan for a SRHR related issue</option>
+            <option value="creationNewProgram">Creation of a new program</option>
+            <option value="inclusionSpecificMedication">Inclusion of a specific medication on the Essential Medicines List</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="helper_text"></div>
+        </div>
+      </div>
+    </div>`;
+
+    $("#line5").after(afterLine57);
+    $("#afterLine57").after(afterLine67);
+    $("#afterLine67").after(afterLine77);
+    
+    $("#lblReportdate").html(
+      "On what date was the implementation of a policy, law, protocol, or judicial ruling in support of SRHRJ advanced thanks to the contribution of your organization?"
+    );
+
+    $("#lblBrief").html(
+      "Please describe the advancement in the implementation of a policy, law, protocol, or judicial ruling in support of SRHRJ to which your organization contributed (in 100 characters or less)."
+    );
+
+    $("#lblDetail").html(
+      "(Optional) If desired, provide additional information about the advancement in the implementation of a policy, law, protocol, or judicial ruling in support of SRHRJ to which your organization contributed."
+    );
+  }
+
 });

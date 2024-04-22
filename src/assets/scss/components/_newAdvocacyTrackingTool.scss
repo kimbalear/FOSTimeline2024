@@ -60,6 +60,25 @@
       grid-area: lineTwoFields-right;
     }
   }
+
+  .afterLine_bttm {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 8px;
+    grid-auto-flow: row;
+    grid-template-areas: "afterLine_bttm-left" "afterLine_bttm-right";
+    padding: 16px 16px 8 px;
+    grid-area: afterLine_bttm;
+
+    .afterLine_bttm-left {
+      grid-area: afterLine_bttm-left;
+    }
+
+    .afterLine_bttm-right {
+      grid-area: afterLine_bttm-right;
+    }
+  }
 }
 
 .datepicker-days{
