@@ -5136,6 +5136,9 @@ input:checked + .slider:before {
 .newAdvocayTrackingTool .newAttHeader .newAttHeader-left {
   grid-area: newAttHeader-left;
 }
+.newAdvocayTrackingTool .newAttHeader .newAttHeader-left #advStage {
+  max-width: 274px;
+}
 .newAdvocayTrackingTool .newAttHeader .newAttHeader-right {
   grid-area: newAttHeader-right;
 }

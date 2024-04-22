@@ -2205,7 +2205,7 @@ $(document).ready(function () {
         <div class="cnt_sections">
           <div class="sections">
             <div class="newAttContent">
-              <div class="fields">
+              <div id='line1' class="fields">
                 <div class="lbl">What SRHRJ need is this related to?</div>
                   <select class="form-select" aria-label="Default select example">
                     <option value="" disabled selected>Select your option</option>
@@ -2218,19 +2218,19 @@ $(document).ready(function () {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-              <div class="fields">
+            <div id='line2' class="fields">
               <div class="lbl">Brief (120 ch)</div>
-                <input class="form-control" type="text" aria-label="default input example">
+              <input class="form-control" type="text" aria-label="default input example">
             </div>
-            <div class="fields">
+            <div id='line3' class="fields">
               <div class="lbl">Brief Translations</div>
               <input class="form-control" type="text" aria-label="default input example">
             </div>
-            <div class="fields">
+            <div id='line4' class="fields">
               <div class="lbl">Detail</div>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <div class="fields">
+            <div id='line5'class="fields">
               <div class="lbl">Detail Translations</div>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
@@ -2245,7 +2245,7 @@ $(document).ready(function () {
       <button type="button" class="btn btn-outline-secondary">Cancel</button>
       <button type="button" class="btn btn-outline-primary">Save and next</button>
       <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
-    </div>`
+    </div>`;
 
     $(`<div class="scrim">`).appendTo(".wrapper");
     $(`<div id="${id}dlgNew" class="dlg_new">`).appendTo(".scrim");
@@ -2257,49 +2257,93 @@ $(document).ready(function () {
     $("div.scrim").remove();
   });
 
-  // Detecta cambios en el select #advStage
   $(document).on("change", "#advStage", function () {
-    var contribution = `<div id="contribSelected" class="lineTwoFields">
-          <div class="lineTwoFields-lbl">
-            <div class="lbl">Did this advocacy activity take place over an extended period of time? If so, please indicate the end date or, if it is not yet complete, indicate that it is on-going</div>
-          </div>
-          <div class="lineTwoFields-left">
-            <select
-              class="form-select"
-              aria-label="Default select example">
-              <option value="" disabled selected>
-                Select your option
-              </option>
-              <option value="Completed">Completed</option>
-              <option value="On_going">On-going</option>
-            </select>
-          </div>
-          <div class="lineTwoFields-right">
-            <div class="row form-group">
-              <div class="col-sm-7">
-                <div class="input-group date" id="dateadvactivity">
-                  <input type="text" class="form-control" />
-                  <span class="input-group-append">
-                    <span class="input-group-text bg-white">
-                      <i class="fa fa-calendar"></i>
-                    </span>
+    // Contribution
+    if ($(this).val() === "Contribution") {
+      if ($("#beforeLine1").length === 0 && $("#afterLine1").length === 0) {
+        advStageContribution();
+      }
+    } else {
+      $("#beforeLine1, #afterLine1").remove();
+      //$("#lblReportdate").html("Report date");
+    }
+
+    // RegressionIntroduced
+    if ($(this).val() === "RegressionIntroduced") {
+      if ($("#beforeLine1").length === 0 && $("#afterLine1").length === 0) {
+        advStageRegressionIntroduced();
+      }
+    } else {
+      //$("#beforeLine1, #afterLine1").remove();
+      //$("#lblReportdate").html("Report date");
+    }
+    // Defended
+    // Loss
+    // ReformIntroduced
+    // Advanced
+    // Approved
+    // Implemented
+  });
+
+  function advStageContribution() {
+    var beforeLine1 = `<div id="beforeLine1" class="lineTwoFields">
+        <div class="lineTwoFields-lbl">
+          <div class="lbl">Did this advocacy activity take place over an extended period of time? If so, please indicate the end date or, if it is not yet complete, indicate that it is on-going</div>
+        </div>
+        <div class="lineTwoFields-left">
+          <select
+            class="form-select"
+            aria-label="Default select example">
+            <option value="" disabled selected>
+              Select your option
+            </option>
+            <option value="Completed">Completed</option>
+            <option value="On_going">On-going</option>
+          </select>
+        </div>
+        <div class="lineTwoFields-right">
+          <div class="row form-group">
+            <div class="col-sm-7">
+              <div class="input-group date" id="dateadvactivity">
+                <input type="text" class="form-control" />
+                <span class="input-group-append">
+                  <span class="input-group-text bg-white">
+                    <i class="fa fa-calendar"></i>
                   </span>
-                </div>
+                </span>
               </div>
             </div>
           </div>
-        </div>`;
-    // Verifica si el valor seleccionado es "Contribution"
-    if ($(this).val() === "Contribution") {
-        // Comprueba si el div ya existe para evitar agregarlo múltiples veces
-        if ($('#contribSelected').length === 0) {
-            $('.newAttContent').prepend(contribution);
-            $('#lblReportdate').html('On what date did you conduct an advocacy activity?');
-        }
-    } else {
-        // Si se selecciona otra opción, elimina el div si existe
-        $('#contribSelected').remove();
-        $('#lblReportdate').html('Report date');
-    }
-  });
+        </div>
+      </div>`;
+
+    var afterLine1 = `<div id="afterLine1" class="fields">
+    <div class="lbl">Please describe the advocacy activity your organization conducted (in 100 characters or less).</div>
+    <input class="form-control" type="text" aria-label="default input example">
+    </div>`;
+
+    $(".newAttHeader").css({
+      "grid-template-columns": "auto 1fr",
+      "grid-template-rows": "1fr",
+      "grid-template-areas": '"newAttHeader-left newAttHeader-right"',
+    });
+
+    $("#line1").before(beforeLine1);
+    $("#line1").after(afterLine1);
+    $("#lblReportdate").html(
+      "On what date did you conduct an advocacy activity?"
+    );
+  }
+
+  function advStageRegressionIntroduced() {
+    $(".newAttHeader").css({
+      "grid-template-columns": "1fr",
+      "grid-template-rows": "auto auto",
+      "grid-template-areas": '"newAttHeader-left" "newAttHeader-right"',
+    });
+
+    $("#lblReportdate").html(
+      "On what date was a regression or restriction against SRHRJ introduced by external actors in your context?"
+    );
+  }
 });

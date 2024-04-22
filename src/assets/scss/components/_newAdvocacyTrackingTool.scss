@@ -14,6 +14,10 @@
 
     .newAttHeader-left {
       grid-area: newAttHeader-left;
+
+      #advStage{
+        max-width: 274px;
+      }
     }
 
     .newAttHeader-right {
