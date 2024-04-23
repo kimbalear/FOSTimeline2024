@@ -127,12 +127,12 @@
   background-color: #14540D;
 }
 
-.d_lgndAddNew {
+.d_lgnd8 {
   border: 1px solid #4073FF;
   background-color: #fff;
 }
 
-.lgndAddNew_g {
+.d_lgnd8_g {
   color: #fff;
   background-color: #4073FF !important;
 }
@@ -4069,6 +4069,7 @@ label.checkbox.lgnd7 span {
 .scrim .dlg_new .dlg_cnt .cnt_header {
   grid-area: cnt_header;
   border-bottom: 1px solid #b2bac3;
+  position: relative;
 }
 .scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg {
   display: grid;
@@ -4130,6 +4131,36 @@ label.checkbox.lgnd7 span {
 .scrim .dlg_new .dlg_cnt .cnt_header .wrapper-dlg .header-dlg .cnt-dlg {
   grid-area: cnt-dlg;
   padding: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg {
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg .toggle-btn-dlg {
+  clear: both;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px 0px 0px 6px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  padding: 5px;
+  margin-bottom: 8px;
+  float: right;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg .toggle-btn-dlg .i_dlg_doc,
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg .toggle-btn-dlg .i_dlg_imgs {
+  float: left;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg .toggle-btn-dlg .label {
+  visibility: hidden;
+  margin: 0 0 0 8px;
+}
+.scrim .dlg_new .dlg_cnt .cnt_header .top-r-dlg .toggle-btn-dlg.active .label {
+  visibility: visible;
 }
 .scrim .dlg_new .dlg_cnt .cnt_sections {
   grid-area: cnt_sections;
@@ -5135,7 +5166,7 @@ input:checked + .slider:before {
 .newAdvocayTrackingTool {
   width: 100%;
   height: auto;
-  padding: 8px;
+  padding: 0 8px;
 }
 .newAdvocayTrackingTool .newAttHeader {
   display: grid;
@@ -5144,7 +5175,7 @@ input:checked + .slider:before {
   gap: 0px 8px;
   grid-auto-flow: row;
   grid-template-areas: "newAttHeader-left newAttHeader-right";
-  padding: 16px 16px 8 px;
+  padding: 16px 8px 0;
   grid-area: newAttHeader;
 }
 .newAdvocayTrackingTool .newAttHeader .newAttHeader-left {
@@ -5169,6 +5200,7 @@ input:checked + .slider:before {
   grid-auto-columns: 1fr;
   gap: 0px 8px;
   grid-auto-flow: row;
+  margin-bottom: 8px;
   grid-template-areas: "lineTwoFields-lbl lineTwoFields-lbl" "lineTwoFields-left lineTwoFields-right";
 }
 .sec1 .lineTwoFields .lineTwoFields-lbl {
@@ -5256,19 +5288,22 @@ input:checked + .slider:before {
   color: #111b2b;
   max-width: 98%;
 }
+.fields .helper_text {
+  visibility: hidden;
+  width: 100%;
+  height: 0;
+  padding: 0 0 0 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: red;
+}
 
 .input-group-append {
   cursor: pointer;
 }
 
-.helper_text {
-  visibility: hidden;
-  width: 100%;
-  height: auto;
-  padding: 0 0 0 16px;
-  font-size: 12px;
-  line-height: 16px;
-  color: red;
+.form-group {
+  margin: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

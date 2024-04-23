@@ -2021,11 +2021,11 @@ $(document).ready(function () {
     var title = $(this).find(".title").text();
     var subtitle = $(this).find(".subtitle").text();
     var content = $(this).find(".cont").text();
-    contentCards_need(cardNumber, partner, title, subtitle, content);
+    contentCards(cardNumber, partner, title, subtitle, content);
   });
 
   //-- Legends cta
-  function contentCards_need(cardNumber, partner, title, subtitle, content) {
+  function contentCards(cardNumber, partner, title, subtitle, content) {
     var imgs = ["1.jpg", "2.jpg", "3.jpg"];
     var url = "https://knowtechture.com/timeline/src/assets/imgs/";
 
@@ -2120,89 +2120,45 @@ $(document).ready(function () {
           </div>
         </div>
       </div>
-      <div class="dlg_cta_bttm"></div>`
-/*
-    dialogsNeed = `
-    <div class="dlg d_lgnd${cardNumber}">
-      <div class="dlg_bar lgnd${cardNumber}_g">
-      <div class="dlg_title">Promoting sexual and gender diversity - Regression Introduced</div>
-      <div class="dlg_cta lgnd${cardNumber}_g">
-        <div class="btn-sys-edit"></div>
-        <div class="btn-sys-close"></div>
-      </div>
-    </div>
-    <div class="dlg_cnt">
-      <div class="cnt_header">
-        <div class="wrapper-dlg">
-          <div class="header-dlg">
-            <div class="top-l-dlg"><label>${partner}</label></div>
-            <div class="top-c-dlg">2024 Jan 02</div>
-            <div class="top-r-dlg">
-              <div class="toggle-btn-dlg lgnd${cardNumber}_g">
-                <div class="i_dlg_doc"></div>
-                <span class="label">File Upload</span>
-              </div>
-              <div class="toggle-btn-dlg lgnd${cardNumber}_g">
-                <div class="i_dlg_imgs"></div>
-                <span class="label">Images</span>
-              </div>
-            </div>
-            <div class="cnt-dlg">Regression Introduced</div>
-          </div>
-        </div>
-      </div>
-      <div class="cnt_sections">
-        <div class="sections">
-          <div class="sec1">
-            <div class="dl2">
-              <div class="bxtext">
-                <div class="lbl">Brief Description</div>
-                <div class="content">ewwertert</div>
-                <div class="lbl">Additional Details</div>
-                <div class="content">34534</div>
-                <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
-                <div class="content">Sub-national</div>
-                <div class="lbl">Advocacy Win Type</div>
-                <div class="content">Approval of new or revised CSE curriculum or curricular guidelines</div>
-              </div>
-            </div>
-          </div>
-        <div class="sec2">
-          <div class="dl3">
-            <div class="dl3title">File Upload</div>
-            <div class="dl3files">
-              <div class="f_icon">
-                <div class="f_icon">
-                  <div class="xls_file"></div>
-                </div>
-              </div>
-              <div class="f_name">ic_launcher_background.xml</div>
-            </div>
-          </div>
-        </div>
-        <div class="sec3">
-          <div class="dl4">
-            <div class="dl4title">Images</div>
-            <div class="dl4cont">
-              <div class="i1">
-                <img src="${url}${imgs[0]}"">
-              </div>
-              <div class="i2">
-              <img src="${url}${imgs[1]}"">
-              </div>
-              <div class="i3">
-              <img src="${url}${imgs[2]}"">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-*/
+      <div class="dlg_cta_bttm"></div>`;
+
     $(`<div class="scrim">`).appendTo(".wrapper");
     $(`<div class="dlg_new d_lgnd${cardNumber}">`).appendTo(".scrim");
     $(dialogsNeed).appendTo(`.dlg_new`);
     $('#advStage').val(cardNumber.toString()).change();
+
+    var toggleBtns = `
+    <div class="top-r-dlg">
+        <div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button1">
+          <div class="i_dlg_doc"></div>
+          <span class="label" id="label1">Documents</span>
+        </div>
+        <div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button2">
+          <div class="i_dlg_imgs"></div>
+          <span class="label" id="label2">Images</span>
+        </div>
+      </div>`;
+
+    var typeDlg = parseInt(cardNumber, 10);
+
+    if (Number.isInteger(typeDlg)) {
+      console.log("La variable es un número entero.");
+    } else {
+        console.log("La variable no es un número entero.");
+    }
+
+    if(typeDlg != 0){
+      console.log("cardNumber: " + typeDlg);
+      $(toggleBtns).appendTo('.cnt_header');
+    }
+
+    //$('<div class="top-r-dlg">').appendTo('.header-dlg')
+    //$('<div class="toggle-btn-dlg ' + groupStyle + '" id="button1">').appendTo('.top-r-dlg')
+    //$('<div class="i_dlg_doc">').appendTo('#button1')
+    //$('<span class="label" id="label1">').appendTo('#button1')
+    //$('<div class="toggle-btn-dlg ' + groupStyle + '" id="button2">').appendTo('.top-r-dlg')
+    //$('<div class="i_dlg_imgs">').appendTo('#button2')
+    //$('<span class="label" id="label2">').appendTo('#button2')
 
   }
 
@@ -2212,7 +2168,7 @@ $(document).ready(function () {
     var id = $(this).attr("id");
 
     var addNewBase = `
-    <div class="dlg_bar lgndAddNew_g">
+    <div class="dlg_bar d_lgnd8_g">
       <div class="dlg_title">New Advocacy Tracking Tool</div>
         <div class="dlg_cta">
           <div class="btn-sys-close"></div>
@@ -2311,7 +2267,7 @@ $(document).ready(function () {
     </div>`;
 
     $(`<div class="scrim">`).appendTo(".wrapper");
-    $(`<div id="${id}dlgNew" class="dlg_new d_lgndAddNew">`).appendTo(".scrim");
+    $(`<div id="${id}dlgNew" class="dlg_new d_lgnd8">`).appendTo(".scrim");
     $(addNewBase).appendTo(`.dlg_new`);
     $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
   });
@@ -2322,14 +2278,14 @@ $(document).ready(function () {
 
   // Mapping values to functions
   const actionMap = {
-    Contribution: advStageContribution,
-    RegressionIntroduced: advStageRegressionIntroduced,
-    Defended: advStageDefended,
-    Loss: advStageLoss,
-    ReformIntroduced: advStageReformIntroduced,
-    Advanced: advStageAdvanced,
-    Approved: advStageApproved,
-    Implemented: advStageImplemented,
+    0: advStageContribution,
+    1: advStageRegressionIntroduced,
+    2: advStageDefended,
+    3: advStageLoss,
+    4: advStageReformIntroduced,
+    5: advStageAdvanced,
+    6: advStageApproved,
+    7: advStageImplemented,
   };
 
   $(document).on("change", "#advStage", function () {
@@ -3009,11 +2965,4 @@ function contentCards_i(dlgtype, dlgTitle, groupStyle) {
   $('.scrs').html("Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius.")
   
 }
-
-  $(document).on('click', '.card_lgn', function () {
-    dlgtype = 'd_lgnd0'
-    dlgTitle = $(this).find(".title").text()
-    groupStyle = 'lgnd0_g'
-    contentCards_cont(dlgtype, dlgTitle, groupStyle)
-  });
 });

@@ -1,7 +1,7 @@
 .newAdvocayTrackingTool {
   width: 100%;
   height: auto;
-  padding: 8px;
+  padding: 0 8px;
   .newAttHeader {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -9,7 +9,7 @@
     gap: 0px 8px;
     grid-auto-flow: row;
     grid-template-areas: "newAttHeader-left newAttHeader-right";
-    padding: 16px 16px 8 px;
+    padding: 16px 8px 0;
     grid-area: newAttHeader;
 
     .newAttHeader-left {
@@ -38,6 +38,7 @@
     grid-auto-columns: 1fr;
     gap: 0px 8px;
     grid-auto-flow: row;
+    margin-bottom: 8px;
     grid-template-areas:
       "lineTwoFields-lbl lineTwoFields-lbl"
       "lineTwoFields-left lineTwoFields-right";

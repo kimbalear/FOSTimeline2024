@@ -567,6 +567,7 @@
       .cnt_header {
         grid-area: cnt_header;
         border-bottom: 1px solid $color_4;
+        position: relative;
 
         .wrapper-dlg {
           display: grid;
@@ -640,6 +641,44 @@
             .cnt-dlg {
               grid-area: cnt-dlg;
               padding: 8px;
+            }
+          }
+        }
+
+        .top-r-dlg{
+          position: absolute;
+          right: 0;
+          top: 8px;
+
+          .toggle-btn-dlg {
+            clear: both;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px 0px 0px 6px;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            border-top: 1px solid;
+            padding: 5px;
+            margin-bottom: 8px;
+            float: right;
+            cursor: pointer;
+            transition: all 0.5s ease;
+
+            .i_dlg_doc,
+            .i_dlg_imgs {
+              float: left;
+              //margin: 2px 0 0;
+            }
+
+            .label {
+              visibility: hidden;
+              margin: 0 0 0 8px;
+            }
+          }
+
+          .toggle-btn-dlg.active {
+            .label {
+              visibility: visible;
             }
           }
         }
