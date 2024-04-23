@@ -5229,7 +5229,7 @@ input:checked + .slider:before {
   font-style: normal;
   font-weight: 500;
   color: #111b2b;
-  max-width: 95%;
+  max-width: 98%;
 }
 
 .input-group-append {
@@ -5237,6 +5237,7 @@ input:checked + .slider:before {
 }
 
 .helper_text {
+  visibility: hidden;
   width: 100%;
   height: auto;
   padding: 0 0 0 16px;

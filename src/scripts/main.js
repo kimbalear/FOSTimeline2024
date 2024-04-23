@@ -2042,112 +2042,86 @@ $(document).ready(function () {
   function contentCards_need(cardNumber, partner, title, subtitle, content) {
     var imgs = ["1.jpg", "2.jpg", "3.jpg"];
     var url = "https://knowtechture.com/timeline/src/assets/imgs/";
+
+    dialogsNeed = `
+    <div class="dlg d_lgnd${cardNumber}">
+      <div class="dlg_bar lgnd${cardNumber}_g">
+      <div class="dlg_title">Promoting sexual and gender diversity - Regression Introduced</div>
+      <div class="dlg_cta lgnd${cardNumber}_g">
+        <div class="btn-sys-edit"></div>
+        <div class="btn-sys-close"></div>
+      </div>
+    </div>
+    <div class="dlg_cnt">
+      <div class="cnt_header">
+        <div class="wrapper-dlg">
+          <div class="header-dlg">
+            <div class="top-l-dlg"><label>Advocacy Tracker</label></div>
+            <div class="top-c-dlg">2024 Jan 02</div>
+            <div class="top-r-dlg">
+              <div class="toggle-btn-dlg lgnd${cardNumber}_g">
+                <div class="i_dlg_doc"></div>
+                <span class="label">File Upload</span>
+              </div>
+              <div class="toggle-btn-dlg lgnd${cardNumber}_g">
+                <div class="i_dlg_imgs"></div>
+                <span class="label">Images</span>
+              </div>
+            </div>
+            <div class="cnt-dlg">Regression Introduced</div>
+          </div>
+        </div>
+      </div>
+      <div class="cnt_sections">
+        <div class="sections">
+          <div class="sec1">
+            <div class="dl2">
+              <div class="bxtext">
+                <div class="lbl">Brief Description</div>
+                <div class="content">ewwertert</div>
+                <div class="lbl">Additional Details</div>
+                <div class="content">34534</div>
+                <div class="lbl">Please state at which level (subnational, national, regional, global) did the change occur?</div>
+                <div class="content">Sub-national</div>
+                <div class="lbl">Advocacy Win Type</div>
+                <div class="content">Approval of new or revised CSE curriculum or curricular guidelines</div>
+              </div>
+            </div>
+          </div>
+        <div class="sec2">
+          <div class="dl3">
+            <div class="dl3title">File Upload</div>
+            <div class="dl3files">
+              <div class="f_icon">
+                <div class="f_icon">
+                  <div class="xls_file"></div>
+                </div>
+              </div>
+              <div class="f_name">ic_launcher_background.xml</div>
+            </div>
+          </div>
+        </div>
+        <div class="sec3">
+          <div class="dl4">
+            <div class="dl4title">Images</div>
+            <div class="dl4cont">
+              <div class="i1">
+                <img src="${url}${imgs[0]}"">
+              </div>
+              <div class="i2">
+              <img src="${url}${imgs[1]}"">
+              </div>
+              <div class="i3">
+              <img src="${url}${imgs[2]}"">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
     $('<div class="scrim">').appendTo(".wrapper");
-
-    $(`<div class="dlg d_lgnd${cardNumber}">`).appendTo(".scrim");
-
-    $(`<div class="dlg_bar lgnd${cardNumber}_g">`).appendTo(".dlg");
-
-    $(`<div class="dlg_title">`).appendTo(".dlg_bar");
-    $(`<div class="dlg_cta lgnd${cardNumber}_g">`).appendTo(".dlg_bar");
-    $(`<div class="btn-sys-edit">`).appendTo(".dlg_cta");
-    $(`<div class="btn-sys-close">`).appendTo(".dlg_cta");
-    $(`<div class="dlg_cnt">`).appendTo(".dlg");
-
-    $(`<div class="cnt_header">`).appendTo(".dlg_cnt");
-    $(`<div class="cnt_sections">`).appendTo(".dlg_cnt");
-    $(`<div class="sections">`).appendTo(".cnt_sections");
-
-    $(`<div class="wrapper-dlg">`).appendTo(".cnt_header");
-    $(`<div class="header-dlg">`).appendTo(".wrapper-dlg");
-    $(`<div class="top-l-dlg">`).appendTo(".header-dlg");
-    $(`<div class="top-c-dlg">`).appendTo(".header-dlg");
-    $(`<div class="top-r-dlg">`).appendTo(".header-dlg");
-
-    $(`<div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button1">`).appendTo(".top-r-dlg");
-    $(`<div class="i_dlg_doc">`).appendTo("#button1");
-    $(`<span class="label" id="label1">`).appendTo("#button1");
-
-    $(`<div class="toggle-btn-dlg lgnd${cardNumber}_g" id="button2">`).appendTo(".top-r-dlg");
-    $(`<div class="i_dlg_imgs">`).appendTo("#button2");
-    $(`<span class="label" id="label2">`).appendTo("#button2");
-
-    $(`<div class="cnt-dlg">`).appendTo(".header-dlg");
-
-    $(".top-l-dlg").html("<label>Advocacy Tracker</label>");
-    $(".dlg_title").html(title);
-    $(".top-c-dlg").html("##/##/####");
-    $(".cnt-dlg").html("[ Advocacy Stage ]");
-    $("#label1").html("Documents");
-    $("#label2").html("Images");
-
-    $(`<div class="sec1">`).appendTo(".sections");
-    $(`<div class="dl2">`).appendTo(".sec1");
-
-    $(`<div class="dl1_title">`).appendTo(".dl1");
-    $(`<div class="dl1_end_d">`).appendTo(".dl1");
-    $(`<div class="dl1_cont">`).appendTo(".dl1");
-
-    $(".dl2").html(content);
-
-    $(`<div class="sec2">`).appendTo(".sections").css({
-      visibility: "hidden",
-      height: "0px",
-    });
-    $(`<div class="dl3">`).appendTo(".sec2");
-
-    $(`<div class="dl3title">`).appendTo(".dl3");
-    $(".dl3title").html(
-      "Documents => Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
-    );
-
-    $(`<div id="file1" class="dl3files">`).appendTo(".dl3");
-
-    $(`<div id="f_icon1" class="f_icon">`).appendTo("#file1");
-    $(`<div class="doc_file">`).appendTo("#f_icon1");
-    $(`<div id="f_name1" class="f_name">`).appendTo("#file1");
-
-    $("#f_name1").html(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
-    );
-
-    //--------------------------
-    $(`<div id="file2" class="dl3files">`).appendTo(".dl3");
-    $(`<div id="f_icon2" class="f_icon">`).appendTo("#file2");
-    $(`<div class="pdf_file">`).appendTo("#f_icon2");
-    $(`<div id="f_name2" class="f_name">`).appendTo("#file2");
-    $("#f_name2").html(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
-    );
-
-    $(`<div id="file3" class="dl3files">`).appendTo(".dl3");
-    $(`<div id="f_icon3" class="f_icon">`).appendTo("#file3");
-    $(`<div class="xls_file">`).appendTo("#f_icon3");
-    $(`<div id="f_name3" class="f_name">`).appendTo("#file3");
-    $("#f_name3").html(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ultricies dui, vel mattis risus sollicitudin vel. Curabitur eget euismod nisl, et luctus ipsum. Integer neque erat, ullamcorper non posuere a, dignissim a mi. Sed odio libero, convallis ut venenatis vitae, vehicula sed nunc. Praesent fringilla mollis purus at placerat. Sed volutpat et elit vel dignissim. Sed ut interdum magna. Nullam finibus velit ipsum."
-    );
-
-    $(`<div class="sec3">`).appendTo(".sections").css({
-      visibility: "hidden",
-      height: "0px",
-    });
-    $(`<div class="dl4">`).appendTo(".sec3");
-    $(`<div class="dl4title">`).appendTo(".dl4");
-    $(`<div class="dl4cont">`).appendTo(".dl4");
-    $(`<div class="i1">`).appendTo(".dl4cont");
-    $(`<div class="i2">`).appendTo(".dl4cont");
-    $(`<div class="i3">`).appendTo(".dl4cont");
-    $(".dl4title").html("Images");
-    $(".i1").html(
-      `<img src="${url}${imgs[0]}" style="width:100%; height:auto;">`
-    );
-    $(".i2").html(
-      `<img src="${url}${imgs[1]}" style="width:100%; height:auto;">`
-    );
-    $(".i3").html(
-      `<img src="${url}${imgs[2]}" style="width:100%; height:auto;">`
-    );
+    $(dialogsNeed).appendTo(".scrim");
   }
 
   //New Advocacy Tracking Tool
@@ -2264,49 +2238,53 @@ $(document).ready(function () {
     $("div.scrim").remove();
   });
 
-  // Mapeo de valores a funciones
+  // Mapping values to functions
   const actionMap = {
-    "Contribution": advStageContribution,
-    "RegressionIntroduced": advStageRegressionIntroduced,
-    "Defended": advStageDefended,
-    "Loss": advStageLoss,
-    "ReformIntroduced": advStageReformIntroduced,
-    "Advanced": advStageAdvanced,
-    "Approved": advStageApproved,
-    "Implemented": advStageImplemented
-};
+    Contribution: advStageContribution,
+    RegressionIntroduced: advStageRegressionIntroduced,
+    Defended: advStageDefended,
+    Loss: advStageLoss,
+    ReformIntroduced: advStageReformIntroduced,
+    Advanced: advStageAdvanced,
+    Approved: advStageApproved,
+    Implemented: advStageImplemented,
+  };
 
-$(document).on("change", "#advStage", function () {
+  $(document).on("change", "#advStage", function () {
     var selectedValue = $(this).val();
-    // Eliminar elementos antes de añadir nuevos
+    // Delete items before adding new ones
     removeElements();
 
-    // Ejecutar la función correspondiente al valor seleccionado si existe
-    if (actionMap[selectedValue] && $("#" + getFirstId(selectedValue)).length === 0) {
-        actionMap[selectedValue]();
+    // Execute the function corresponding to the selected value if it exists
+    if (
+      actionMap[selectedValue] &&
+      $("#" + getFirstId(selectedValue)).length === 0
+    ) {
+      actionMap[selectedValue]();
     }
-});
+  });
 
-// Función para remover elementos
-function removeElements() {
-    $("#beforeLine1, #afterLine51, #afterLine52, #afterLine62, #afterLine72, #afterLine53, #afterLine63, #afterLine73, #afterLine54, #afterLine64, #afterLine74, #afterLine55, #afterLine65, #afterLine75, #afterLine56, #afterLine66, #afterLine76, #afterLine57, #afterLine67, #afterLine77").remove();
-}
+  // Function to remove elements
+  function removeElements() {
+    $(
+      "#beforeLine1, #afterLine51, #afterLine52, #afterLine62, #afterLine72, #afterLine53, #afterLine63, #afterLine73, #afterLine54, #afterLine64, #afterLine74, #afterLine55, #afterLine65, #afterLine75, #afterLine56, #afterLine66, #afterLine76, #afterLine57, #afterLine67, #afterLine77"
+    ).remove();
+  }
 
-// Función para obtener el primer ID basado en el valor seleccionado
-function getFirstId(value) {
+  // Function to get first ID based on selected value
+  function getFirstId(value) {
     const idMap = {
-        "Contribution": "beforeLine1",
-        "RegressionIntroduced": "afterLine51",
-        "Defended": "afterLine52",
-        "Loss": "afterLine53",
-        "ReformIntroduced": "afterLine54",
-        "Advanced": "afterLine55",
-        "Approved": "afterLine56",
-        "Implemented": "afterLine57"
+      Contribution: "beforeLine1",
+      RegressionIntroduced: "afterLine51",
+      Defended: "afterLine52",
+      Loss: "afterLine53",
+      ReformIntroduced: "afterLine54",
+      Advanced: "afterLine55",
+      Approved: "afterLine56",
+      Implemented: "afterLine57",
     };
     return idMap[value] || "defaultId";
-}
-
+  }
 
   function advStageContribution() {
     var beforeLine1 = `<div id="beforeLine1" class="lineTwoFields">
@@ -2350,7 +2328,7 @@ function getFirstId(value) {
     $("#lblReportdate").html(
       "On what date did you conduct an advocacy activity?"
     );
-    
+
     $("#lblBrief").html(
       "Please describe the advocacy activity your organization conducted (in 100 characters or less)."
     );
@@ -2474,7 +2452,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine52);
     $("#afterLine52").after(afterLine62);
     $("#afterLine62").after(afterLine72);
-    
+
     $("#lblReportdate").html(
       "On what date were you successful in defending SRHRJ against regression or restriction?"
     );
@@ -2542,7 +2520,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine53);
     $("#afterLine53").after(afterLine63);
     $("#afterLine63").after(afterLine73);
-    
+
     $("#lblReportdate").html(
       "On what date did a policy, legislative, protocol or judicial loss related to SRHRJ occur?"
     );
@@ -2610,7 +2588,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine54);
     $("#afterLine54").after(afterLine64);
     $("#afterLine64").after(afterLine74);
-    
+
     $("#lblReportdate").html(
       "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ introduced thanks to the contribution of your organization?"
     );
@@ -2678,7 +2656,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine55);
     $("#afterLine55").after(afterLine65);
     $("#afterLine65").after(afterLine75);
-    
+
     $("#lblReportdate").html(
       "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ advanced thanks to the contribution of your organization?"
     );
@@ -2746,7 +2724,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine56);
     $("#afterLine56").after(afterLine66);
     $("#afterLine66").after(afterLine76);
-    
+
     $("#lblReportdate").html(
       "On what date was a policy, law, protocol, or judicial initiative in support of SRHRJ approved thanks to the contribution of your organization?"
     );
@@ -2814,7 +2792,7 @@ function getFirstId(value) {
     $("#line5").after(afterLine57);
     $("#afterLine57").after(afterLine67);
     $("#afterLine67").after(afterLine77);
-    
+
     $("#lblReportdate").html(
       "On what date was the implementation of a policy, law, protocol, or judicial ruling in support of SRHRJ advanced thanks to the contribution of your organization?"
     );
@@ -2828,4 +2806,100 @@ function getFirstId(value) {
     );
   }
 
+  $(document).on("click", ".toggle-btn-dlg", function () {
+    var numElementosActivos = $(".toggle-btn-dlg.active").length;
+    var labelContent = $(this).children(".label").html();
+
+    if (numElementosActivos == 1) {
+      if ($(this).hasClass("active")) {
+        $(".toggle-btn-dlg").removeClass("active").css("width", "36px");
+        if (labelContent == "Documents") {
+          $(".sec1").css({
+            visibility: "visible",
+            height: "100%",
+          });
+          $(".sec2").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+          $(".sec3").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+        } else {
+          $(".sec1").css({
+            visibility: "visible",
+            height: "100%",
+          });
+          $(".sec2").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+          $(".sec3").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+        }
+      } else {
+        $(".toggle-btn-dlg").removeClass("active").css("width", "36px");
+        $(this).addClass("active").css("width", "max-content");
+        if (labelContent == "Documents") {
+          $(".sec1").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+          $(".sec2").css({
+            visibility: "visible",
+            height: "100%",
+          });
+          $(".sec3").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+        } else if (labelContent == "Images") {
+          $(".sec1").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+          $(".sec2").css({
+            visibility: "hidden",
+            height: "0px",
+          });
+          $(".sec3").css({
+            visibility: "visible",
+            height: "100%",
+          });
+        }
+      }
+    } else {
+      $(this).addClass("active").css("width", "max-content");
+      if (labelContent == "Documents") {
+        $(".sec1").css({
+          visibility: "hidden",
+          height: "0px",
+        });
+        $(".sec2").css({
+          visibility: "visible",
+          height: "100%",
+        });
+        $(".sec3").css({
+          visibility: "hidden",
+          height: "0px",
+        });
+      } else {
+        $(".sec1").css({
+          visibility: "hidden",
+          height: "0px",
+        });
+        $(".sec2").css({
+          visibility: "hidden",
+          height: "0px",
+        });
+        $(".sec3").css({
+          visibility: "visible",
+          height: "100%",
+        });
+      }
+    }
+  });
 });
