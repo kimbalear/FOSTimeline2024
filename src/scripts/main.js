@@ -1631,7 +1631,7 @@ $(document).ready(function () {
       contribMonth.forEach((contribution) => {
         let year = contribution.year;
         let cardCntr = `
-          <div class='card_contr'>
+          <div class='card_lgn0'>
             <div class="partner">${contribution.orgUnitName}</div>
             <div class="title">${contribution.title}</div>
             <div class="cont">${contribution.description}</div>
@@ -1941,8 +1941,8 @@ $(document).ready(function () {
 
   // Legends cta
   $("#lgnd0").click(function () {
-    $(".card_contr").toggle(this.checked);
-    $(".card_contr").parent().parent().parent().toggle(this.show);
+    $(".card_lgn").toggle(this.checked);
+    $(".card_lgn").parent().parent().parent().toggle(this.show);
   });
 
   $("#lgnd1").click(function () {
@@ -2021,20 +2021,6 @@ $(document).ready(function () {
     var title = $(this).find(".title").text();
     var subtitle = $(this).find(".subtitle").text();
     var content = $(this).find(".cont").text();
-
-    // Mostrar la información recogida junto con el número del card
-    alert(
-      "Card Number: " +
-        cardNumber +
-        "\nPartner: " +
-        partner +
-        "\nTitle: " +
-        title +
-        "\nSubtitle: " +
-        subtitle +
-        "\nContent: " +
-        content
-    );
     contentCards_need(cardNumber, partner, title, subtitle, content);
   });
 
@@ -2043,6 +2029,98 @@ $(document).ready(function () {
     var imgs = ["1.jpg", "2.jpg", "3.jpg"];
     var url = "https://knowtechture.com/timeline/src/assets/imgs/";
 
+    var dialogsNeed = `
+    <div class="dlg_bar lgnd${cardNumber}_g">
+      <div class="dlg_title">${partner}</div>
+        <div class="dlg_cta">
+          <div class="btn-sys-close"></div>
+        </div>
+      </div>
+      <div class="dlg_cnt">
+        <div class="cnt_header">
+          <div class="newAdvocayTrackingTool">
+            <div class="newAttHeader">
+              <div class="newAttHeader-left">
+                <div class="fields">
+                  <div class="lbl">Advocacy Stage</div>
+                  <select id="advStage" class="form-select" disabled>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="0">Contribution</option>
+                    <option value="1">Regression Introduced</option>
+                    <option value="2">Defended</option>
+                    <option value="3">Loss</option>
+                    <option value="4">Reform Introduced</option>
+                    <option value="5">Advanced</option>
+                    <option value="6">Approved</option>
+                    <option value="7">Implemented</option>
+                  </select>
+                  <div class="helper_text">* A value is required</div>
+                </div>
+              </div>
+            <div class="newAttHeader-right">
+              <div class="fields">
+                <div id="lblReportdate" class="lbl">Report date</div>
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <div class="input-group date" id="reportdate">
+                        <input type="text" class="form-control" disabled/>
+                        <span class="input-group-append">
+                          <span class="input-group-text bg-white">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="helper_text">* A value is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cnt_sections">
+          <div class="sections">
+            <div class="sec1">
+              <div id='line1' class="fields">
+                <div class="lbl">What SRHRJ need is this related to?</div>
+                  <select class="form-select" disabled>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="psgd">Promoting sexual and gender diversity</option>
+                    <option value="cseyp">Comprehensive sexuality education to young people</option>
+                    <option value="msgv">Mitigating sexual and gender-based violence</option>
+                    <option value="asla">Access to safe and legal abortion</option>
+                    <option value="ac">Access to contraception</option>
+                    <option value="pge">Promoting gender equality</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="helper_text">* A value is required</div>
+                </div>
+            <div id='line2' class="fields">
+              <div id='lblBrief' class="lbl">Brief (120 ch)</div>
+              <input class="form-control" type="text" disabled>
+              <div class="helper_text">* A value is required</div>
+            </div>
+            <div id='line3' class="fields">
+              <div class="lbl">Brief Translations</div>
+              <input class="form-control" type="text" disabled>
+              <div class="helper_text"></div>
+            </div>
+            <div id='line4' class="fields">
+              <div id='lblDetail' class="lbl">Detail</div>
+              <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" disabled></textarea>
+              <div class="helper_text"></div>
+            </div>
+            <div id='line5'class="fields">
+              <div class="lbl">Detail Translations</div>
+              <textarea class="form-control" id="exampleFormControlTextarea5" rows="3" disabled></textarea>
+              <div class="helper_text"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dlg_cta_bttm"></div>`
+/*
     dialogsNeed = `
     <div class="dlg d_lgnd${cardNumber}">
       <div class="dlg_bar lgnd${cardNumber}_g">
@@ -2056,7 +2134,7 @@ $(document).ready(function () {
       <div class="cnt_header">
         <div class="wrapper-dlg">
           <div class="header-dlg">
-            <div class="top-l-dlg"><label>Advocacy Tracker</label></div>
+            <div class="top-l-dlg"><label>${partner}</label></div>
             <div class="top-c-dlg">2024 Jan 02</div>
             <div class="top-r-dlg">
               <div class="toggle-btn-dlg lgnd${cardNumber}_g">
@@ -2119,9 +2197,12 @@ $(document).ready(function () {
         </div>
       </div>
     </div>`;
+*/
+    $(`<div class="scrim">`).appendTo(".wrapper");
+    $(`<div class="dlg_new d_lgnd${cardNumber}">`).appendTo(".scrim");
+    $(dialogsNeed).appendTo(`.dlg_new`);
+    $('#advStage').val(cardNumber.toString()).change();
 
-    $('<div class="scrim">').appendTo(".wrapper");
-    $(dialogsNeed).appendTo(".scrim");
   }
 
   //New Advocacy Tracking Tool
@@ -2130,7 +2211,7 @@ $(document).ready(function () {
     var id = $(this).attr("id");
 
     var addNewBase = `
-    <div class="dlg_bar">
+    <div class="dlg_bar lgndAddNew_g">
       <div class="dlg_title">New Advocacy Tracking Tool</div>
         <div class="dlg_cta">
           <div class="btn-sys-close"></div>
@@ -2145,14 +2226,14 @@ $(document).ready(function () {
                   <div class="lbl">Advocacy Stage</div>
                   <select id="advStage" class="form-select" aria-label="Default select example">
                     <option value="" disabled selected>Select your option</option>
-                    <option value="Contribution">Contribution</option>
-                    <option value="RegressionIntroduced">Regression Introduced</option>
-                    <option value="Defended">Defended</option>
-                    <option value="Loss">Loss</option>
-                    <option value="ReformIntroduced">Reform Introduced</option>
-                    <option value="Advanced">Advanced</option>
-                    <option value="Approved">Approved</option>
-                    <option value="Implemented">Implemented</option>
+                    <option value="0">Contribution</option>
+                    <option value="1">Regression Introduced</option>
+                    <option value="2">Defended</option>
+                    <option value="3">Loss</option>
+                    <option value="4">Reform Introduced</option>
+                    <option value="5">Advanced</option>
+                    <option value="6">Approved</option>
+                    <option value="7">Implemented</option>
                   </select>
                   <div class="helper_text">* A value is required</div>
                 </div>
@@ -2180,7 +2261,7 @@ $(document).ready(function () {
         </div>
         <div class="cnt_sections">
           <div class="sections">
-            <div class="newAttContent">
+            <div class="sec1">
               <div id='line1' class="fields">
                 <div class="lbl">What SRHRJ need is this related to?</div>
                   <select class="form-select" aria-label="Default select example">
@@ -2229,7 +2310,7 @@ $(document).ready(function () {
     </div>`;
 
     $(`<div class="scrim">`).appendTo(".wrapper");
-    $(`<div id="${id}dlgNew" class="dlg_new">`).appendTo(".scrim");
+    $(`<div id="${id}dlgNew" class="dlg_new d_lgndAddNew">`).appendTo(".scrim");
     $(addNewBase).appendTo(`.dlg_new`);
     $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
   });
@@ -2901,5 +2982,37 @@ $(document).ready(function () {
         });
       }
     }
+  });
+
+  $('.btn-lgnd-inf').on('click', function () {
+    dlgtype = 'd_' + $(this).parent().parent().find("input").attr('id');
+    dlgTitle = $(this).parent().parent().find(".checkbox").text();
+    groupStyle = $(this).parent().parent().find("input").attr('id') + '_g';
+    contentCards_i(dlgtype, dlgTitle, groupStyle);
+  });
+
+function contentCards_i(dlgtype, dlgTitle, groupStyle) {
+
+  $('<div class="scrim">').appendTo('body')
+
+  $('<div class="dlg_i ' + dlgtype + '">').appendTo('.scrim')
+  $('<div class="dlg_bar ' + groupStyle + '">').appendTo('.dlg_i')
+  $('<div class="dlg_title">').appendTo('.dlg_bar')
+  $('<div class="dlg_cta ' + groupStyle + '">').appendTo('.dlg_bar')
+  $('<div class="btn-sys-close">').appendTo('.dlg_cta')
+  $('<div class="dlg_cnt">').appendTo('.dlg_i')
+  $('<div class="cnt_sections">').appendTo('.dlg_cnt')
+  $('<div class="scrs">').appendTo('.cnt_sections')
+
+  $('.dlg_title').html(dlgTitle)
+  $('.scrs').html("Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius.")
+  
+}
+
+  $(document).on('click', '.card_lgn', function () {
+    dlgtype = 'd_lgnd0'
+    dlgTitle = $(this).find(".title").text()
+    groupStyle = 'lgnd0_g'
+    contentCards_cont(dlgtype, dlgTitle, groupStyle)
   });
 });

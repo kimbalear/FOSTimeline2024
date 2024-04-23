@@ -50,117 +50,134 @@ $shadow-lb: -3px 3px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .d_lgnd0 {
-    border-color: $clr3 !important;
-    border-color: $clr1 !important;
+    border: 1px solid $clr1;
+    background-color: $color_2;
 }
 
 .lgnd0_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd0_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd0_p!important;
 }
 
 .tt_lgnd0,
 .i_lgnd0 {
-    color: $clr2 !important;
-    background-color: $clr3 !important;
+    color: $clr2;
+    background-color: $clr3;
 }
 
 .d_lgnd1 {
-    border-color: $clrbk_lgnd1_p !important;
+    border: 1px solid $clrbk_lgnd1_p;
+    background-color: $color_2;
 }
 
 .lgnd1_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd1_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd1_p!important;
 }
 
 .d_lgnd2 {
-    border-color: $clrbk_lgnd2_p !important;
+    border: 1px solid $clrbk_lgnd2_p;
+    background-color: $color_2;
 }
 
 .lgnd2_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd2_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd2_p!important;
 }
 
 
 .tt_lgnd2,
 .i_lgnd2 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd2_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd2_p;
 }
 
 .d_lgnd3 {
-    border-color: $clrbk_lgnd3_p !important;
+    border: 1px solid $clrbk_lgnd3_p;
+    background-color: $color_2;
 }
 
 .lgnd3_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd3_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd3_p!important;
 }
 
 .tt_lgnd3,
 .i_lgnd3 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd3_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd3_p;
 }
 
 .d_lgnd4 {
-    border-color: $clrbk_lgnd4_p !important;
+    border: 1px solid $clrbk_lgnd4_p;
+    background-color: $color_2;
 }
 
 .lgnd4_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd4_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd4_p!important;
 }
 
 .tt_lgnd4,
 .i_lgnd4 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd4_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd4_p;
 }
 
 .d_lgnd5 {
-    border-color: $clrbk_lgnd5_p !important;
+    border: 1px solid $clrbk_lgnd5_p;
+    background-color: $color_2;
 }
 
 .lgnd5_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd5_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd5_p!important;
 }
 
 .tt_lgnd5,
 .i_lgnd5 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd5_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd5_p;
 }
 
 .d_lgnd6 {
-    border-color: $clrbk_lgnd6_p !important;
+    border: 1px solid $clrbk_lgnd6_p;
+    background-color: $color_2;
 }
 
 .lgnd6_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd6_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd6_p!important;
 }
 
 .tt_lgnd6,
 .i_lgnd6 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd6_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd6_p;
 }
 
 .d_lgnd7 {
-    border-color: $clrbk_lgnd7_p !important;
+    border: 1px solid $clrbk_lgnd7_p;
+    background-color: $color_2;
 }
 
 .lgnd7_g {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd7_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd7_p!important;
 }
 
 .tt_lgnd7,
 .i_lgnd7 {
-    color: $clr2 !important;
-    background-color: $clrbk_lgnd7_p !important;
+    color: $clr2;
+    background-color: $clrbk_lgnd7_p;
+}
+
+.d_lgndAddNew {
+    border: 1px solid $color_6;
+    background-color: $color_2;
+}
+
+.lgndAddNew_g {
+    color: $color_2;
+    background-color: $color_6!important;
 }

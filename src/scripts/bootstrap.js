@@ -16,9 +16,9 @@ $(document).ready(function () {
       if ($(this).val() === "Contribution") {
           // Comprueba si el div ya existe para evitar agregarlo múltiples veces
           if ($('#' + newDivId).length === 0) {
-              // Crea un div con contenido, un ID único, y lo agrega al principio de .newAttContent
+              // Crea un div con contenido, un ID único, y lo agrega al principio de .sec1
               var newDiv = $('<div id="' + newDivId + '" class="new-added-div">Contenido agregado cuando se selecciona Contribution</div>');
-              $('.newAttContent').prepend(newDiv);
+              $('.sec1').prepend(newDiv);
           }
       } else {
           // Si se selecciona otra opción, elimina el div si existe

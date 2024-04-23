@@ -26,9 +26,10 @@
   }
 }
 
-.newAttContent {
+.sec1 {
   width: 100%;
   height: 100%;
+  visibility: visible;
 
   .lineTwoFields {
     display: grid;
@@ -79,6 +80,16 @@
       grid-area: afterLine_bttm-right;
     }
   }
+}
+
+.sec2 {
+  visibility: hidden;
+  height: 0px;
+}
+
+.sec3 {
+  visibility: hidden;
+  height: 0px;
 }
 
 .datepicker-days{

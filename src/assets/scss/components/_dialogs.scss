@@ -248,8 +248,7 @@
     gap: 0px 0px;
     grid-auto-flow: row;
     background-color: $clr2;
-    border: 2px solid;
-    border-radius: 12px;
+    border-radius: 6px;
     box-sizing: border-box;
     overflow: hidden;
     grid-template-areas:
@@ -520,8 +519,6 @@
     grid-template-rows: 48px auto auto;
     gap: 0px 0px;
     grid-auto-flow: row;
-    background-color: $color_2;
-    border: 1px solid $color_6;
     border-radius: 6px;
     box-sizing: border-box;
     overflow: hidden;

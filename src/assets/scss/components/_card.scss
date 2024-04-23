@@ -1,4 +1,4 @@
-.card_contr {
+.card_lgn0 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
@@ -450,14 +450,14 @@
   }
 }
 
-.card_contr,
+.card_lgn0,
 .card_lgn1,
-.card_lgnd2,
-.card_lgnd3,
-.card_lgnd4,
-.card_lgnd5,
-.card_lgnd6,
-.card_lgnd7 {
+.card_lgn2,
+.card_lgn3,
+.card_lgn4,
+.card_lgn5,
+.card_lgn6,
+.card_lgn7 {
   &:hover {
     cursor: pointer;
   }
