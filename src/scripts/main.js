@@ -2300,6 +2300,14 @@ $(document).ready(function () {
     targetToggleBtn.removeClass(dlgClasses.join(" "));
     targetToggleBtn.addClass("d_lgnd8_g");
 
+    var ctaBtnsBtm = `
+    <div class="bttm-btns">
+      <button type="button" class="btn btn-outline-secondary">Cancel</button>
+      <button type="button" class="btn btn-outline-primary">Save and next</button>
+      <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
+    </div>`;
+    $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
+
   });
 
   // Mapping values to functions
