@@ -4,11 +4,13 @@
   padding: 0 8px;
   .newAttHeader {
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     gap: 0px 8px;
     grid-auto-flow: row;
-    grid-template-areas: "newAttHeader-left newAttHeader-right";
+    grid-template-areas: 
+    "newAttHeader-left"
+    "newAttHeader-right";
     padding: 16px 8px 0;
     grid-area: newAttHeader;
 

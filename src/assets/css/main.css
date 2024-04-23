@@ -5170,11 +5170,11 @@ input:checked + .slider:before {
 }
 .newAdvocayTrackingTool .newAttHeader {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
   gap: 0px 8px;
   grid-auto-flow: row;
-  grid-template-areas: "newAttHeader-left newAttHeader-right";
+  grid-template-areas: "newAttHeader-left" "newAttHeader-right";
   padding: 16px 8px 0;
   grid-area: newAttHeader;
 }
@@ -5286,7 +5286,7 @@ input:checked + .slider:before {
   font-style: normal;
   font-weight: 500;
   color: #111b2b;
-  max-width: 98%;
+  max-width: 93%;
 }
 .fields .helper_text {
   visibility: hidden;
@@ -5304,6 +5304,11 @@ input:checked + .slider:before {
 
 .form-group {
   margin: 0;
+}
+
+.col-sm-4 {
+  padding: 0;
+  width: 188px !important;
 }
 
 /*# sourceMappingURL=main.css.map */

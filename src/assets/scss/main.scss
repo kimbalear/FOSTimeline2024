@@ -43,7 +43,7 @@
     font-style: normal;
     font-weight: 500;
     color: #111b2b;
-    max-width: 98%;
+    max-width: 93%;
   }
   .helper_text {
     visibility: hidden;
@@ -62,4 +62,8 @@
 
 .form-group{
   margin: 0;
+}
+.col-sm-4{
+  padding: 0;
+  width: 188px!important;
 }

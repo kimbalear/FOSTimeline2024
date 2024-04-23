@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var dlgClasses = [];
   // Initial data loading for filter options.
   function loadData(url, successCallback) {
     $.ajax({
@@ -2044,8 +2045,8 @@ $(document).ready(function () {
               <div class="newAttHeader-left">
                 <div class="fields">
                   <div class="lbl">Advocacy Stage</div>
-                  <select id="advStage" class="form-select" disabled>
-                    <option value="" disabled selected>Select your option</option>
+                  <select id="advStage" class="form-select">
+                    <option value="" selected>Select your option</option>
                     <option value="0">Contribution</option>
                     <option value="1">Regression Introduced</option>
                     <option value="2">Defended</option>
@@ -2062,9 +2063,9 @@ $(document).ready(function () {
               <div class="fields">
                 <div id="lblReportdate" class="lbl">Report date</div>
                   <div class="row form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <div class="input-group date" id="reportdate">
-                        <input type="text" class="form-control" disabled/>
+                        <input type="text" class="form-control"/>
                         <span class="input-group-append">
                           <span class="input-group-text bg-white">
                             <i class="fa fa-calendar"></i>
@@ -2084,8 +2085,8 @@ $(document).ready(function () {
             <div class="sec1">
               <div id='line1' class="fields">
                 <div class="lbl">What SRHRJ need is this related to?</div>
-                  <select class="form-select" disabled>
-                    <option value="" disabled selected>Select your option</option>
+                  <select class="form-select">
+                    <option value="" selected>Select your option</option>
                     <option value="psgd">Promoting sexual and gender diversity</option>
                     <option value="cseyp">Comprehensive sexuality education to young people</option>
                     <option value="msgv">Mitigating sexual and gender-based violence</option>
@@ -2098,22 +2099,22 @@ $(document).ready(function () {
                 </div>
             <div id='line2' class="fields">
               <div id='lblBrief' class="lbl">Brief (120 ch)</div>
-              <input class="form-control" type="text" disabled>
+              <input class="form-control" type="text">
               <div class="helper_text">* A value is required</div>
             </div>
             <div id='line3' class="fields">
               <div class="lbl">Brief Translations</div>
-              <input class="form-control" type="text" disabled>
+              <input class="form-control" type="text">
               <div class="helper_text"></div>
             </div>
             <div id='line4' class="fields">
               <div id='lblDetail' class="lbl">Detail</div>
-              <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" disabled></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
               <div class="helper_text"></div>
             </div>
             <div id='line5'class="fields">
               <div class="lbl">Detail Translations</div>
-              <textarea class="form-control" id="exampleFormControlTextarea5" rows="3" disabled></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
               <div class="helper_text"></div>
             </div>
             </div>
@@ -2125,7 +2126,7 @@ $(document).ready(function () {
     $(`<div class="scrim">`).appendTo(".wrapper");
     $(`<div class="dlg_new d_lgnd${cardNumber}">`).appendTo(".scrim");
     $(dialogsNeed).appendTo(`.dlg_new`);
-    $('#advStage').val(cardNumber.toString()).change();
+    $("#advStage").val(cardNumber.toString()).change();
 
     var toggleBtns = `
     <div class="top-r-dlg">
@@ -2141,25 +2142,20 @@ $(document).ready(function () {
 
     var typeDlg = parseInt(cardNumber, 10);
 
-    if (Number.isInteger(typeDlg)) {
-      console.log("La variable es un número entero.");
-    } else {
-        console.log("La variable no es un número entero.");
-    }
-
-    if(typeDlg != 0){
+    if (typeDlg != 0) {
       console.log("cardNumber: " + typeDlg);
-      $(toggleBtns).appendTo('.cnt_header');
+      $(toggleBtns).appendTo(".cnt_header");
     }
 
-    //$('<div class="top-r-dlg">').appendTo('.header-dlg')
-    //$('<div class="toggle-btn-dlg ' + groupStyle + '" id="button1">').appendTo('.top-r-dlg')
-    //$('<div class="i_dlg_doc">').appendTo('#button1')
-    //$('<span class="label" id="label1">').appendTo('#button1')
-    //$('<div class="toggle-btn-dlg ' + groupStyle + '" id="button2">').appendTo('.top-r-dlg')
-    //$('<div class="i_dlg_imgs">').appendTo('#button2')
-    //$('<span class="label" id="label2">').appendTo('#button2')
+    for (var i = 0; i < 8; i++) {
+      dlgClasses.push("d_lgnd" + i);
+    }
 
+    dlgClasses.forEach(function (cls) {
+      $(".dlg_new." + cls)
+        .find("select, input, textarea")
+        .prop("disabled", true);
+    });
   }
 
   //New Advocacy Tracking Tool
@@ -2199,7 +2195,7 @@ $(document).ready(function () {
               <div class="fields">
                 <div id="lblReportdate" class="lbl">Report date</div>
                   <div class="row form-group">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <div class="input-group date" id="reportdate">
                         <input type="text" class="form-control" />
                         <span class="input-group-append">
@@ -2276,6 +2272,36 @@ $(document).ready(function () {
     $("div.scrim").remove();
   });
 
+  $(document).on("click", ".btn-sys-edit", function () {
+    var targetCard = $(".dlg_new");
+    var targetBar = $(".dlg_bar");
+    var targetToggleBtn = $(".toggle-btn-dlg");
+
+    for (var i = 0; i < 8; i++) {
+      dlgClasses.push("d_lgnd" + i);
+    }
+
+    targetCard.removeClass(dlgClasses.join(" "));
+    targetCard.addClass("d_lgnd8");
+
+    dlgClasses.forEach(function () {
+      $(".d_lgnd8").find("select, input, textarea").prop("disabled", false);
+    });
+
+    dlgClasses = []
+
+    for (var i = 0; i < 7; i++) {
+      dlgClasses.push("lgnd" + i + "_g");
+    }
+
+    targetBar.removeClass(dlgClasses.join(" "));
+    targetBar.addClass("d_lgnd8");
+
+    targetToggleBtn.removeClass(dlgClasses.join(" "));
+    targetToggleBtn.addClass("d_lgnd8_g");
+
+  });
+
   // Mapping values to functions
   const actionMap = {
     0: advStageContribution,
@@ -2342,7 +2368,7 @@ $(document).ready(function () {
         </div>
         <div class="lineTwoFields-right">
           <div class="row form-group">
-            <div class="col-sm-7">
+            <div class="col-sm-9">
               <div class="input-group date" id="dateadvactivity">
                 <input type="text" class="form-control" />
                 <span class="input-group-append">
@@ -2355,12 +2381,6 @@ $(document).ready(function () {
           </div>
         </div>
       </div>`;
-
-    $(".newAttHeader").css({
-      "grid-template-columns": "auto 1fr",
-      "grid-template-rows": "1fr",
-      "grid-template-areas": '"newAttHeader-left newAttHeader-right"',
-    });
 
     $("#line1").before(beforeLine1);
     $("#lblReportdate").html(
@@ -2416,12 +2436,6 @@ $(document).ready(function () {
     </div>`;
 
     $("#line5").after(afterLine51);
-
-    $(".newAttHeader").css({
-      "grid-template-columns": "1fr",
-      "grid-template-rows": "auto auto",
-      "grid-template-areas": '"newAttHeader-left" "newAttHeader-right"',
-    });
 
     $("#lblReportdate").html(
       "On what date was a regression or restriction against SRHRJ introduced by external actors in your context?"
@@ -2941,28 +2955,28 @@ $(document).ready(function () {
     }
   });
 
-  $('.btn-lgnd-inf').on('click', function () {
-    dlgtype = 'd_' + $(this).parent().parent().find("input").attr('id');
+  $(".btn-lgnd-inf").on("click", function () {
+    dlgtype = "d_" + $(this).parent().parent().find("input").attr("id");
     dlgTitle = $(this).parent().parent().find(".checkbox").text();
-    groupStyle = $(this).parent().parent().find("input").attr('id') + '_g';
+    groupStyle = $(this).parent().parent().find("input").attr("id") + "_g";
     contentCards_i(dlgtype, dlgTitle, groupStyle);
   });
 
-function contentCards_i(dlgtype, dlgTitle, groupStyle) {
+  function contentCards_i(dlgtype, dlgTitle, groupStyle) {
+    $('<div class="scrim">').appendTo("body");
 
-  $('<div class="scrim">').appendTo('body')
+    $('<div class="dlg_i ' + dlgtype + '">').appendTo(".scrim");
+    $('<div class="dlg_bar ' + groupStyle + '">').appendTo(".dlg_i");
+    $('<div class="dlg_title">').appendTo(".dlg_bar");
+    $('<div class="dlg_cta ' + groupStyle + '">').appendTo(".dlg_bar");
+    $('<div class="btn-sys-close">').appendTo(".dlg_cta");
+    $('<div class="dlg_cnt">').appendTo(".dlg_i");
+    $('<div class="cnt_sections">').appendTo(".dlg_cnt");
+    $('<div class="scrs">').appendTo(".cnt_sections");
 
-  $('<div class="dlg_i ' + dlgtype + '">').appendTo('.scrim')
-  $('<div class="dlg_bar ' + groupStyle + '">').appendTo('.dlg_i')
-  $('<div class="dlg_title">').appendTo('.dlg_bar')
-  $('<div class="dlg_cta ' + groupStyle + '">').appendTo('.dlg_bar')
-  $('<div class="btn-sys-close">').appendTo('.dlg_cta')
-  $('<div class="dlg_cnt">').appendTo('.dlg_i')
-  $('<div class="cnt_sections">').appendTo('.dlg_cnt')
-  $('<div class="scrs">').appendTo('.cnt_sections')
-
-  $('.dlg_title').html(dlgTitle)
-  $('.scrs').html("Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius.")
-  
-}
+    $(".dlg_title").html(dlgTitle);
+    $(".scrs").html(
+      "Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius."
+    );
+  }
 });
