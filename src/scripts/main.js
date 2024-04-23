@@ -2033,6 +2033,7 @@ $(document).ready(function () {
     <div class="dlg_bar lgnd${cardNumber}_g">
       <div class="dlg_title">${partner}</div>
         <div class="dlg_cta">
+          <div class="btn-sys-edit"></div>
           <div class="btn-sys-close"></div>
         </div>
       </div>
