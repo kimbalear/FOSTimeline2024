@@ -2307,7 +2307,7 @@ $(document).ready(function () {
       <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
     </div>`;
     $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
-
+    $(".btn-sys-edit").remove();
   });
 
   // Mapping values to functions
