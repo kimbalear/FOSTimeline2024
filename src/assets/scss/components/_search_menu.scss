@@ -1,183 +1,200 @@
 .search_menu {
-    right: -376px;
-    padding: 0 0 0 48px;
-    position: absolute;
-    transition: right 0.5s ease;
-    min-width: 220px;
+  right: -376px;
+  padding: 0 0 0 48px;
+  position: absolute;
+  transition: right 0.5s ease;
+  min-width: 220px;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "cta_area cnt_options";
+  align-content: center;
+  align-items: start;
+
+  z-index: 999;
+
+  .cta_area {
+    grid-area: cta_area;
+    margin-top: 8px;
     display: grid;
+    grid-template-columns: 48px;
+    grid-template-rows: 48px 48px 48px;
     grid-auto-columns: 1fr;
-    grid-template-columns: auto auto;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
+    gap: 8px 0px;
+    grid-auto-flow: row;
+    align-items: stretch;
     grid-template-areas:
-        "cta_area cnt_options";
+      "cnt_ipanel"
+      "cnt_irun"
+      "cnt_ipdf";
+
+    .cnt_ipanel {
+      grid-area: cnt_ipanel;
+
+      .ipanel {
+        width: 48px;
+        height: 48px;
+        padding: 6px;
+        background-color: $color_7;
+        border-radius: 8px 0px 0px 8px;
+        box-shadow: $shadow-lb;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color_6;
+        }
+      }
+    }
+
+    .cnt_irun {
+      grid-area: cnt_irun;
+
+      .irun {
+        width: 48px;
+        height: 48px;
+        padding: 6px;
+        background-color: $clrbk_lgnd4_p;
+        border-radius: 8px 0px 0px 8px;
+        box-shadow: $shadow-lb;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color_6;
+        }
+
+        &.disabled {
+          background-color: $color_5;
+          color: lightgray;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .cnt_ipdf {
+      grid-area: cnt_ipdf;
+
+      .ipdf {
+        width: 48px;
+        height: 48px;
+        padding: 6px;
+        background-color: $clrbk_lgnd1_p;
+        border-radius: 8px 0px 0px 8px;
+        box-shadow: $shadow-lb;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color_6;
+        }
+
+        &.disabled {
+          background-color: $color_5;
+          color: lightgray;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .cnt_options {
+    grid-area: cnt_options;
+    padding: 0px 8px 0 8px;
+    display: grid;
+    grid-template-columns: 360px;
+    grid-template-rows: 1fr auto auto;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
     align-content: center;
-    align-items: start;
+    align-items: center;
+    height: calc(100vh - 66px);
+    border-left: 1px solid $clr_sm;
+    box-shadow: $shadow-left;
+    background-color: $clr2;
+    grid-template-areas:
+      "grd_srh"
+      "grd_others"
+      "grd_footer";
 
-    z-index: 999;
+    .grd_srh {
+      grid-area: grd_srh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+      padding-top: 8px;
 
-    .cta_area {
-        grid-area: cta_area;
-        margin-top: 8px;
+      .cnt_sort {
         display: grid;
-        grid-template-columns: 48px;
-        grid-template-rows: 48px 48px 48px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
         grid-auto-columns: 1fr;
         gap: 8px 0px;
         grid-auto-flow: row;
-        align-items: stretch;
-        grid-template-areas:
-            "cnt_ipanel"
-            "cnt_irun"
-            "cnt_ipdf";
-
-        .cnt_ipanel {
-            grid-area: cnt_ipanel;
-
-            .ipanel {
-                width: 48px;
-                height: 48px;
-                padding: 6px;
-                background-color: $color_7;
-                border-radius: 8px 0px 0px 8px;
-                box-shadow: $shadow-lb;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: $color_6;
-                }
-            }
-        }
-
-        .cnt_irun {
-            grid-area: cnt_irun;
-
-            .irun {
-                width: 48px;
-                height: 48px;
-                padding: 6px;
-                background-color: $clrbk_lgnd4_p;
-                border-radius: 8px 0px 0px 8px;
-                box-shadow: $shadow-lb;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: $color_6;
-                }
-
-                &.disabled {
-                    background-color: $color_5;
-                    color: lightgray;
-                    cursor: not-allowed;
-                }
-            }
-        }
-
-        .cnt_ipdf {
-            grid-area: cnt_ipdf;
-
-            .ipdf {
-                width: 48px;
-                height: 48px;
-                padding: 6px;
-                background-color: $clrbk_lgnd1_p;
-                border-radius: 8px 0px 0px 8px;
-                box-shadow: $shadow-lb;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: $color_6;
-                }
-
-                &.disabled {
-                    background-color: $color_5;
-                    color: lightgray;
-                    cursor: not-allowed;
-                }
-            }
-        }
-    }
-
-    .cnt_options {
-        grid-area: cnt_options;
-        padding: 0px 8px 0 8px;
-        display: grid;
-        grid-template-columns: 360px;
-        grid-template-rows: 1fr auto auto;
-        grid-auto-columns: 1fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
         align-content: center;
         align-items: center;
-        height: calc(100vh - 66px);
-        border-left: 1px solid $clr_sm;
-        box-shadow: $shadow-left;
-        background-color: $clr2;
         grid-template-areas:
-            "grd_srh"
-            "grd_others"
-            "grd_footer";
+          "grd_ou"
+          "grd_srv"
+          "grd_yrs"
+          "grd_sort"
+          "grd_team";
 
-        .grd_srh {
-            grid-area: grd_srh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            width: 100%;
-            height: 100%;
-            padding-top: 8px;
+        .grd_ou {
+          grid-area: grd_ou;
+        }
 
-            .cnt_sort {
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto auto auto;
-                grid-auto-columns: 1fr;
-                gap: 8px 0px;
-                grid-auto-flow: row;
-                align-content: center;
-                align-items: center;
-                grid-template-areas:
-                    "grd_ou"
-                    "grd_srv"
-                    "grd_yrs"
-                    "grd_sort";
+        .grd_srv {
+          grid-area: grd_srv;
+        }
 
-                .grd_ou {
-                    grid-area: grd_ou;
-                }
+        .grd_yrs {
+          grid-area: grd_yrs;
+        }
 
-                .grd_srv {
-                    grid-area: grd_srv;
-                }
-
-                .grd_yrs {
-                    grid-area: grd_yrs;
-                }
-
-                .grd_sort {
-                    grid-area: grd_sort;
-                }
+        .grd_sort {
+          grid-area: grd_sort;
+          padding: 0 8px;
+          .form-check {
+            .form-check-label {
+              font-size: 16px !important;
+              font-weight: 400 !important;
             }
+          }
         }
-
-        .grd_others {
-            align-self: flex-end;
-            grid-area: grd_others;
-        }
-
-        .grd_footer {
-            grid-area: grd_footer;
-            font-size: 0.8em;
-            color: $clr1;
-            line-height: 2em;
-            text-align: left;
-        }
+        .grd_team {
+            grid-area: grd_team;
+            padding: 0 12px;
+          .form-check {
+            .form-check-label {
+              font-size: 16px !important;
+              font-weight: 400 !important;
+            }
+          }
+          }
+      }
     }
+
+    .grd_others {
+      align-self: flex-end;
+      grid-area: grd_others;
+    }
+
+    .grd_footer {
+      grid-area: grd_footer;
+      font-size: 0.8em;
+      color: $clr1;
+      line-height: 2em;
+      text-align: left;
+    }
+  }
 }
 
 .search_menu.open {
-    right: 0px; // Posición final cuando el menú esté abierto
+  right: 0px; // Posición final cuando el menú esté abierto
 }
 
 .arrow {
-    animation: arrow-animation 1s infinite;
+  animation: arrow-animation 1s infinite;
 }

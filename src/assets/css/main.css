@@ -5081,7 +5081,7 @@ label.checkbox.lgnd7 span {
   grid-auto-flow: row;
   align-content: center;
   align-items: center;
-  grid-template-areas: "grd_ou" "grd_srv" "grd_yrs" "grd_sort";
+  grid-template-areas: "grd_ou" "grd_srv" "grd_yrs" "grd_sort" "grd_team";
 }
 .search_menu .cnt_options .grd_srh .cnt_sort .grd_ou {
   grid-area: grd_ou;
@@ -5094,6 +5094,19 @@ label.checkbox.lgnd7 span {
 }
 .search_menu .cnt_options .grd_srh .cnt_sort .grd_sort {
   grid-area: grd_sort;
+  padding: 0 8px;
+}
+.search_menu .cnt_options .grd_srh .cnt_sort .grd_sort .form-check .form-check-label {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+.search_menu .cnt_options .grd_srh .cnt_sort .grd_team {
+  grid-area: grd_team;
+  padding: 0 12px;
+}
+.search_menu .cnt_options .grd_srh .cnt_sort .grd_team .form-check .form-check-label {
+  font-size: 16px !important;
+  font-weight: 400 !important;
 }
 .search_menu .cnt_options .grd_others {
   align-self: flex-end;

@@ -199,14 +199,21 @@
                   <div id="yearsOptions" class="options"></div>
                 </div>
               </div>
-              <div class="disabled">
-                <div class="grd_sort">Sort Timeline</div>
-                <label class="label">Ascending </label>
-                <label class="switch">
-                  <input type="checkbox" id="mySwitch" />
-                  <span class="slider round"></span>
-                </label>
-                <label class="label">Descending</label>
+              <div class="grd_sort">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="years" id="youngestOldest" value="option1" checked>
+                  <label class="form-check-label" for="years">Ascending </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="years" id="oldestYoungest" value="option2">
+                  <label class="form-check-label" for="years">Descending</label>
+                </div>
+              </div>
+              <div class="grd_team">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="FOSteam">
+                  <label class="form-check-label" for="FOSteam">FOS Team</label>
+                </div>
               </div>
             </div>
           </div>

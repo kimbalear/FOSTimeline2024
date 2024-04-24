@@ -123,7 +123,6 @@ $(document).ready(function () {
       yearConstruct(years);
     } else if (years.length > 1) {
       for (i = 0; i < years.length; i++) {
-        //console.log("i: " + i + " years[i]:" + years[i]);
         yearConstruct(years[i]);
       }
     }
@@ -329,6 +328,8 @@ $(document).ready(function () {
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
 
       needMonth.forEach((need) => {
+        var textDescript = limitWords(need.description, 10); 
+        var limitedtext = textDescript;
         var lgnd = need.lgnd;
         let year = need.year;
         let cardNeed = `
@@ -336,7 +337,7 @@ $(document).ready(function () {
           <div class="partner">${need.orgUnitName}</div>
           <div class="title">${need.title}</div>
           <div class="subtitle">${need.lgndName}</div>
-          <div class="cont">${need.lgndName}</div>
+          <div class="cont">${limitedtext}</div>
         </div>`;
 
         switch (month) {
@@ -1627,15 +1628,15 @@ $(document).ready(function () {
       const contribMonth = contributionsByMonth[month];
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
       ContributionsCnt = contribMonth.length;
-      //console.log(`Contributions: ${ContributionsCnt} for month:  ${month}`);
-
       contribMonth.forEach((contribution) => {
+        var textDescript = limitWords(contribution.description, 10); 
+        var limitedtext = textDescript;
         let year = contribution.year;
         let cardCntr = `
           <div class='card_lgn0'>
             <div class="partner">${contribution.orgUnitName}</div>
             <div class="title">${contribution.title}</div>
-            <div class="cont">${contribution.description}</div>
+            <div class="cont">${limitedtext}</div>
           </div>`;
 
         if (orgUnrs === 1) {
@@ -2012,7 +2013,7 @@ $(document).ready(function () {
     $.each(classList, function (index, className) {
       var match = className.match(/^card_lgn(\d+)/);
       if (match) {
-        cardNumber = match[1]; // Save the number when you find a match
+        cardNumber = match[1];
         return false;
       }
     });
@@ -2288,7 +2289,7 @@ $(document).ready(function () {
       $(".d_lgnd8").find("select, input, textarea").prop("disabled", false);
     });
 
-    dlgClasses = []
+    dlgClasses = [];
 
     for (var i = 0; i <= 7; i++) {
       dlgClasses.push("lgnd" + i + "_g");
@@ -2986,5 +2987,21 @@ $(document).ready(function () {
     $(".scrs").html(
       "Aliquam consequat ut erat vitae tincidunt. Donec fringilla posuere quam, sed aliquet quam rutrum quis. Aenean euismod nulla non sem pharetra, sit amet luctus tortor pulvinar. Quisque consectetur lectus vitae hendrerit euismod. Sed non lobortis eros. Sed accumsan eget justo eu varius."
     );
+  }
+
+  $("#FOSteam").change(function () {
+    if ($("#FOSteam").is(":checked")) {
+      console.log("El checkbox está marcado.");
+    } else {
+      console.log("El checkbox no está marcado.");
+    }
+  });
+
+  function limitWords(data, limit) {
+    const words = data.split(/\s+/);
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ") + "...";
+    }
+    return data;  // Devuelve el texto original si es menor que el límite
   }
 });
