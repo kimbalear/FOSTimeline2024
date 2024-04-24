@@ -1,65 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@import "abstract/settings", "abstract/mixins", "base/legends";
 
-@import "abstract/settings",
-"abstract/mixins",
-"base/legends";
+@import "base/theme_default", "base/animations", "base/file_icons";
 
-@import "base/theme_default",
-"base/animations",
-"base/file_icons";
-
-@import "components/timeline",
-"components/contributions",
-"components/needs",
-"components/card",
-"components/selectbox",
-"components/checkboxes",
-"components/dialogs",
-"components/btns",
-"components/multiselect",
-"components/search_menu",
-"components/switch";
-
+@import "components/timeline", "components/contributions", "components/needs",
+  "components/card", "components/selectbox", "components/checkboxes",
+  "components/dialogs", "components/btns", "components/multiselect",
+  "components/search_menu", "components/switch",
+  "components/newAdvocacyTrackingTool";
 
 ::-webkit-scrollbar {
-    background-color: rgba(119, 113, 106, 0.1);
-    height: 4px;
-    width: 4px;
-    border-radius: 2px;
+  background-color: rgba(119, 113, 106, 0.1);
+  height: 4px;
+  width: 4px;
+  border-radius: 2px;
 }
 
 /* background of the scrollbar except button or resizer */
 ::-webkit-scrollbar-track {
-    background-color: rgba(119, 113, 106, 0.1);
-    border-radius: 4px;
-
+  background-color: rgba(119, 113, 106, 0.1);
+  border-radius: 4px;
 }
 
 /* scrollbar itself */
 ::-webkit-scrollbar-thumb {
-    background-color: $clr1;
-    border-radius: 4px;
+  background-color: $clr1;
+  border-radius: 4px;
 }
 
 /* set button(top and bottom of the scrollbar) */
 ::-webkit-scrollbar-button {
-    display: none;
+  display: none;
 }
-/*
-.custom-tooltip {
-    //background: blue;
-    color: $clr3;
-    width: max-content;
-    padding: 8px;
-    z-index: 999;
-    height: 48px;
-    line-height: 48px;
-    border-radius: 8px 0px 0px 8px;
-}
-*/
-/*
-.timeline_section {
+
+.fields {
+  margin-bottom: 8px;
+
+  .lbl {
+    padding-left: 13px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    color: #111b2b;
+    max-width: 93%;
+  }
+  .helper_text {
+    visibility: hidden;
     width: 100%;
-    height: auto;
-}*/
+    height: 0;// dinamic= auto
+    padding: 0 0 0 16px;
+    font-size: 12px;
+    line-height: 16px;
+    color: red;
+  }
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+.form-group{
+  margin: 0;
+}
+.col-sm-4{
+  padding: 0;
+  width: 188px!important;
+}

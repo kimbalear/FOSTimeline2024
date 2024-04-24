@@ -65,11 +65,10 @@
     width: max-content;
     height: 24px;
     border-radius: 6px;
-    padding: 8px 8px;
     background-color: $clr_sm;
     cursor: pointer;
     font-size: 12px;
-    padding: 5px 8px;
+    padding: 3px 8px;
     color: $clr2;
 
     &:hover {
@@ -81,11 +80,10 @@
       width: max-content;
       height: 24px;
       border-radius: 6px;
-      padding: 8px 8px;
       background-color: $color_6;
       cursor: pointer;
       font-size: 12px;
-      padding: 5px 8px;
+      padding: 3px 8px;
       color: $clr2;
   
       &:hover {

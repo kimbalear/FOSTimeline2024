@@ -14,7 +14,6 @@ app.use(
 const mongoUrl = "mongodb://localhost:27017";
 const client = new MongoClient(mongoUrl);
 
-
 // Function to get unique years from a collection and sort them
 async function getUniqueYearsSorted(collectionName) {
   try {
@@ -34,7 +33,6 @@ async function getUniqueYearsSorted(collectionName) {
   }
 }
 
-
 // Sort years of the two collections without duplicates
 async function getCombinedYears() {
   const contributionYears = await getUniqueYearsSorted("contribution");
@@ -51,44 +49,46 @@ async function getCombinedYears() {
   return combinedYears;
 }
 
-async function getNeedsByYears(years) {
+async function enrichNeeds(needs) {
   try {
-    const database = client.db("FOStimeline");
-    const needCollection = database.collection("need");
-    const orgUnitCollection = database.collection("orgUnit");
-    
-    const needs = await needCollection.find({
-      year: { $in: years.map(Number) }
-    }, {
-      projection: {
-        title: 1,
-        description: 1,
-        year: 1,
-        month: 1,
-        lgnd: 1,
-        lgndName: 1,
-        typeNeedsId: 1,
-        orgUnitId: 1
-      }
-    }).toArray();
+    await client.connect();
 
-    // Convert ObjectId to string for orgUnitId
-    for (const need of needs) {
-      if (need.orgUnitId) {
-        console.log("need.orgUnitId:! " + need.orgUnitId)
-        const orgUnit = await orgUnitCollection.findOne({ _id: need.orgUnitId });
-        if (orgUnit) {
-          need.orgUnitId = need.orgUnitId.toString(); // Convertir ObjectId a String
-          need.orgUnitName = orgUnit.name;
-        } else {
-          console.log(`No se encontró orgUnit para el ID: ${need.orgUnitId.toString()}`);
+    // Itera sobre el arreglo de necesidades y enriquece cada uno
+    const enrichedNeeds = await Promise.all(needs.map(async (need) => {
+      // Verifica si typeNeedsId es válido y existe
+      if (need.typeNeedsId && need.typeNeedsId.$oid) {
+        const typeNeedId = new ObjectId(need.typeNeedsId.$oid);
+        const typeNeed = await typeNeedsCollection.findOne({ _id: typeNeedId });
+
+        // Si se encuentra el typeNeed correspondiente, enriquece el objeto de necesidad
+        if (typeNeed) {
+          need.typeNeedName = typeNeed.name;
+          need.typeNeedType = typeNeed.type;
         }
       }
-    }
-    
-    return needs;
+      return need;
+    }));
+
+    return enrichedNeeds;
   } catch (error) {
-    console.error("Error getting needs for years:", error);
+    console.error("Error enriqueciendo las necesidades:", error);
+    throw error;
+  } finally {
+    await client.close();
+  }
+}
+
+async function processAndEnrichNeeds(years, typeNeedsCollection) {
+  try {
+    // Primero, obtener las necesidades basadas en los años dados
+    const needs = await getNeedsByYears(years);
+
+    // Luego, enriquecer estas necesidades con información adicional de typeNeeds
+    const enrichedNeeds = await enrichNeeds(needs, typeNeedsCollection);
+
+    return enrichedNeeds; // Esto ahora contiene las necesidades enriquecidas
+  } catch (error) {
+    console.error("Error procesando y enriqueciendo las necesidades:", error);
     throw error;
   }
 }
