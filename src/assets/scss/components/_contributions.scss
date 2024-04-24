@@ -7,6 +7,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 19px;
   gap: 0px 0px;
+  height: 100%;
   grid-template-areas:
     "contributions"
     "line";
@@ -17,10 +18,23 @@
     border-radius: 10px;
     padding: 8px 2px 4px 8px;
     background: rgba(119, 113, 106, 0.04);
-    height: 100%;
+    height: min-content;
+    max-height: 100%;
     align-self: end;
 
-    /* total width */
+    .listcards {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      padding-right: 2px;
+      overflow-y: auto;
+      .cards_contr {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 4px;
+      }
+      /* total width */
     ::-webkit-scrollbar {
       background-color: $clr2;
       height: 4px;
@@ -44,18 +58,6 @@
     ::-webkit-scrollbar-button {
       display: none;
     }
-
-    .listcards {
-      width: 100%;
-      height: 100%;
-      padding-right: 2px;
-      overflow-y: auto;
-      .cards_contr {
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-        padding-right: 4px;
-      }
     }
   }
 

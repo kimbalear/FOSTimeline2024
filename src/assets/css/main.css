@@ -401,7 +401,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   height: 100%;
   display: grid;
   grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
-  grid-template-rows: 36px 1fr 44px 1fr;
+  grid-template-rows: 36px calc(50% - 58px) 44px calc(50% - 22px);
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "tp_yr ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top" "tp_yr tp1 tp2 tp3 tp4 tp5 tp6 tp7 tp8 tp9 tp10 tp11 tp12" "line line line line line line line line line line line line line" "btm_yr bt1 bt2 bt3 bt4 bt5 bt6 bt7 bt8 bt9 bt10 bt11 bt12";
@@ -2711,6 +2711,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 19px;
   gap: 0px 0px;
+  height: 100%;
   grid-template-areas: "contributions" "line";
 }
 .pnl_top .contributions {
@@ -2719,41 +2720,43 @@ body .wrapper .content ::-webkit-scrollbar-button {
   border-radius: 10px;
   padding: 8px 2px 4px 8px;
   background: rgba(119, 113, 106, 0.04);
-  height: 100%;
+  height: min-content;
+  max-height: 100%;
   align-self: end;
+}
+.pnl_top .contributions .listcards {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  padding-right: 2px;
+  overflow-y: auto;
   /* total width */
   /* background of the scrollbar except button or resizer */
   /* scrollbar itself */
   /* set button(top and bottom of the scrollbar) */
-}
-.pnl_top .contributions ::-webkit-scrollbar {
-  background-color: #FDF4E7;
-  height: 4px;
-  width: 4px;
-  border-radius: 2px;
-}
-.pnl_top .contributions ::-webkit-scrollbar-track {
-  background-color: #FDF4E7;
-  border-radius: 4px;
-}
-.pnl_top .contributions ::-webkit-scrollbar-thumb {
-  background-color: #77716A;
-  border-radius: 4px;
-}
-.pnl_top .contributions ::-webkit-scrollbar-button {
-  display: none;
-}
-.pnl_top .contributions .listcards {
-  width: 100%;
-  height: 100%;
-  padding-right: 2px;
-  overflow-y: auto;
 }
 .pnl_top .contributions .listcards .cards_contr {
   width: 100%;
   height: 100%;
   overflow-y: auto;
   padding-right: 4px;
+}
+.pnl_top .contributions .listcards ::-webkit-scrollbar {
+  background-color: #FDF4E7;
+  height: 4px;
+  width: 4px;
+  border-radius: 2px;
+}
+.pnl_top .contributions .listcards ::-webkit-scrollbar-track {
+  background-color: #FDF4E7;
+  border-radius: 4px;
+}
+.pnl_top .contributions .listcards ::-webkit-scrollbar-thumb {
+  background-color: #77716A;
+  border-radius: 4px;
+}
+.pnl_top .contributions .listcards ::-webkit-scrollbar-button {
+  display: none;
 }
 .pnl_top .line {
   grid-area: line;
@@ -2768,6 +2771,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   grid-template-columns: 1fr;
   grid-template-rows: 19px 1fr;
   gap: 0px 0px;
+  height: 100%;
   grid-template-areas: "line" "needs";
 }
 .pnl_btm .line {
@@ -2781,6 +2785,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px 2px 4px 8px;
   height: calc(100% - 16px);
   background: rgba(119, 113, 106, 0.04);
+  height: min-content;
+  max-height: 100%;
   /* total width */
   /* background of the scrollbar except button or resizer */
   /* scrollbar itself */
@@ -2805,7 +2811,8 @@ body .wrapper .content ::-webkit-scrollbar-button {
 }
 .pnl_btm .needs .listcards {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 350px;
   padding-right: 2px;
   overflow-y: auto;
 }

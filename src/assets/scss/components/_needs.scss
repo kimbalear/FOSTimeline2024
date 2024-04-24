@@ -6,6 +6,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 19px 1fr;
   gap: 0px 0px;
+  height: 100%;
   grid-template-areas:
     "line"
     "needs";
@@ -22,6 +23,8 @@
     padding: 8px 2px 4px 8px;
     height: calc(100% - 16px);
     background: rgba(119, 113, 106, 0.04);
+    height: min-content;
+    max-height: 100%;
 
     /* total width */
     ::-webkit-scrollbar {
@@ -50,7 +53,8 @@
 
     .listcards {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 350px;
       padding-right: 2px;
       overflow-y: auto;
       .cards_contr {

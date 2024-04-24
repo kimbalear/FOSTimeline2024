@@ -11,7 +11,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
-    grid-template-rows: 36px 1fr 44px 1fr ;
+    grid-template-rows: 36px calc(50% - 58px) 44px calc(50% - 22px) ;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
