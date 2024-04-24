@@ -2290,7 +2290,7 @@ $(document).ready(function () {
 
     dlgClasses = []
 
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i <= 7; i++) {
       dlgClasses.push("lgnd" + i + "_g");
     }
 
