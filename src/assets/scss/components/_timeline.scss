@@ -1,0 +1,377 @@
+.timeline {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 8px;
+  overflow-y: auto;
+  overflow-y: hidden;
+
+  .year {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
+    grid-template-rows: 36px calc(50% - 58px) 44px calc(50% - 22px) ;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "tp_yr ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top ce_top"
+      "tp_yr tp1 tp2 tp3 tp4 tp5 tp6 tp7 tp8 tp9 tp10 tp11 tp12"
+      "line line line line line line line line line line line line line"
+      "btm_yr bt1 bt2 bt3 bt4 bt5 bt6 bt7 bt8 bt9 bt10 bt11 bt12";
+
+    .ce_top {
+      grid-area: ce_top;
+
+      .top_timeline {
+        visibility: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        .title_ou {
+          padding: 0 16px;
+        }
+      }
+    }
+
+    .tp_yr {
+      grid-area: tp_yr;
+      background: rgba(119, 113, 106, 0.06);
+    }
+
+    .tp1 {
+      grid-area: tp1;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp2 {
+      grid-area: tp2;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp3 {
+      grid-area: tp3;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp4 {
+      grid-area: tp4;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp5 {
+      grid-area: tp5;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp6 {
+      grid-area: tp6;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp7 {
+      grid-area: tp7;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp8 {
+      grid-area: tp8;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp9 {
+      grid-area: tp9;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp10 {
+      grid-area: tp10;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp11 {
+      grid-area: tp11;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .tp12 {
+      grid-area: tp12;
+      padding: 0 4px 0 23px;
+      align-self: end;
+    }
+
+    .t_line {
+      grid-area: line;
+      position: relative;
+
+      .yr_start {
+        float: left;
+        width: 60px;
+        height: 44px;
+        background-color: $clr1;
+
+        .lbl {
+          float: left;
+          width: 100%;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 44px;
+          color: $clr2;
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+
+      .next_yr {
+        background-color: $clr2;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='44' viewBox='0 0 60 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 0H60V44H2V0Z' fill='%2377716A'/%3E%3C/svg%3E");
+      }
+
+      .tl_jan,
+      .tl_feb,
+      .tl_mar,
+      .tl_apr,
+      .tl_may,
+      .tl_jun,
+      .tl_jul,
+      .tl_aug,
+      .tl_sep,
+      .tl_oct,
+      .tl_nov,
+      .tl_dec {
+        float: left;
+        width: 220px;
+        height: auto;
+
+        @for $i from 1 through 12 {
+          .cnt_top#{$i} {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            justify-self: center;
+            justify-items: center;
+            .dots_cnt#{$i} {
+              position: absolute;
+              left: 14%;
+              top: -7px;
+              width: 80%;
+              min-height: 16px;
+              background-color: $clr1;
+              border-radius: 7px;
+              padding: 2px 2px 0 8px;
+
+              .lbl {
+                float: left;
+                width: min-content;
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 12px;
+                color: $clr2;
+              }
+
+              .dot#{$i} {
+                width: min-content;
+                float: right;
+                width: auto;
+                padding: 0 4px;
+                height: 12px;
+                border-radius: 6px;
+                background-color: $clr2;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 12px;
+                text-align: center;
+                color: $clr1;
+              }
+            }
+          }
+        }
+
+        .cnt {
+          max-width: 220px;
+          height: 44px;
+          background-image: url("data:image/svg+xml,%3Csvg width='220' height='44' viewBox='0 0 220 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_60_2829)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0V44H0.995475L17.9186 21L0.995475 0H0ZM19.9094 21L2.98633 0H220L220 1H5L21.0748 21L5 43H220L220 44H2.98633L19.9094 21Z' fill='%2377716A'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_60_2829'%3E%3Crect width='220' height='44' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+          .lbl {
+            float: left;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 44px;
+            color: $clr1;
+            text-align: center;
+            text-transform: uppercase;
+          }
+        }
+
+        @for $i from 1 through 12 {
+          .nds_btm#{$i} {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            justify-self: center;
+            justify-items: center;
+            .dots_need#{$i} {
+              position: absolute;
+              left: 14%;
+              top: -7px;
+              width: 80%;
+              min-height: 16px;
+              background-color: $clr1;
+              border-radius: 7px;
+              padding: 2px 2px 0 8px;
+
+              .lbl {
+                float: left;
+                width: min-content;
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 12px;
+                color: $clr2;
+              }
+
+              .dot#{$i} {
+                width: min-content;
+                float: right;
+                width: auto;
+                padding: 0 4px;
+                height: 12px;
+                border-radius: 6px;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 12px;
+                text-align: center;
+                color: $clr1;
+              }
+            }
+          }
+        }
+      }
+
+      .tl_feb,
+      .tl_mar,
+      .tl_apr,
+      .tl_may,
+      .tl_jun,
+      .tl_jul,
+      .tl_aug,
+      .tl_sep,
+      .tl_oct,
+      .tl_nov,
+      .tl_dec {
+        float: left;
+        width: 220px;
+        height: auto;
+
+        .cnt {
+          max-width: 220px;
+          height: 44px;
+          background-image: url("data:image/svg+xml,%3Csvg width='220' height='44' viewBox='0 0 220 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_60_2838)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 43.0039V44H0.995475L17.9186 21L0.995475 0H0V0.996094H0.671875L16.8652 21.0137L0.734375 43.0039H0Z' fill='%2377716A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.98633 0L19.9094 21L2.98633 44H220L220 43H5L21.0748 21L5 1H220L220 0H2.98633Z' fill='%2377716A'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_60_2838'%3E%3Crect width='220' height='44' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+          .lbl {
+            float: left;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 44px;
+            color: $clr1;
+            text-align: center;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .btm_yr {
+      grid-area: btm_yr;
+      background: rgba(119, 113, 106, 0.06);
+    }
+
+    .bt1 {
+      grid-area: bt1;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt2 {
+      grid-area: bt2;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt3 {
+      grid-area: bt3;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt4 {
+      grid-area: bt4;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt5 {
+      grid-area: bt5;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt6 {
+      grid-area: bt6;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt7 {
+      grid-area: bt7;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt8 {
+      grid-area: bt8;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt9 {
+      grid-area: bt9;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt10 {
+      grid-area: bt10;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt11 {
+      grid-area: bt11;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+
+    .bt12 {
+      grid-area: bt12;
+      padding: 0 4px 0 23px;
+      align-self: start;
+    }
+  }
+}

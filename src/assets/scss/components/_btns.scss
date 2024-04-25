@@ -1,0 +1,110 @@
+.btn-lgnd-inf {
+  width: 19px;
+  height: 28px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='19' height='28' viewBox='0 0 19 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_103_2496)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.507 5.89346V4.29346H9.90704V5.89346H11.507ZM11.507 12.2935V7.49346H9.90704V12.2935H11.507ZM2.70704 8.29346C2.70704 3.87746 6.29104 0.293457 10.707 0.293457C15.123 0.293457 18.707 3.87746 18.707 8.29346C18.707 12.4371 15.5515 15.8482 11.5141 16.2532V17.5015C11.5141 19.0202 10.2828 20.2515 8.76406 20.2515H0.941895V18.7515H8.76406C9.45442 18.7515 10.0141 18.1918 10.0141 17.5015V16.2638C5.92212 15.9122 2.70704 12.476 2.70704 8.29346ZM4.30704 8.29346C4.30704 11.8215 7.17904 14.6935 10.707 14.6935C14.235 14.6935 17.107 11.8215 17.107 8.29346C17.107 4.76546 14.235 1.89346 10.707 1.89346C7.17904 1.89346 4.30704 4.76546 4.30704 8.29346Z' fill='%2377716A'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_103_2496'%3E%3Crect width='17.7651' height='26.7485' fill='white' transform='translate(0.941895 0.293457)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+  &:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='27' viewBox='0 0 18 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_115_2465)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.6582 7.99707C1.6582 3.58269 5.27122 0 9.72297 0C14.1747 0 17.7877 3.58269 17.7877 7.99707C17.7877 12.1271 14.6252 15.5291 10.5722 15.9503V17.208C10.5722 18.7268 9.34095 19.958 7.82217 19.958H0V18.458H7.82217C8.51253 18.458 9.07217 17.8984 9.07217 17.208V15.9684C4.92437 15.6395 1.6582 12.1942 1.6582 7.99707ZM8.91649 7.19736V11.9956H10.5294V7.19736H8.91649ZM8.91649 3.99854V5.59795H10.5294V3.99854H8.91649Z' fill='%23B3C2E6'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_115_2465'%3E%3Crect width='17.7651' height='26.7485' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  }
+}
+
+.btn-sys-edit {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 8px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_138_2511)'%3E%3Cpath d='M3 17.2501V21.0001H6.75L17.81 9.94006L14.06 6.19006L3 17.2501ZM20.71 7.04006C21.1 6.65006 21.1 6.02006 20.71 5.63006L18.37 3.29006C17.98 2.90006 17.35 2.90006 16.96 3.29006L15.13 5.12006L18.88 8.87006L20.71 7.04006Z' fill='%23FDF4E7'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_138_2511'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+}
+
+.btn-sys-close {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 8px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_110_2549)'%3E%3Cpath d='M15.5668 8.96387L12.9768 11.5539L10.3868 8.96387L8.97681 10.3739L11.5668 12.9639L8.97681 15.5539L10.3868 16.9639L12.9768 14.3739L15.5668 16.9639L16.9768 15.5539L14.3868 12.9639L16.9768 10.3739L15.5668 8.96387ZM12.9768 2.96387C7.44681 2.96387 2.97681 7.43387 2.97681 12.9639C2.97681 18.4939 7.44681 22.9639 12.9768 22.9639C18.5068 22.9639 22.9768 18.4939 22.9768 12.9639C22.9768 7.43387 18.5068 2.96387 12.9768 2.96387ZM12.9768 20.9639C8.56681 20.9639 4.97681 17.3739 4.97681 12.9639C4.97681 8.55387 8.56681 4.96387 12.9768 4.96387C17.3868 4.96387 20.9768 8.55387 20.9768 12.9639C20.9768 17.3739 17.3868 20.9639 12.9768 20.9639Z' fill='%23FDF4E7'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_110_2549'%3E%3Crect width='24' height='24' fill='white' transform='translate(0.976807 0.963867)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+}
+
+.btn_plus {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  padding: 8px 8px;
+  background-color: $clr_sm;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_128_2599)'%3E%3Cpath d='M33 25.2857H25.2857V33H22.7143V25.2857H15V22.7143H22.7143V15H25.2857V22.7143H33V25.2857Z' fill='%23FDF4E7'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_128_2599'%3E%3Crect width='48' height='48' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+  &:hover {
+    background-color: $color_6;
+  }
+}
+
+.btn_print {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  padding: 8px 8px;
+  background-color: #f86a6a;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_206_2511)'%3E%3Cpath d='M33.6 12H19.2C17.88 12 16.8 13.08 16.8 14.4V28.8C16.8 30.12 17.88 31.2 19.2 31.2H33.6C34.92 31.2 36 30.12 36 28.8V14.4C36 13.08 34.92 12 33.6 12ZM23.4 21C23.4 21.996 22.596 22.8 21.6 22.8H20.4V25.2H18.6V18H21.6C22.596 18 23.4 18.804 23.4 19.8V21ZM29.4 23.4C29.4 24.396 28.596 25.2 27.6 25.2H24.6V18H27.6C28.596 18 29.4 18.804 29.4 19.8V23.4ZM34.2 19.8H32.4V21H34.2V22.8H32.4V25.2H30.6V18H34.2V19.8ZM20.4 21H21.6V19.8H20.4V21ZM14.4 16.8H12V33.6C12 34.92 13.08 36 14.4 36H31.2V33.6H14.4V16.8ZM26.4 23.4H27.6V19.8H26.4V23.4Z' fill='%23FDF4E7'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_206_2511'%3E%3Crect width='48' height='48' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+  &.disabled {
+    background-color: $color_5;
+    color: lightgray;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: #ff5050;
+  }
+}
+
+.btn_hs {
+    width: max-content;
+    height: 24px;
+    border-radius: 6px;
+    background-color: $clr_sm;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 8px;
+    color: $clr2;
+
+    &:hover {
+      background-color: $color_6;
+    }
+
+}
+.btn_addnew {
+      width: max-content;
+      height: 24px;
+      border-radius: 6px;
+      background-color: $color_6;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 3px 8px;
+      color: $clr2;
+  
+      &:hover {
+        background-color: $color_6;
+      }
+  }
+
+.btns {
+  float: right;
+  width: auto;
+  text-align: center;
+  min-width: 90px;
+  height: 48px;
+  border-radius: 6px;
+  padding: 8px 8px;
+  background-color: $clink;
+  line-height: 32px;
+  margin: 8px 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color_6;
+  }
+}

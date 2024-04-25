@@ -1,0 +1,96 @@
+.lgnd {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-auto-rows: 1fr;
+    grid-template-columns: auto 24px;
+    grid-template-rows: 24px;
+    gap: 0px 0px;
+    margin: 0 0 2px 8px;
+    grid-template-areas:
+        "ctrl cta";
+
+    .ctrl {
+        align-self: center;
+        grid-area: ctrl;
+    }
+
+    .cta {
+        justify-self: start;
+        align-self: center;
+        grid-area: cta;
+    }
+}
+
+.lgnd1_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd1_p;
+
+}
+
+.lgnd1_s {
+    color: $clrbk_lgnd1_p;
+    background-color: $clrbk_lgnd1_s;
+}
+
+.lgnd2_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd2_p;
+}
+
+.lgnd2_s {
+    color: $clrbk_lgnd2_p;
+    background-color: $clrbk_lgnd2_s;
+}
+
+.lgnd3_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd3_p;
+
+}
+
+.lgnd3_s {
+    color: $clrbk_lgnd3_p;
+    background-color: $clrbk_lgnd3_s;
+}
+
+.lgnd4_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd4_p;
+
+}
+
+.lgnd4_s {
+    color: $clrbk_lgnd4_p;
+    background-color: $clrbk_lgnd4_s;
+}
+
+.lgnd5_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd5_p;
+}
+
+.lgnd5_s {
+    color: $clrbk_lgnd5_p;
+    background-color: $clrbk_lgnd5_s;
+}
+
+.lgnd6_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd6_p;
+}
+
+.lgnd6_s {
+    color: $clrbk_lgnd6_p;
+    background-color: $clrbk_lgnd6_s;
+}
+
+.lgnd7_p {
+    color: $clr2 !important;
+    background-color: $clrbk_lgnd7_p;
+}
+
+.lgnd7_s {
+    color: $clrbk_lgnd7_p;
+    background-color: $clrbk_lgnd7_s;
+}
