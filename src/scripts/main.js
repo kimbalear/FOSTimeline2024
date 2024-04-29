@@ -333,7 +333,7 @@ $(document).ready(function () {
         var lgnd = need.lgnd;
         let year = need.year;
         let cardNeed = `
-        <div class='card_lgn${lgnd}'>
+        <div class='card_lgnd${lgnd}'>
           <div class="partner">${need.orgUnitName}</div>
           <div class="title">${need.title}</div>
           <div class="subtitle">${need.lgndName}</div>
@@ -1633,7 +1633,7 @@ $(document).ready(function () {
         var limitedtext = textDescript;
         let year = contribution.year;
         let cardCntr = `
-          <div class='card_lgn0'>
+          <div class='card_lgnd0'>
             <div class="partner">${contribution.orgUnitName}</div>
             <div class="title">${contribution.title}</div>
             <div class="cont">${limitedtext}</div>
@@ -1943,47 +1943,47 @@ $(document).ready(function () {
 
   // Legends cta
   $("#lgnd0").click(function () {
-    $(".card_lgn").toggle(this.checked);
-    $(".card_lgn").parent().parent().parent().toggle(this.show);
+    $(".card_lgnd").toggle(this.checked);
+    $(".card_lgnd").parent().parent().parent().toggle(this.show);
   });
 
   $("#lgnd1").click(function () {
-    $(".card_lgn1").toggle(this.checked);
+    $(".card_lgnd1").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd2").click(function () {
-    $(".card_lgn2").toggle(this.checked);
+    $(".card_lgnd2").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd3").click(function () {
-    $(".card_lgn3").toggle(this.checked);
+    $(".card_lgnd3").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd4").click(function () {
-    $(".card_lgn4").toggle(this.checked);
+    $(".card_lgnd4").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd5").click(function () {
-    $(".card_lgn5").toggle(this.checked);
+    $(".card_lgnd5").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd6").click(function () {
-    $(".card_lgn6").toggle(this.checked);
+    $(".card_lgnd6").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd7").click(function () {
-    $(".card_lgn7").toggle(this.checked);
+    $(".card_lgnd7").toggle(this.checked);
     listcardsChildren();
   });
 
   $("#lgnd8").click(function () {
-    $(".card_lgn8").toggle(this.checked);
+    $(".card_lgnd8").toggle(this.checked);
     listcardsChildren();
   });
 
@@ -2005,13 +2005,13 @@ $(document).ready(function () {
   }
 
   // cards actions
-  // Selector that searches for any element whose class starts with 'card_lgn'
-  $(document).on("click", "[class^='card_lgn']", function () {
+  // Selector that searches for any element whose class starts with 'card_lgnd'
+  $(document).on("click", "[class^='card_lgnd']", function () {
     // Extract number from class name using a regular expression
     var classList = $(this).attr("class").split(/\s+/); // Split classes into an array
     var cardNumber;
     $.each(classList, function (index, className) {
-      var match = className.match(/^card_lgn(\d+)/);
+      var match = className.match(/^card_lgnd(\d+)/);
       if (match) {
         cardNumber = match[1];
         return false;
