@@ -328,6 +328,7 @@ $(document).ready(function () {
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
 
       needMonth.forEach((need) => {
+        console.log("need.orgUnitName: " + need.orgUnitName);
         var textDescript = limitWords(need.description, 10); 
         var limitedtext = textDescript;
         var lgnd = need.lgnd;

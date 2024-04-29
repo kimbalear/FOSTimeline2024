@@ -289,6 +289,7 @@ body .wrapper .content {
   width: auto;
   height: calc(100% - 65px);
   padding-bottom: 8px;
+  overflow-y: auto;
   /* total width */
   /* background of the scrollbar except button or resizer */
   /* scrollbar itself */
@@ -398,6 +399,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   overflow-y: hidden;
 }
 .timeline .year {
+  padding-top: 8px;
   height: 100%;
   display: grid;
   grid-template-columns: 60px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
