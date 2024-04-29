@@ -2823,7 +2823,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding-right: 4px;
 }
 
-.card_lgnd0 {
+.card_lgn0 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
@@ -2837,7 +2837,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd0 .partner {
+.card_lgn0 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -2845,7 +2845,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #444f5b;
 }
-.card_lgnd0 .title {
+.card_lgn0 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -2854,7 +2854,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #FDF4E7;
 }
-.card_lgnd0 .cont {
+.card_lgn0 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -2862,7 +2862,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd1 {
+.card_lgn1 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -2876,7 +2876,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd1 .partner {
+.card_lgn1 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -2884,7 +2884,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #FF7C80;
 }
-.card_lgnd1 .title {
+.card_lgn1 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -2894,7 +2894,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #FF7C80;
 }
-.card_lgnd1 .subtitle {
+.card_lgn1 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(255, 124, 128, 0.1);
@@ -2903,7 +2903,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #FF7C80;
 }
-.card_lgnd1 .cont {
+.card_lgn1 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -2911,7 +2911,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd2 {
+.card_lgn2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -2925,7 +2925,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd2 .partner {
+.card_lgn2 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -2933,7 +2933,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #FF5050;
 }
-.card_lgnd2 .title {
+.card_lgn2 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -2943,7 +2943,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #FF5050;
 }
-.card_lgnd2 .subtitle {
+.card_lgn2 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(255, 80, 80, 0.1);
@@ -2952,7 +2952,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #FF5050;
 }
-.card_lgnd2 .cont {
+.card_lgn2 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -2960,7 +2960,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd3 {
+.card_lgn3 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -2974,7 +2974,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd3 .partner {
+.card_lgn3 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -2982,7 +2982,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: orange;
 }
-.card_lgnd3 .title {
+.card_lgn3 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -2992,7 +2992,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: orange;
 }
-.card_lgnd3 .subtitle {
+.card_lgn3 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(255, 192, 0, 0.1);
@@ -3001,7 +3001,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: orange;
 }
-.card_lgnd3 .cont {
+.card_lgn3 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -3009,7 +3009,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd4 {
+.card_lgn4 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -3023,7 +3023,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd4 .partner {
+.card_lgn4 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -3031,7 +3031,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #93BF85;
 }
-.card_lgnd4 .title {
+.card_lgn4 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -3041,7 +3041,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #93BF85;
 }
-.card_lgnd4 .subtitle {
+.card_lgn4 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(205, 231, 187, 0.4);
@@ -3050,7 +3050,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #93BF85;
 }
-.card_lgnd4 .cont {
+.card_lgn4 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -3058,7 +3058,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd5 {
+.card_lgn5 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -3072,7 +3072,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd5 .partner {
+.card_lgn5 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -3080,7 +3080,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #6EAA5E;
 }
-.card_lgnd5 .title {
+.card_lgn5 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -3090,7 +3090,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #6EAA5E;
 }
-.card_lgnd5 .subtitle {
+.card_lgn5 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(180, 227, 148, 0.2);
@@ -3099,7 +3099,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #6EAA5E;
 }
-.card_lgnd5 .cont {
+.card_lgn5 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -3107,7 +3107,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd6 {
+.card_lgn6 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -3121,7 +3121,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd6 .partner {
+.card_lgn6 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -3129,7 +3129,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #008000;
 }
-.card_lgnd6 .title {
+.card_lgn6 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -3139,7 +3139,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #008000;
 }
-.card_lgnd6 .subtitle {
+.card_lgn6 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(112, 173, 71, 0.2);
@@ -3148,7 +3148,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #008000;
 }
-.card_lgnd6 .cont {
+.card_lgn6 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -3156,7 +3156,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd7 {
+.card_lgn7 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -3170,7 +3170,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   margin: 0 0 4px;
   background: rgba(119, 113, 106, 0.06);
 }
-.card_lgnd7 .partner {
+.card_lgn7 .partner {
   grid-area: partner;
   padding: 0 8px;
   font-weight: 400;
@@ -3178,7 +3178,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #14540D;
 }
-.card_lgnd7 .title {
+.card_lgn7 .title {
   grid-area: title;
   padding: 0 8px;
   background-color: #77716A;
@@ -3188,7 +3188,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   color: #FDF4E7;
   background: #14540D;
 }
-.card_lgnd7 .subtitle {
+.card_lgn7 .subtitle {
   grid-area: subtitle;
   padding: 0 8px;
   background: rgba(112, 173, 71, 0.2);
@@ -3197,7 +3197,7 @@ body .wrapper .content ::-webkit-scrollbar-button {
   line-height: 16px;
   color: #14540D;
 }
-.card_lgnd7 .cont {
+.card_lgn7 .cont {
   grid-area: cont;
   font-weight: 300;
   font-size: 11px;
@@ -3205,14 +3205,14 @@ body .wrapper .content ::-webkit-scrollbar-button {
   padding: 8px;
 }
 
-.card_lgnd0:hover,
-.card_lgnd1:hover,
-.card_lgnd2:hover,
-.card_lgnd3:hover,
-.card_lgnd4:hover,
-.card_lgnd5:hover,
-.card_lgnd6:hover,
-.card_lgnd7:hover {
+.card_lgn0:hover,
+.card_lgn1:hover,
+.card_lgn2:hover,
+.card_lgn3:hover,
+.card_lgn4:hover,
+.card_lgn5:hover,
+.card_lgn6:hover,
+.card_lgn7:hover {
   cursor: pointer;
 }
 
