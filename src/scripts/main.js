@@ -2378,10 +2378,23 @@ $(document).ready(function () {
       <button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Save and exit</button>
     </div>`;
 
+    var toggleBtns = `
+    <div class="top-r-dlg">
+        <div class="toggle-btn-dlg lgnd8_g" id="button1">
+          <div class="i_dlg_doc"></div>
+          <span class="label" id="label1">Documents</span>
+        </div>
+        <div class="toggle-btn-dlg lgnd8_g" id="button2">
+          <div class="i_dlg_imgs"></div>
+          <span class="label" id="label2">Images</span>
+        </div>
+      </div>`;
+
     $(`<div class="scrim">`).appendTo(".wrapper");
     $(`<div id="${id}dlgNew" class="dlg_new d_lgnd8">`).appendTo(".scrim");
     $(addNewBase).appendTo(`.dlg_new`);
     $(ctaBtnsBtm).appendTo(`.dlg_cta_bttm`);
+    $(toggleBtns).appendTo(".cnt_header");
   });
 
   $(document).on("click", ".btn-sys-close", function () {

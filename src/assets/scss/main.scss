@@ -46,9 +46,9 @@
     max-width: 93%;
   }
   .helper_text {
-    visibility: hidden;
+    //visibility: hidden;
     width: 100%;
-    height: 0;// dinamic= auto
+    height: auto;// dinamic= auto
     padding: 0 0 0 16px;
     font-size: 12px;
     line-height: 16px;
