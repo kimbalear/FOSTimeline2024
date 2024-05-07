@@ -328,7 +328,7 @@ $(document).ready(function () {
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
 
       needMonth.forEach((need) => {
-        var textDescript = limitWords(need.description, 10); 
+        var textDescript = limitWords(need.description, 10);
         var limitedtext = textDescript;
         var lgnd = need.lgnd;
         let year = need.year;
@@ -1681,7 +1681,7 @@ $(document).ready(function () {
       acc[month].push(contribution);
       return acc;
     }, {});
-    var orgUnrs = selectedOrgUnits.length;
+    var orgUnts = selectedOrgUnits.length;
     var ContributionsCnt = 0;
     // Iterate over `contributionsByMonth` to show contributions
     for (let month in contributionsByMonth) {
@@ -1689,7 +1689,7 @@ $(document).ready(function () {
       let monthNr = new Date(Date.parse(month + " 1, 2012")).getMonth() + 1;
       ContributionsCnt = contribMonth.length;
       contribMonth.forEach((contribution) => {
-        var textDescript = limitWords(contribution.description, 10); 
+        var textDescript = limitWords(contribution.description, 10);
         var limitedtext = textDescript;
         let year = contribution.year;
         let cardCntr = `
@@ -1698,8 +1698,8 @@ $(document).ready(function () {
             <div class="title">${contribution.title}</div>
             <div class="cont">${limitedtext}</div>
           </div>`;
-
-        if (orgUnrs === 1) {
+        // todo
+        if (orgUnts === 1) {
           $(`#${year}titleou`).html(contribution.orgUnitName);
         }
 
@@ -3130,6 +3130,6 @@ $(document).ready(function () {
     if (words.length > limit) {
       return words.slice(0, limit).join(" ") + "...";
     }
-    return data;  // Devuelve el texto original si es menor que el límite
+    return data; // Devuelve el texto original si es menor que el límite
   }
 });
